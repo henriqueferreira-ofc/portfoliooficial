@@ -10,7 +10,7 @@ import { supabase } from '@/integrations/supabase/client';
 import { useToast } from '@/hooks/use-toast';
 
 interface Project {
-  id: number;
+  id: string;
   imageUrl: string;
   title: string;
   description: string;
@@ -39,8 +39,8 @@ const Index = () => {
 
         if (data) {
           // Transform the data to match our Project interface
-          const transformedProjects = data.map(project => ({
-            id: typeof project.id === 'string' ? parseInt(project.id) : Math.random(), // Convert UUID to number or generate random ID
+          const transformedProjects: Project[] = data.map(project => ({
+            id: project.id,
             imageUrl: project.cover_image || 'https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80',
             title: project.title,
             description: project.description,
@@ -49,17 +49,23 @@ const Index = () => {
           }));
 
           // Filter projects by category
-          const web = transformedProjects.filter(project => project.tags.some(tag => 
-            ['React', 'JavaScript', 'TypeScript', 'Node.js', 'HTML', 'CSS', 'Web'].includes(tag)
-          ));
+          const web = transformedProjects.filter(project => 
+            project.tags.some(tag => 
+              ['React', 'JavaScript', 'TypeScript', 'Node.js', 'HTML', 'CSS', 'Web'].includes(tag)
+            )
+          );
           
-          const mobile = transformedProjects.filter(project => project.tags.some(tag => 
-            ['React Native', 'Flutter', 'Mobile', 'iOS', 'Android', 'Swift'].includes(tag)
-          ));
+          const mobile = transformedProjects.filter(project => 
+            project.tags.some(tag => 
+              ['React Native', 'Flutter', 'Mobile', 'iOS', 'Android', 'Swift'].includes(tag)
+            )
+          );
           
-          const design = transformedProjects.filter(project => project.tags.some(tag => 
-            ['Design', 'UI/UX', 'Figma', 'Sketch', 'Adobe XD', 'Photoshop', 'Illustrator'].includes(tag)
-          ));
+          const design = transformedProjects.filter(project => 
+            project.tags.some(tag => 
+              ['Design', 'UI/UX', 'Figma', 'Sketch', 'Adobe XD', 'Photoshop', 'Illustrator'].includes(tag)
+            )
+          );
 
           setWebProjects(web.length > 0 ? web : getSampleWebProjects());
           setMobileProjects(mobile.length > 0 ? mobile : getSampleMobileProjects());
@@ -88,7 +94,7 @@ const Index = () => {
   // Sample data functions (fallback if Supabase fetch fails)
   const getSampleWebProjects = () => [
     {
-      id: 1,
+      id: '1',
       imageUrl: 'https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80',
       title: 'E-Commerce Platform',
       description: 'A full-featured online store with cart, checkout, and payment processing.',
@@ -123,7 +129,7 @@ const Index = () => {
 
   const getSampleMobileProjects = () => [
     {
-      id: 5,
+      id: '5',
       imageUrl: 'https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80',
       title: 'Fitness Tracker',
       description: 'Mobile app for tracking workouts, nutrition, and health metrics.',
@@ -158,7 +164,7 @@ const Index = () => {
 
   const getSampleDesignProjects = () => [
     {
-      id: 9,
+      id: '9',
       imageUrl: 'https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80',
       title: 'Brand Identity',
       description: 'Complete brand identity design including logo, color scheme, and guidelines.',
