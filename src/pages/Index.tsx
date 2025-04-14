@@ -8,6 +8,7 @@ import Footer from '@/components/Footer';
 import { useEffect, useState } from 'react';
 import { supabase } from '@/integrations/supabase/client';
 import { useToast } from '@/hooks/use-toast';
+import { toast as sonnerToast } from '@/components/ui/sonner';
 
 interface Project {
   id: string;
@@ -72,10 +73,12 @@ const Index = () => {
         // Check for errors and handle them
         if (projectsError) {
           console.error('Erro ao buscar projects:', projectsError);
-          toast({
-            title: "Erro",
-            description: "Não foi possível buscar os projetos recentes",
-            variant: "destructive",
+          sonnerToast("Erro ao carregar projetos recentes", {
+            description: projectsError.message,
+            action: {
+              label: "Tentar novamente",
+              onClick: () => window.location.reload(),
+            }
           });
         }
         
@@ -123,11 +126,20 @@ const Index = () => {
           setWebProjects(web.length > 0 ? web : getSampleWebProjects());
           setMobileProjects(mobile.length > 0 ? mobile : getSampleMobileProjects());
           setDesignProjects(design.length > 0 ? design : getSampleDesignProjects());
+          
+          // Show a success toast if we got data
+          sonnerToast("Projetos carregados com sucesso", {
+            description: `${projectsData.length} projetos encontrados`
+          });
         } else {
           console.log("Nenhum projeto recente encontrado, usando dados de exemplo");
           setWebProjects(getSampleWebProjects());
           setMobileProjects(getSampleMobileProjects());
           setDesignProjects(getSampleDesignProjects());
+          
+          sonnerToast("Aviso", {
+            description: "Usando projetos de exemplo pois nenhum projeto foi encontrado",
+          });
         }
         
         // Process projetos (older structure) if available
@@ -135,8 +147,9 @@ const Index = () => {
           console.log("Dados de projetos antigos carregados:", projetosData.length);
           setProjetosAntigos(projetosData);
           
-          // You could also merge these with the projects above if needed
-          // This would involve transforming the projetosData to match the Project interface
+          sonnerToast("Projetos antigos", {
+            description: `${projetosData.length} projetos antigos carregados`
+          });
         }
         
         // Process tecnologias data if available
@@ -144,15 +157,16 @@ const Index = () => {
           console.log("Dados de tecnologias carregados:", tecnologiasData.length);
           setTecnologias(tecnologiasData);
           
-          // In future updates, we could use this data to display a skills section
+          sonnerToast("Tecnologias", {
+            description: `${tecnologiasData.length} tecnologias carregadas`
+          });
         }
         
       } catch (error) {
         console.error('Erro ao buscar dados:', error);
-        toast({
-          title: "Aviso",
-          description: "Usando dados de projetos de exemplo para exibição",
-          variant: "default",
+        sonnerToast("Erro", {
+          description: "Erro ao carregar dados do banco de dados, usando dados de exemplo",
+          variant: "destructive"
         });
         
         // Use sample data if there's an error
