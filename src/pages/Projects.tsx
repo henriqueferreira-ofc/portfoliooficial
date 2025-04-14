@@ -40,7 +40,7 @@ const Projects: React.FC = () => {
           onRetry={fetchProjects}
         />
         
-        {!isLoading && !hasError && (
+        {!isLoading && (
           <div className="pb-8">
             {webProjects.length > 0 && <ProjectRow title="Desenvolvimento Web" projects={webProjects} />}
             {mobileProjects.length > 0 && <ProjectRow title="Aplicativos Móveis" projects={mobileProjects} />}

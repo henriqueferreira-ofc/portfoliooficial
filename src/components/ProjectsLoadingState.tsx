@@ -1,6 +1,9 @@
 
 import React from 'react';
 import { Skeleton } from '@/components/ui/skeleton';
+import { Alert, AlertTitle, AlertDescription } from '@/components/ui/alert';
+import { Button } from '@/components/ui/button';
+import { RefreshCcw } from 'lucide-react';
 
 interface ProjectsLoadingStateProps {
   isLoading: boolean;
@@ -32,15 +35,20 @@ const ProjectsLoadingState: React.FC<ProjectsLoadingStateProps> = ({
   
   if (hasError) {
     return (
-      <div className="text-center py-16">
-        <h2 className="text-2xl font-bold text-white mb-4">Erro ao carregar projetos</h2>
-        <p className="text-gray-300 mb-6">Mostrando dados de exemplo enquanto tentamos resolver o problema.</p>
-        <button 
+      <div className="text-center py-8">
+        <Alert variant="destructive" className="mb-6 bg-netflix-dark-gray border-netflix-red text-white">
+          <AlertTitle className="text-xl mb-2">Erro ao carregar projetos</AlertTitle>
+          <AlertDescription className="text-gray-300">
+            Mostrando dados de exemplo enquanto tentamos resolver o problema.
+          </AlertDescription>
+        </Alert>
+        <Button 
           onClick={onRetry} 
-          className="mt-2 bg-netflix-red hover:bg-red-700 text-white font-bold py-2 px-4 rounded"
+          className="bg-netflix-red hover:bg-red-700 text-white" 
+          variant="default"
         >
-          Tentar novamente
-        </button>
+          <RefreshCcw className="mr-2 h-4 w-4" /> Tentar novamente
+        </Button>
       </div>
     );
   }
