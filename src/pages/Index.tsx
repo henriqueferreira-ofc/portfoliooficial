@@ -28,19 +28,21 @@ const Index = () => {
   useEffect(() => {
     const fetchProjects = async () => {
       try {
+        console.log("Attempting to fetch projects from Supabase...");
         const { data, error } = await supabase
           .from('projects')
           .select('*')
           .order('created_at', { ascending: false });
 
         if (error) {
+          console.error('Error fetching projects:', error);
           throw error;
         }
 
-        if (data) {
+        if (data && data.length > 0) {
           // Transform the data to match our Project interface
           const transformedProjects: Project[] = data.map(project => ({
-            id: project.id,
+            id: project.id.toString(), // Ensure ID is a string
             imageUrl: project.cover_image || 'https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80',
             title: project.title,
             description: project.description,
@@ -70,13 +72,20 @@ const Index = () => {
           setWebProjects(web.length > 0 ? web : getSampleWebProjects());
           setMobileProjects(mobile.length > 0 ? mobile : getSampleMobileProjects());
           setDesignProjects(design.length > 0 ? design : getSampleDesignProjects());
+          console.log("Successfully loaded projects from Supabase");
+        } else {
+          console.log("No data found in Supabase, using sample data");
+          // No data found, use sample data
+          setWebProjects(getSampleWebProjects());
+          setMobileProjects(getSampleMobileProjects());
+          setDesignProjects(getSampleDesignProjects());
         }
       } catch (error) {
         console.error('Error fetching projects:', error);
         toast({
-          title: "Error",
-          description: "Failed to load projects. Using sample data instead.",
-          variant: "destructive",
+          title: "Notice",
+          description: "Using sample project data for display",
+          variant: "default",
         });
         
         // Use sample data if there's an error
