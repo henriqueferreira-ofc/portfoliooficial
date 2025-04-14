@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
@@ -7,7 +6,11 @@ import { toast as sonnerToast } from '@/components/ui/sonner';
 import { 
   Code2, Database, Globe, Palette, 
   FileCode2, GitBranch, MonitorSmartphone, 
-  Figma, LayoutGrid, Binary
+  Figma, LayoutGrid, Binary,
+  Briefcase, Users, ClipboardCheck,
+  BarChart2, Calendar, UserRound,
+  ListTodo, UserCog, Target,
+  Award, PieChart, Presentation
 } from 'lucide-react';
 
 interface Tecnologia {
@@ -18,7 +21,6 @@ interface Tecnologia {
   destaque: boolean;
 }
 
-// Mapeamento de tecnologias para ícones
 const getTechIcon = (techName: string) => {
   const iconMap: Record<string, React.ReactNode> = {
     'React': <Code2 className="w-8 h-8 text-blue-400" />,
@@ -32,7 +34,24 @@ const getTechIcon = (techName: string) => {
     'Figma': <Figma className="w-8 h-8 text-purple-500" />,
     'React Native': <MonitorSmartphone className="w-8 h-8 text-blue-400" />,
     'Tailwind CSS': <LayoutGrid className="w-8 h-8 text-teal-500" />,
-    'Design UI/UX': <Palette className="w-8 h-8 text-pink-500" />
+    'Design UI/UX': <Palette className="w-8 h-8 text-pink-500" />,
+    
+    'Gestão de Projetos': <Briefcase className="w-8 h-8 text-indigo-500" />,
+    'Metodologias Ágeis': <ClipboardCheck className="w-8 h-8 text-green-400" />,
+    'Scrum': <ListTodo className="w-8 h-8 text-blue-500" />,
+    'Kanban': <BarChart2 className="w-8 h-8 text-yellow-500" />,
+    'PMBOK': <ClipboardCheck className="w-8 h-8 text-purple-400" />,
+    'Planejamento Estratégico': <Target className="w-8 h-8 text-red-400" />,
+    'Análise de Dados': <PieChart className="w-8 h-8 text-blue-300" />,
+
+    'Gestão de Pessoas': <Users className="w-8 h-8 text-green-500" />,
+    'Liderança': <UserCog className="w-8 h-8 text-orange-500" />,
+    'Mentoria': <UserRound className="w-8 h-8 text-purple-500" />,
+    'Desenvolvimento de Equipes': <Users className="w-8 h-8 text-blue-500" />,
+    'Resolução de Conflitos': <Award className="w-8 h-8 text-yellow-600" />,
+    'Gestão de Performance': <Target className="w-8 h-8 text-green-600" />,
+    'Comunicação': <Presentation className="w-8 h-8 text-indigo-400" />,
+    'Planejamento de Recursos': <Calendar className="w-8 h-8 text-teal-500" />
   };
 
   return iconMap[techName] || <Code2 className="w-8 h-8 text-netflix-red" />;
@@ -47,7 +66,6 @@ const AboutPage = () => {
       try {
         setIsLoading(true);
         
-        // Fetch from tecnologias table
         const { data: tecnologiasData, error: tecnologiasError } = await supabase
           .from('tecnologias')
           .select('*');
@@ -59,7 +77,6 @@ const AboutPage = () => {
           });
         }
         
-        // Process tecnologias data if available
         if (tecnologiasData && tecnologiasData.length > 0) {
           console.log("Dados de tecnologias carregados:", tecnologiasData.length);
           setTecnologias(tecnologiasData);
@@ -94,21 +111,20 @@ const AboutPage = () => {
             </div>
             
             <div className="md:w-2/3">
-              <h2 className="text-2xl font-bold text-white mb-4">Desenvolvedor Full Stack</h2>
+              <h2 className="text-2xl font-bold text-white mb-4">Gestor de Projetos em TI e Gestão de Pessoas</h2>
               <p className="text-gray-300 mb-4">
-                Olá! Sou um desenvolvedor apaixonado por criar experiências digitais incríveis. Com mais de 5 anos de experiência em desenvolvimento web e móvel, meu objetivo é construir aplicações que não apenas funcionem perfeitamente, mas que também sejam intuitivas e agradáveis de usar.
+                Olá! Sou um profissional especializado em gestão de projetos de TI com foco em liderança e desenvolvimento de equipes. Com mais de 5 anos de experiência combinando habilidades técnicas e gerenciais, meu objetivo é construir soluções eficientes e equipes de alto desempenho.
               </p>
               <p className="text-gray-300 mb-4">
-                Minha jornada no desenvolvimento começou com HTML, CSS e JavaScript, mas rapidamente expandiu para incluir frameworks modernos como React e React Native. Também tenho experiência significativa com Node.js, MongoDB e SQL para o desenvolvimento de back-end.
+                Minha jornada profissional inclui a gestão de projetos usando metodologias ágeis como Scrum e Kanban, além de abordagens tradicionais baseadas no PMBOK. Possuo experiência significativa em liderança, desenvolvimento de talentos e implementação de estratégias para melhorar o desempenho das equipes.
               </p>
               <p className="text-gray-300">
-                Quando não estou codificando, gosto de explorar novas tecnologias, contribuir para projetos de código aberto e compartilhar conhecimento com a comunidade de desenvolvedores.
+                Quando não estou coordenando projetos, gosto de explorar novas tendências em gestão, contribuir para a comunidade e compartilhar conhecimento com outros profissionais da área.
               </p>
             </div>
           </div>
         </div>
         
-        {/* Seção de Habilidades */}
         <div className="mb-12">
           <h2 className="text-2xl font-bold text-white mb-6">Minhas Habilidades</h2>
           
@@ -141,7 +157,20 @@ const AboutPage = () => {
                 </div>
               ) : (
                 <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6">
-                  {['React', 'TypeScript', 'Node.js', 'MongoDB', 'React Native', 'Tailwind CSS'].map((skill, index) => (
+                  {[
+                    'Gestão de Projetos', 
+                    'Metodologias Ágeis', 
+                    'Gestão de Pessoas', 
+                    'Liderança', 
+                    'Desenvolvimento de Equipes', 
+                    'Scrum',
+                    'Análise de Dados',
+                    'Planejamento Estratégico',
+                    'React',
+                    'TypeScript',
+                    'Node.js',
+                    'PMBOK'
+                  ].map((skill, index) => (
                     <div key={index} className="bg-netflix-dark-gray rounded-md p-4 flex flex-col items-center text-center hover:bg-netflix-medium-gray transition-colors">
                       <div className="w-16 h-16 mb-3 flex items-center justify-center">
                         {getTechIcon(skill)}
@@ -155,40 +184,39 @@ const AboutPage = () => {
           )}
         </div>
         
-        {/* Experiência */}
         <div className="mb-12">
           <h2 className="text-2xl font-bold text-white mb-6">Experiência</h2>
           <div className="space-y-6">
             <div className="bg-netflix-dark-gray p-6 rounded-lg">
               <div className="flex justify-between items-start mb-2">
-                <h3 className="text-xl font-semibold text-white">Desenvolvedor Full Stack Senior</h3>
+                <h3 className="text-xl font-semibold text-white">Gestor de Projetos de TI Senior</h3>
                 <span className="text-netflix-red text-sm">2022 - Presente</span>
               </div>
               <h4 className="text-gray-300 mb-3">Empresa Tech Inovação</h4>
               <p className="text-gray-400">
-                Lidero o desenvolvimento de aplicações web e móveis usando React, React Native e Node.js. Implemento arquiteturas escaláveis, otimizo performance e mentoro desenvolvedores juniores.
+                Lidero equipes de desenvolvimento para entrega de projetos de software, usando metodologias ágeis e práticas de gestão de pessoas. Responsável pelo planejamento estratégico, alocação de recursos e desenvolvimento profissional da equipe.
               </p>
             </div>
             
             <div className="bg-netflix-dark-gray p-6 rounded-lg">
               <div className="flex justify-between items-start mb-2">
-                <h3 className="text-xl font-semibold text-white">Desenvolvedor Front-end</h3>
+                <h3 className="text-xl font-semibold text-white">Líder de Equipe de Desenvolvimento</h3>
                 <span className="text-netflix-red text-sm">2020 - 2022</span>
               </div>
               <h4 className="text-gray-300 mb-3">Agência Digital Criativa</h4>
               <p className="text-gray-400">
-                Desenvolvi interfaces de usuário usando React e TypeScript. Colaborei com designers para criar experiências de usuário intuitivas e responsivas.
+                Coordenei uma equipe de desenvolvedores front-end, implementando processos ágeis e práticas de mentoria. Focado em melhorar a produtividade e qualidade das entregas através de gestão eficiente de pessoas.
               </p>
             </div>
             
             <div className="bg-netflix-dark-gray p-6 rounded-lg">
               <div className="flex justify-between items-start mb-2">
-                <h3 className="text-xl font-semibold text-white">Desenvolvedor Web</h3>
+                <h3 className="text-xl font-semibold text-white">Desenvolvedor Web e Analista</h3>
                 <span className="text-netflix-red text-sm">2018 - 2020</span>
               </div>
               <h4 className="text-gray-300 mb-3">Startup Tech</h4>
               <p className="text-gray-400">
-                Trabalhei com HTML, CSS e JavaScript para criar sites responsivos. Integrei APIs e implementei funcionalidades interativas.
+                Atuei no desenvolvimento web e gradualmente assumi responsabilidades de coordenação de pequenas equipes e gestão de projetos internos.
               </p>
             </div>
           </div>
