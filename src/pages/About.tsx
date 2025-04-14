@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
@@ -98,7 +97,10 @@ const AboutPage = () => {
       <Navbar />
       
       <div className="pt-24 container mx-auto px-4">
-        <h1 className="text-4xl font-bold text-white mb-8">Sobre Mim</h1>
+        <div className="flex items-center gap-4 mb-8">
+          <h1 className="text-4xl font-bold text-white">Sobre Mim</h1>
+          <span className="text-2xl text-netflix-light-gray">Henrique Ferreira</span>
+        </div>
         
         <div className="bg-netflix-dark-gray rounded-lg p-8 mb-12">
           <div className="flex flex-col md:flex-row gap-8">
