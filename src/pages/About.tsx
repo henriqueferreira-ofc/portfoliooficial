@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from 'react';
+
+import React, { useState } from 'react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
-import { supabase } from '@/integrations/supabase/client';
 import { toast as sonnerToast } from '@/components/ui/sonner';
 import { 
   Code2, Database, Globe, Palette, 
@@ -58,39 +58,28 @@ const getTechIcon = (techName: string) => {
   return iconMap[techName] || <Code2 className="w-8 h-8 text-netflix-red" />;
 };
 
+// Local data for skills
+const localSkills = [
+  'Gestão de Projetos', 
+  'Metodologias Ágeis', 
+  'Gestão de Pessoas', 
+  'Liderança', 
+  'Desenvolvimento de Equipes', 
+  'Scrum',
+  'Análise de Dados',
+  'Planejamento Estratégico',
+  'React',
+  'TypeScript',
+  'Node.js',
+  'PMBOK',
+  'Kanban',
+  'Comunicação',
+  'Mentoria',
+  'Resolução de Conflitos'
+];
+
 const AboutPage = () => {
-  const [tecnologias, setTecnologias] = useState<Tecnologia[]>([]);
-  const [isLoading, setIsLoading] = useState(true);
-
-  useEffect(() => {
-    const fetchTecnologias = async () => {
-      try {
-        setIsLoading(true);
-        
-        const { data: tecnologiasData, error: tecnologiasError } = await supabase
-          .from('tecnologias')
-          .select('*');
-
-        if (tecnologiasError) {
-          console.error('Erro ao buscar tecnologias:', tecnologiasError);
-          sonnerToast("Erro ao carregar tecnologias", {
-            description: tecnologiasError.message
-          });
-        }
-        
-        if (tecnologiasData && tecnologiasData.length > 0) {
-          console.log("Dados de tecnologias carregados:", tecnologiasData.length);
-          setTecnologias(tecnologiasData);
-        }
-      } catch (error) {
-        console.error('Erro ao buscar dados:', error);
-      } finally {
-        setIsLoading(false);
-      }
-    };
-
-    fetchTecnologias();
-  }, []);
+  const [isLoading, setIsLoading] = useState(false);
 
   return (
     <div className="bg-netflix-black min-h-screen">
@@ -137,54 +126,16 @@ const AboutPage = () => {
               <div className="animate-spin rounded-full h-8 w-8 border-t-2 border-b-2 border-netflix-red"></div>
             </div>
           ) : (
-            <>
-              {tecnologias.length > 0 ? (
-                <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6">
-                  {tecnologias
-                    .filter(tech => tech.destaque)
-                    .map(tech => (
-                      <div key={tech.id} className="bg-netflix-dark-gray rounded-md p-4 flex flex-col items-center text-center hover:bg-netflix-medium-gray transition-colors">
-                        <div className="w-16 h-16 mb-3 flex items-center justify-center">
-                          {tech.imagem ? (
-                            <img 
-                              src={tech.imagem} 
-                              alt={tech.nome} 
-                              className="w-full h-full object-contain"
-                            />
-                          ) : (
-                            getTechIcon(tech.nome)
-                          )}
-                        </div>
-                        <h3 className="text-white font-medium">{tech.nome}</h3>
-                      </div>
-                    ))}
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6">
+              {localSkills.map((skill, index) => (
+                <div key={index} className="bg-netflix-dark-gray rounded-md p-4 flex flex-col items-center text-center hover:bg-netflix-medium-gray transition-colors">
+                  <div className="w-16 h-16 mb-3 flex items-center justify-center">
+                    {getTechIcon(skill)}
+                  </div>
+                  <h3 className="text-white font-medium">{skill}</h3>
                 </div>
-              ) : (
-                <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6">
-                  {[
-                    'Gestão de Projetos', 
-                    'Metodologias Ágeis', 
-                    'Gestão de Pessoas', 
-                    'Liderança', 
-                    'Desenvolvimento de Equipes', 
-                    'Scrum',
-                    'Análise de Dados',
-                    'Planejamento Estratégico',
-                    'React',
-                    'TypeScript',
-                    'Node.js',
-                    'PMBOK'
-                  ].map((skill, index) => (
-                    <div key={index} className="bg-netflix-dark-gray rounded-md p-4 flex flex-col items-center text-center hover:bg-netflix-medium-gray transition-colors">
-                      <div className="w-16 h-16 mb-3 flex items-center justify-center">
-                        {getTechIcon(skill)}
-                      </div>
-                      <h3 className="text-white font-medium">{skill}</h3>
-                    </div>
-                  ))}
-                </div>
-              )}
-            </>
+              ))}
+            </div>
           )}
         </div>
 
