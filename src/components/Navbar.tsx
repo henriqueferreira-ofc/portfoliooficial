@@ -1,9 +1,13 @@
 
 import { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const location = useLocation();
+  const isHomePage = location.pathname === '/';
 
   useEffect(() => {
     const handleScroll = () => {
@@ -19,26 +23,28 @@ const Navbar = () => {
   }, []);
 
   const scrollToSection = (sectionId: string) => {
-    const section = document.getElementById(sectionId);
-    if (section) {
-      section.scrollIntoView({ behavior: 'smooth' });
-      setIsMobileMenuOpen(false); // Close mobile menu after clicking
+    if (isHomePage) {
+      const section = document.getElementById(sectionId);
+      if (section) {
+        section.scrollIntoView({ behavior: 'smooth' });
+      }
     }
+    setIsMobileMenuOpen(false); // Close mobile menu after clicking
   };
 
   return (
     <nav className={`fixed top-0 w-full z-50 transition-all duration-500 ${isScrolled ? 'bg-netflix-black bg-opacity-95 shadow-md' : 'bg-gradient-to-b from-netflix-black to-transparent'}`}>
       <div className="container mx-auto flex items-center justify-between py-4 px-4 md:px-8">
         <div className="flex items-center">
-          <button onClick={() => scrollToSection('inicio')} className="text-netflix-red font-bold text-2xl md:text-3xl tracking-wider">PORTFÓLIO</button>
+          <Link to="/" className="text-netflix-red font-bold text-2xl md:text-3xl tracking-wider">PORTFÓLIO</Link>
         </div>
         
         {/* Desktop Navigation */}
         <div className="hidden md:flex items-center space-x-6">
-          <button onClick={() => scrollToSection('inicio')} className="text-white hover:text-netflix-red transition-colors">Início</button>
-          <button onClick={() => scrollToSection('projects')} className="text-white hover:text-netflix-red transition-colors">Projetos</button>
-          <button onClick={() => scrollToSection('about')} className="text-white hover:text-netflix-red transition-colors">Sobre</button>
-          <button onClick={() => scrollToSection('contact')} className="text-white hover:text-netflix-red transition-colors">Contato</button>
+          <Link to="/" className="text-white hover:text-netflix-red transition-colors">Início</Link>
+          <Link to="/projects" className="text-white hover:text-netflix-red transition-colors">Projetos</Link>
+          <Link to="/about" className="text-white hover:text-netflix-red transition-colors">Sobre</Link>
+          <Link to="/contact" className="text-white hover:text-netflix-red transition-colors">Contato</Link>
         </div>
         
         {/* Mobile Navigation Button */}
@@ -63,10 +69,10 @@ const Navbar = () => {
       {isMobileMenuOpen && (
         <div className="md:hidden bg-netflix-black bg-opacity-95 py-4 px-6">
           <div className="flex flex-col space-y-4">
-            <button onClick={() => scrollToSection('inicio')} className="text-white hover:text-netflix-red transition-colors text-left">Início</button>
-            <button onClick={() => scrollToSection('projects')} className="text-white hover:text-netflix-red transition-colors text-left">Projetos</button>
-            <button onClick={() => scrollToSection('about')} className="text-white hover:text-netflix-red transition-colors text-left">Sobre</button>
-            <button onClick={() => scrollToSection('contact')} className="text-white hover:text-netflix-red transition-colors text-left">Contato</button>
+            <Link to="/" onClick={() => setIsMobileMenuOpen(false)} className="text-white hover:text-netflix-red transition-colors text-left">Início</Link>
+            <Link to="/projects" onClick={() => setIsMobileMenuOpen(false)} className="text-white hover:text-netflix-red transition-colors text-left">Projetos</Link>
+            <Link to="/about" onClick={() => setIsMobileMenuOpen(false)} className="text-white hover:text-netflix-red transition-colors text-left">Sobre</Link>
+            <Link to="/contact" onClick={() => setIsMobileMenuOpen(false)} className="text-white hover:text-netflix-red transition-colors text-left">Contato</Link>
           </div>
         </div>
       )}
