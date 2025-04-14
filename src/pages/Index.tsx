@@ -5,10 +5,88 @@ import ProjectRow from '@/components/ProjectRow';
 import About from '@/components/About';
 import Contact from '@/components/Contact';
 import Footer from '@/components/Footer';
+import { useEffect, useState } from 'react';
+import { supabase } from '@/integrations/supabase/client';
+import { useToast } from '@/hooks/use-toast';
+
+interface Project {
+  id: number;
+  imageUrl: string;
+  title: string;
+  description: string;
+  tags: string[];
+  link?: string;
+}
 
 const Index = () => {
-  // Sample project data
-  const webProjects = [
+  const [webProjects, setWebProjects] = useState<Project[]>([]);
+  const [mobileProjects, setMobileProjects] = useState<Project[]>([]);
+  const [designProjects, setDesignProjects] = useState<Project[]>([]);
+  const [isLoading, setIsLoading] = useState(true);
+  const { toast } = useToast();
+
+  useEffect(() => {
+    const fetchProjects = async () => {
+      try {
+        const { data, error } = await supabase
+          .from('projects')
+          .select('*')
+          .order('created_at', { ascending: false });
+
+        if (error) {
+          throw error;
+        }
+
+        if (data) {
+          // Transform the data to match our Project interface
+          const transformedProjects = data.map(project => ({
+            id: typeof project.id === 'string' ? parseInt(project.id) : Math.random(), // Convert UUID to number or generate random ID
+            imageUrl: project.cover_image || 'https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80',
+            title: project.title,
+            description: project.description,
+            tags: project.technologies || [],
+            link: project.demo_url || project.github_url
+          }));
+
+          // Filter projects by category
+          const web = transformedProjects.filter(project => project.tags.some(tag => 
+            ['React', 'JavaScript', 'TypeScript', 'Node.js', 'HTML', 'CSS', 'Web'].includes(tag)
+          ));
+          
+          const mobile = transformedProjects.filter(project => project.tags.some(tag => 
+            ['React Native', 'Flutter', 'Mobile', 'iOS', 'Android', 'Swift'].includes(tag)
+          ));
+          
+          const design = transformedProjects.filter(project => project.tags.some(tag => 
+            ['Design', 'UI/UX', 'Figma', 'Sketch', 'Adobe XD', 'Photoshop', 'Illustrator'].includes(tag)
+          ));
+
+          setWebProjects(web.length > 0 ? web : getSampleWebProjects());
+          setMobileProjects(mobile.length > 0 ? mobile : getSampleMobileProjects());
+          setDesignProjects(design.length > 0 ? design : getSampleDesignProjects());
+        }
+      } catch (error) {
+        console.error('Error fetching projects:', error);
+        toast({
+          title: "Error",
+          description: "Failed to load projects. Using sample data instead.",
+          variant: "destructive",
+        });
+        
+        // Use sample data if there's an error
+        setWebProjects(getSampleWebProjects());
+        setMobileProjects(getSampleMobileProjects());
+        setDesignProjects(getSampleDesignProjects());
+      } finally {
+        setIsLoading(false);
+      }
+    };
+
+    fetchProjects();
+  }, [toast]);
+
+  // Sample data functions (fallback if Supabase fetch fails)
+  const getSampleWebProjects = () => [
     {
       id: 1,
       imageUrl: 'https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80',
@@ -43,7 +121,7 @@ const Index = () => {
     },
   ];
 
-  const mobileProjects = [
+  const getSampleMobileProjects = () => [
     {
       id: 5,
       imageUrl: 'https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80',
@@ -78,7 +156,7 @@ const Index = () => {
     },
   ];
 
-  const designProjects = [
+  const getSampleDesignProjects = () => [
     {
       id: 9,
       imageUrl: 'https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80',
@@ -121,11 +199,17 @@ const Index = () => {
         <Hero />
         
         <div className="container mx-auto pt-16 px-4" id="projects">
-          <div id="featured-project" className="pb-8">
-            <ProjectRow title="Web Development" projects={webProjects} />
-            <ProjectRow title="Mobile Applications" projects={mobileProjects} />
-            <ProjectRow title="Design Projects" projects={designProjects} />
-          </div>
+          {isLoading ? (
+            <div className="flex justify-center items-center py-16">
+              <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-netflix-red"></div>
+            </div>
+          ) : (
+            <div id="featured-project" className="pb-8">
+              {webProjects.length > 0 && <ProjectRow title="Web Development" projects={webProjects} />}
+              {mobileProjects.length > 0 && <ProjectRow title="Mobile Applications" projects={mobileProjects} />}
+              {designProjects.length > 0 && <ProjectRow title="Design Projects" projects={designProjects} />}
+            </div>
+          )}
         </div>
         
         <About />
