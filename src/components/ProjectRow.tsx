@@ -1,6 +1,6 @@
 
 import ProjectCard from './ProjectCard';
-import { useState, useRef } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 
 interface Project {
@@ -21,6 +21,14 @@ const ProjectRow = ({ title, projects }: ProjectRowProps) => {
   const scrollContainerRef = useRef<HTMLDivElement>(null);
   const [showLeftArrow, setShowLeftArrow] = useState(false);
   const [showRightArrow, setShowRightArrow] = useState(true);
+
+  // Verificar se os projetos são visíveis no carregamento inicial
+  useEffect(() => {
+    if (scrollContainerRef.current) {
+      const { scrollWidth, clientWidth } = scrollContainerRef.current;
+      setShowRightArrow(scrollWidth > clientWidth);
+    }
+  }, [projects]);
 
   const scroll = (direction: 'left' | 'right') => {
     if (scrollContainerRef.current) {

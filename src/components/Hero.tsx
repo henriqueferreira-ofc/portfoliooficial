@@ -1,10 +1,16 @@
 
 import { Play } from 'lucide-react';
-import { Link } from 'react-router-dom';
 
 const Hero = () => {
+  const scrollToSection = (sectionId: string) => {
+    const section = document.getElementById(sectionId);
+    if (section) {
+      section.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
-    <section id="hero" className="relative h-screen">
+    <section id="inicio" className="relative h-screen">
       {/* Hero background */}
       <div 
         className="absolute inset-0 bg-cover bg-center bg-no-repeat" 
@@ -28,24 +34,14 @@ const Hero = () => {
         
         <div className="flex flex-wrap gap-4">
           <button 
-            onClick={() => {
-              const projectsSection = document.getElementById('projects');
-              if (projectsSection) {
-                projectsSection.scrollIntoView({ behavior: 'smooth' });
-              }
-            }}
+            onClick={() => scrollToSection('projects')}
             className="flex items-center gap-2 bg-netflix-red hover:bg-netflix-dark-red text-white py-2 px-6 rounded transition-colors duration-300 font-medium"
           >
             <Play size={20} />
             Projeto em Destaque
           </button>
           <button 
-            onClick={() => {
-              const contactSection = document.getElementById('contact');
-              if (contactSection) {
-                contactSection.scrollIntoView({ behavior: 'smooth' });
-              }
-            }}
+            onClick={() => scrollToSection('contact')}
             className="bg-white/20 backdrop-blur-sm border border-white/30 hover:bg-white/30 text-white py-2 px-6 rounded transition-colors duration-300 font-medium"
           >
             Contate-me
