@@ -92,7 +92,7 @@ const Index = () => {
   }, [toast]);
 
   // Sample data functions (fallback if Supabase fetch fails)
-  const getSampleWebProjects = () => [
+  const getSampleWebProjects = (): Project[] => [
     {
       id: '1',
       imageUrl: 'https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80',
@@ -102,7 +102,7 @@ const Index = () => {
       link: '#'
     },
     {
-      id: 2,
+      id: '2',
       imageUrl: 'https://images.unsplash.com/photo-1461749280684-dccba630e2f6?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80',
       title: 'Portfolio Website',
       description: 'Responsive portfolio website with animated transitions and dynamic content loading.',
@@ -110,7 +110,7 @@ const Index = () => {
       link: '#'
     },
     {
-      id: 3,
+      id: '3',
       imageUrl: 'https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80',
       title: 'Dashboard UI',
       description: 'Admin dashboard with data visualization, user management and reporting features.',
@@ -118,7 +118,7 @@ const Index = () => {
       link: '#'
     },
     {
-      id: 4,
+      id: '4',
       imageUrl: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80',
       title: 'Social Media App',
       description: 'Platform for connecting users with similar interests and sharing content.',
@@ -127,7 +127,7 @@ const Index = () => {
     },
   ];
 
-  const getSampleMobileProjects = () => [
+  const getSampleMobileProjects = (): Project[] => [
     {
       id: '5',
       imageUrl: 'https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80',
@@ -137,7 +137,7 @@ const Index = () => {
       link: '#'
     },
     {
-      id: 6,
+      id: '6',
       imageUrl: 'https://images.unsplash.com/photo-1649972904349-6e44c42644a7?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80',
       title: 'Recipe Finder',
       description: 'App that suggests recipes based on ingredients you have at home.',
@@ -145,7 +145,7 @@ const Index = () => {
       link: '#'
     },
     {
-      id: 7,
+      id: '7',
       imageUrl: 'https://images.unsplash.com/photo-1461749280684-dccba630e2f6?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80',
       title: 'Travel Companion',
       description: 'Travel planning and itinerary management with maps and recommendations.',
@@ -153,7 +153,7 @@ const Index = () => {
       link: '#'
     },
     {
-      id: 8,
+      id: '8',
       imageUrl: 'https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80',
       title: 'Weather App',
       description: 'Real-time weather forecasts with beautiful visualizations and notifications.',
@@ -162,7 +162,7 @@ const Index = () => {
     },
   ];
 
-  const getSampleDesignProjects = () => [
+  const getSampleDesignProjects = (): Project[] => [
     {
       id: '9',
       imageUrl: 'https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80',
@@ -172,7 +172,7 @@ const Index = () => {
       link: '#'
     },
     {
-      id: 10,
+      id: '10',
       imageUrl: 'https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80',
       title: 'UI/UX Case Study',
       description: 'Comprehensive UX research and UI design for a financial application.',
@@ -180,7 +180,7 @@ const Index = () => {
       link: '#'
     },
     {
-      id: 11,
+      id: '11',
       imageUrl: 'https://images.unsplash.com/photo-1649972904349-6e44c42644a7?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80',
       title: 'Product Design',
       description: 'End-to-end product design for a smart home device and companion app.',
@@ -188,7 +188,7 @@ const Index = () => {
       link: '#'
     },
     {
-      id: 12,
+      id: '12',
       imageUrl: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80',
       title: 'Marketing Materials',
       description: 'Design of print and digital marketing assets for a product launch campaign.',

@@ -4,7 +4,7 @@ import { useState, useRef } from 'react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 
 interface Project {
-  id: number;
+  id: string;
   imageUrl: string;
   title: string;
   description: string;
