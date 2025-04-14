@@ -1,5 +1,6 @@
 
 import React from 'react';
+import { Skeleton } from '@/components/ui/skeleton';
 
 interface ProjectsLoadingStateProps {
   isLoading: boolean;
@@ -14,8 +15,17 @@ const ProjectsLoadingState: React.FC<ProjectsLoadingStateProps> = ({
 }) => {
   if (isLoading) {
     return (
-      <div className="flex justify-center items-center py-16">
-        <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-netflix-red"></div>
+      <div className="py-8">
+        <div className="flex gap-4 mb-12">
+          <Skeleton className="h-[180px] w-[280px] md:w-[320px]" />
+          <Skeleton className="h-[180px] w-[280px] md:w-[320px] hidden md:block" />
+          <Skeleton className="h-[180px] w-[280px] md:w-[320px] hidden lg:block" />
+        </div>
+        <div className="flex gap-4">
+          <Skeleton className="h-[180px] w-[280px] md:w-[320px]" />
+          <Skeleton className="h-[180px] w-[280px] md:w-[320px] hidden md:block" />
+          <Skeleton className="h-[180px] w-[280px] md:w-[320px] hidden lg:block" />
+        </div>
       </div>
     );
   }
@@ -24,10 +34,10 @@ const ProjectsLoadingState: React.FC<ProjectsLoadingStateProps> = ({
     return (
       <div className="text-center py-16">
         <h2 className="text-2xl font-bold text-white mb-4">Erro ao carregar projetos</h2>
-        <p className="text-gray-300">Mostrando dados de exemplo enquanto tentamos resolver o problema.</p>
+        <p className="text-gray-300 mb-6">Mostrando dados de exemplo enquanto tentamos resolver o problema.</p>
         <button 
           onClick={onRetry} 
-          className="mt-6 bg-netflix-red hover:bg-red-700 text-white font-bold py-2 px-4 rounded"
+          className="mt-2 bg-netflix-red hover:bg-red-700 text-white font-bold py-2 px-4 rounded"
         >
           Tentar novamente
         </button>

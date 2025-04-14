@@ -37,7 +37,7 @@ const Projects: React.FC = () => {
         <ProjectsLoadingState 
           isLoading={isLoading} 
           hasError={hasError} 
-          onRetry={() => window.location.reload()}
+          onRetry={fetchProjects}
         />
         
         {!isLoading && !hasError && (
