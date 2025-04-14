@@ -18,6 +18,13 @@ const Navbar = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  const scrollToSection = (sectionId: string) => {
+    const section = document.getElementById(sectionId);
+    if (section) {
+      section.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <nav className={`fixed top-0 w-full z-50 transition-all duration-500 ${isScrolled ? 'bg-netflix-black bg-opacity-95 shadow-md' : 'bg-gradient-to-b from-netflix-black to-transparent'}`}>
       <div className="container mx-auto flex items-center justify-between py-4 px-4 md:px-8">
@@ -25,10 +32,10 @@ const Navbar = () => {
           <Link to="/" className="text-netflix-red font-bold text-2xl md:text-3xl tracking-wider">PORTFÓLIO</Link>
         </div>
         <div className="hidden md:flex items-center space-x-6">
-          <Link to="/" className="text-white hover:text-netflix-red transition-colors">Início</Link>
-          <Link to="#projects" className="text-white hover:text-netflix-red transition-colors">Projetos</Link>
-          <Link to="#about" className="text-white hover:text-netflix-red transition-colors">Sobre</Link>
-          <Link to="#contact" className="text-white hover:text-netflix-red transition-colors">Contato</Link>
+          <button onClick={() => scrollToSection('hero')} className="text-white hover:text-netflix-red transition-colors">Início</button>
+          <button onClick={() => scrollToSection('projects')} className="text-white hover:text-netflix-red transition-colors">Projetos</button>
+          <button onClick={() => scrollToSection('about')} className="text-white hover:text-netflix-red transition-colors">Sobre</button>
+          <button onClick={() => scrollToSection('contact')} className="text-white hover:text-netflix-red transition-colors">Contato</button>
         </div>
         <div className="md:hidden">
           <button className="text-white">

@@ -1,10 +1,9 @@
-
 import { Play } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 const Hero = () => {
   return (
-    <div className="relative h-screen w-full overflow-hidden">
+    <section id="hero" className="relative h-screen">
       {/* Hero background */}
       <div 
         className="absolute inset-0 bg-cover bg-center bg-no-repeat" 
@@ -42,7 +41,7 @@ const Hero = () => {
           </Link>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 
