@@ -4,6 +4,11 @@ import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import { supabase } from '@/integrations/supabase/client';
 import { toast as sonnerToast } from '@/components/ui/sonner';
+import { 
+  Code2, Database, Globe, Palette, 
+  FileCode2, GitBranch, MonitorSmartphone, 
+  Figma, LayoutGrid, Binary
+} from 'lucide-react';
 
 interface Tecnologia {
   id: number;
@@ -12,6 +17,26 @@ interface Tecnologia {
   imagem: string;
   destaque: boolean;
 }
+
+// Mapeamento de tecnologias para ícones
+const getTechIcon = (techName: string) => {
+  const iconMap: Record<string, React.ReactNode> = {
+    'React': <Code2 className="w-8 h-8 text-blue-400" />,
+    'TypeScript': <FileCode2 className="w-8 h-8 text-blue-600" />,
+    'JavaScript': <FileCode2 className="w-8 h-8 text-yellow-400" />,
+    'HTML5': <Globe className="w-8 h-8 text-orange-500" />,
+    'CSS3': <Palette className="w-8 h-8 text-blue-500" />,
+    'Node.js': <Binary className="w-8 h-8 text-green-500" />,
+    'Git': <GitBranch className="w-8 h-8 text-red-500" />,
+    'MongoDB': <Database className="w-8 h-8 text-green-600" />,
+    'Figma': <Figma className="w-8 h-8 text-purple-500" />,
+    'React Native': <MonitorSmartphone className="w-8 h-8 text-blue-400" />,
+    'Tailwind CSS': <LayoutGrid className="w-8 h-8 text-teal-500" />,
+    'Design UI/UX': <Palette className="w-8 h-8 text-pink-500" />
+  };
+
+  return iconMap[techName] || <Code2 className="w-8 h-8 text-netflix-red" />;
+};
 
 const AboutPage = () => {
   const [tecnologias, setTecnologias] = useState<Tecnologia[]>([]);
@@ -98,13 +123,17 @@ const AboutPage = () => {
                   {tecnologias
                     .filter(tech => tech.destaque)
                     .map(tech => (
-                      <div key={tech.id} className="bg-netflix-dark-gray rounded-md p-4 flex flex-col items-center text-center">
-                        <div className="w-16 h-16 mb-3">
-                          <img 
-                            src={tech.imagem} 
-                            alt={tech.nome} 
-                            className="w-full h-full object-contain"
-                          />
+                      <div key={tech.id} className="bg-netflix-dark-gray rounded-md p-4 flex flex-col items-center text-center hover:bg-netflix-medium-gray transition-colors">
+                        <div className="w-16 h-16 mb-3 flex items-center justify-center">
+                          {tech.imagem ? (
+                            <img 
+                              src={tech.imagem} 
+                              alt={tech.nome} 
+                              className="w-full h-full object-contain"
+                            />
+                          ) : (
+                            getTechIcon(tech.nome)
+                          )}
                         </div>
                         <h3 className="text-white font-medium">{tech.nome}</h3>
                       </div>
@@ -113,11 +142,9 @@ const AboutPage = () => {
               ) : (
                 <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6">
                   {['React', 'TypeScript', 'Node.js', 'MongoDB', 'React Native', 'Tailwind CSS'].map((skill, index) => (
-                    <div key={index} className="bg-netflix-dark-gray rounded-md p-4 flex flex-col items-center text-center">
-                      <div className="w-16 h-16 mb-3 flex items-center justify-center text-netflix-red">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" className="w-12 h-12">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
-                        </svg>
+                    <div key={index} className="bg-netflix-dark-gray rounded-md p-4 flex flex-col items-center text-center hover:bg-netflix-medium-gray transition-colors">
+                      <div className="w-16 h-16 mb-3 flex items-center justify-center">
+                        {getTechIcon(skill)}
                       </div>
                       <h3 className="text-white font-medium">{skill}</h3>
                     </div>
