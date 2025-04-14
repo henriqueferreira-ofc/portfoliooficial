@@ -1,4 +1,3 @@
-
 import Navbar from '@/components/Navbar';
 import Hero from '@/components/Hero';
 import ProjectRow from '@/components/ProjectRow';
@@ -166,7 +165,6 @@ const Index = () => {
         console.error('Erro ao buscar dados:', error);
         sonnerToast("Erro", {
           description: "Erro ao carregar dados do banco de dados, usando dados de exemplo",
-          variant: "destructive"
         });
         
         // Use sample data if there's an error
@@ -181,7 +179,6 @@ const Index = () => {
     fetchAllData();
   }, [toast]);
 
-  // Funções de dados de exemplo (fallback se a busca do Supabase falhar)
   const getSampleWebProjects = (): Project[] => [
     {
       id: '1',
@@ -305,7 +302,6 @@ const Index = () => {
               {mobileProjects.length > 0 && <ProjectRow title="Aplicativos Móveis" projects={mobileProjects} />}
               {designProjects.length > 0 && <ProjectRow title="Projetos de Design" projects={designProjects} />}
               
-              {/* Caso você queira adicionar projetos da tabela projetos, você pode adicionar um novo ProjectRow aqui */}
               {projetosAntigos.length > 0 && (
                 <div className="mt-12">
                   <h2 className="text-2xl font-bold text-white mb-4">Projetos Antigos</h2>
@@ -349,7 +345,6 @@ const Index = () => {
                 </div>
               )}
               
-              {/* Caso você queira adicionar uma seção de tecnologias */}
               {tecnologias.length > 0 && (
                 <div className="mt-16">
                   <h2 className="text-2xl font-bold text-white mb-6">Tecnologias</h2>
