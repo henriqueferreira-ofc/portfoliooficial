@@ -1,5 +1,5 @@
 
-import React from 'react';
+import React, { useState } from 'react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import { useProjectsData } from '@/hooks/useProjectsData';
@@ -11,15 +11,33 @@ import {
   CarouselPrevious
 } from "@/components/ui/carousel";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
-import { ChevronRight, Award, Star, ExternalLink, Github } from 'lucide-react';
+import { ChevronRight, Award, Star, ExternalLink, Github, ArrowUp } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { toast } from "sonner";
 
 const FeaturedProjects = () => {
   const { webProjects, mobileProjects, designProjects, isLoading } = useProjectsData();
   
   // Combine all projects and filter featured ones (using first 6 for demo purposes)
   const allProjects = [...webProjects, ...mobileProjects, ...designProjects];
-  const featuredProjects = allProjects.slice(0, 6);
+  const [featuredProjects, setFeaturedProjects] = useState(allProjects.slice(0, 6));
+
+  // Set the first project as the main featured one initially
+  const [mainFeaturedProject, setMainFeaturedProject] = useState(featuredProjects[0]);
+  
+  // Function to promote a project to main feature
+  const promoteToMainFeature = (project) => {
+    // Find current index of the project
+    const currentIndex = featuredProjects.findIndex(p => p.id === project.id);
+    
+    if (currentIndex === -1) return;
+    
+    // Set the clicked project as the main featured project
+    setMainFeaturedProject(project);
+    
+    // Show success message
+    toast.success(`${project.title} agora é o projeto em destaque principal!`);
+  };
 
   return (
     <div className="bg-gradient-to-b from-netflix-black to-netflix-dark-gray min-h-screen">
@@ -41,12 +59,12 @@ const FeaturedProjects = () => {
         </div>
         
         {/* Hero Featured Project */}
-        {featuredProjects.length > 0 && (
+        {mainFeaturedProject && (
           <div className="mb-24 overflow-hidden rounded-xl group relative">
             <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent opacity-70 z-10"></div>
             <img 
-              src={featuredProjects[0].imageUrl} 
-              alt={featuredProjects[0].title}
+              src={mainFeaturedProject.imageUrl} 
+              alt={mainFeaturedProject.title}
               className="w-full h-[500px] object-cover transform transition-transform duration-700 group-hover:scale-105"
             />
             <div className="absolute bottom-0 left-0 right-0 p-8 z-20">
@@ -54,17 +72,17 @@ const FeaturedProjects = () => {
                 <Star className="text-yellow-400 mr-2" size={20} />
                 <span className="text-yellow-400 font-medium">Projeto Principal</span>
               </div>
-              <h2 className="text-3xl md:text-4xl font-bold text-white mb-3">{featuredProjects[0].title}</h2>
-              <p className="text-gray-200 mb-4 max-w-2xl">{featuredProjects[0].description}</p>
+              <h2 className="text-3xl md:text-4xl font-bold text-white mb-3">{mainFeaturedProject.title}</h2>
+              <p className="text-gray-200 mb-4 max-w-2xl">{mainFeaturedProject.description}</p>
               <div className="flex flex-wrap gap-2 mb-6">
-                {featuredProjects[0].tags.map((tag, index) => (
+                {mainFeaturedProject.tags.map((tag, index) => (
                   <span key={index} className="bg-netflix-red/80 text-white text-sm px-3 py-1 rounded-full">
                     {tag}
                   </span>
                 ))}
               </div>
               <a 
-                href={featuredProjects[0].link || "#"} 
+                href={mainFeaturedProject.link || "#"} 
                 className="inline-flex items-center bg-netflix-red hover:bg-netflix-dark-red text-white font-medium py-3 px-6 rounded-md transition-colors duration-300"
                 target="_blank" 
                 rel="noopener noreferrer"
@@ -80,15 +98,24 @@ const FeaturedProjects = () => {
           <h2 className="text-2xl font-bold text-white mb-6">Outros Projetos Destaques</h2>
           <Carousel className="w-full">
             <CarouselContent className="-ml-4">
-              {featuredProjects.slice(1).map((project) => (
+              {featuredProjects.filter(project => project.id !== mainFeaturedProject?.id).map((project) => (
                 <CarouselItem key={project.id} className="pl-4 md:basis-1/2 lg:basis-1/3">
-                  <Card className="bg-netflix-dark-gray border-netflix-medium-gray hover:border-netflix-red transition-colors duration-300 overflow-hidden group">
+                  <Card className="bg-netflix-dark-gray border-netflix-medium-gray hover:border-netflix-red transition-colors duration-300 overflow-hidden group relative">
                     <div className="h-48 overflow-hidden">
                       <img 
                         src={project.imageUrl} 
                         alt={project.title}
                         className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                       />
+                    </div>
+                    <div className="absolute top-2 right-2">
+                      <button 
+                        onClick={() => promoteToMainFeature(project)}
+                        className="bg-netflix-red/80 hover:bg-netflix-red text-white p-2 rounded-full transition-colors"
+                        title="Promover para destaque principal"
+                      >
+                        <ArrowUp size={16} />
+                      </button>
                     </div>
                     <CardHeader>
                       <CardTitle className="text-white">{project.title}</CardTitle>
@@ -119,6 +146,12 @@ const FeaturedProjects = () => {
                       >
                         Ver projeto <ChevronRight size={16} className="ml-1" />
                       </a>
+                      <button 
+                        onClick={() => promoteToMainFeature(project)}
+                        className="text-netflix-red hover:text-white transition-colors flex items-center"
+                      >
+                        Destacar <ArrowUp size={16} className="ml-1" />
+                      </button>
                     </CardFooter>
                   </Card>
                 </CarouselItem>
