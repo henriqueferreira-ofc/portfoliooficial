@@ -100,7 +100,7 @@ const ContactPage = () => {
                   type="email"
                   value={formData.email}
                   onChange={handleChange}
-                  placeholder="seu.email@exemplo.com"
+                  placeholder="henriqueanalista.ads@gmail.com"
                   required
                   className="bg-netflix-medium-gray border-gray-700 text-white"
                 />
