@@ -1,6 +1,5 @@
 
 import { useQuery } from '@tanstack/react-query';
-import { supabase } from '@/integrations/supabase/client';
 import { toast as sonnerToast } from '@/components/ui/sonner';
 import { 
   getSampleWebProjects, 
@@ -11,94 +10,18 @@ import {
 import type { ProjetosAntigos } from '@/components/LegacyProjects';
 
 const fetchProjects = async () => {
-  console.log("Buscando dados de projetos do Supabase...");
+  console.log("Usando dados de exemplo para projetos...");
   
   try {
-    // Fetch from projects table (newer structure)
-    const { data: projectsData, error: projectsError } = await supabase
-      .from('projects')
-      .select('*')
-      .order('created_at', { ascending: false });
-
-    // Fetch from projetos table (older structure) 
-    const { data: projetosData, error: projetosError } = await supabase
-      .from('projetos')
-      .select('*')
-      .order('nivel', { ascending: false });
-
-    // Check for errors and handle them
-    if (projectsError) {
-      console.error('Erro ao buscar projects:', projectsError);
-      throw new Error(projectsError.message);
-    }
+    // Use sample data instead of fetching from Supabase
+    const webProjects = getSampleWebProjects();
+    const mobileProjects = getSampleMobileProjects();
+    const designProjects = getSampleDesignProjects();
+    const projetosAntigos: ProjetosAntigos[] = [];
     
-    if (projetosError) {
-      console.error('Erro ao buscar projetos:', projetosError);
-      // This is a secondary error, so we don't throw but log it
-    }
-
-    // Process data
-    let webProjects: Project[] = [];
-    let mobileProjects: Project[] = [];
-    let designProjects: Project[] = [];
-    let projetosAntigos: ProjetosAntigos[] = [];
-
-    // Process projects data if available
-    if (projectsData && projectsData.length > 0) {
-      console.log("Dados de projetos recentes carregados:", projectsData.length);
-      
-      // Transform the data to match our Project interface
-      const transformedProjects: Project[] = projectsData.map(project => ({
-        id: project.id.toString(),
-        imageUrl: project.cover_image || 'https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80',
-        title: project.title,
-        description: project.description,
-        tags: project.technologies || [],
-        link: project.demo_url || project.github_url
-      }));
-
-      // Filter projects by category
-      webProjects = transformedProjects.filter(project => 
-        project.tags.some(tag => 
-          ['React', 'JavaScript', 'TypeScript', 'Node.js', 'HTML', 'CSS', 'Web'].includes(tag)
-        )
-      );
-      
-      mobileProjects = transformedProjects.filter(project => 
-        project.tags.some(tag => 
-          ['React Native', 'Flutter', 'Mobile', 'iOS', 'Android', 'Swift'].includes(tag)
-        )
-      );
-      
-      designProjects = transformedProjects.filter(project => 
-        project.tags.some(tag => 
-          ['Design', 'UI/UX', 'Figma', 'Sketch', 'Adobe XD', 'Photoshop', 'Illustrator'].includes(tag)
-        )
-      );
-      
-      sonnerToast("Projetos carregados com sucesso", {
-        description: `${projectsData.length} projetos encontrados`
-      });
-    } else {
-      console.log("Nenhum projeto recente encontrado, usando dados de exemplo");
-      webProjects = getSampleWebProjects();
-      mobileProjects = getSampleMobileProjects();
-      designProjects = getSampleDesignProjects();
-      
-      sonnerToast("Usando projetos de exemplo", {
-        description: "Nenhum projeto foi encontrado no banco de dados"
-      });
-    }
-    
-    // Process projetos (older structure) if available
-    if (projetosData && projetosData.length > 0) {
-      console.log("Dados de projetos antigos carregados:", projetosData.length);
-      projetosAntigos = projetosData;
-      
-      sonnerToast("Projetos antigos", {
-        description: `${projetosData.length} projetos antigos carregados`
-      });
-    }
+    sonnerToast("Dados de exemplo carregados", {
+      description: "Usando projetos de exemplo"
+    });
 
     return { 
       webProjects, 
@@ -107,8 +30,7 @@ const fetchProjects = async () => {
       projetosAntigos 
     };
   } catch (error) {
-    console.error('Erro ao buscar dados:', error);
-    // Return sample data on error
+    console.error('Erro ao carregar dados:', error);
     return {
       webProjects: getSampleWebProjects(),
       mobileProjects: getSampleMobileProjects(),

@@ -10,7 +10,7 @@ import AboutPage from "./pages/About";
 import ContactPage from "./pages/Contact";
 import NotFound from "./pages/NotFound";
 
-// Create a client with default options
+// Create a client with default options - no Supabase dependencies
 const queryClient = new QueryClient({
   defaultOptions: {
     queries: {

@@ -39,7 +39,7 @@ const ProjectsLoadingState: React.FC<ProjectsLoadingStateProps> = ({
         <Alert variant="destructive" className="mb-6 bg-netflix-dark-gray border-netflix-red text-white">
           <AlertTitle className="text-xl mb-2">Erro ao carregar projetos</AlertTitle>
           <AlertDescription className="text-gray-300">
-            Mostrando dados de exemplo enquanto tentamos resolver o problema.
+            Não foi possível carregar os projetos. Mostrando dados de exemplo.
           </AlertDescription>
         </Alert>
         <Button 
