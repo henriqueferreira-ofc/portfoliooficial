@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
@@ -10,7 +11,8 @@ import {
   Briefcase, Users, ClipboardCheck,
   BarChart2, Calendar, UserRound,
   ListTodo, UserCog, Target,
-  Award, PieChart, Presentation
+  Award, PieChart, Presentation,
+  GraduationCap, BookOpen, School
 } from 'lucide-react';
 
 interface Tecnologia {
@@ -182,6 +184,65 @@ const AboutPage = () => {
               )}
             </>
           )}
+        </div>
+
+        <div className="mb-12">
+          <h2 className="text-2xl font-bold text-white mb-6">Formação Acadêmica</h2>
+          <div className="space-y-6">
+            <div className="bg-netflix-dark-gray p-6 rounded-lg">
+              <div className="flex items-start gap-4">
+                <div className="flex-shrink-0 bg-netflix-medium-gray p-3 rounded-full">
+                  <GraduationCap className="w-6 h-6 text-netflix-red" />
+                </div>
+                <div>
+                  <div className="flex justify-between items-start mb-2">
+                    <h3 className="text-xl font-semibold text-white">MBA em Gestão de Projetos</h3>
+                    <span className="text-netflix-red text-sm">2020 - 2021</span>
+                  </div>
+                  <h4 className="text-gray-300 mb-3">Universidade de Tecnologia</h4>
+                  <p className="text-gray-400">
+                    Especialização com foco em metodologias ágeis e liderança de equipes de TI.
+                  </p>
+                </div>
+              </div>
+            </div>
+            
+            <div className="bg-netflix-dark-gray p-6 rounded-lg">
+              <div className="flex items-start gap-4">
+                <div className="flex-shrink-0 bg-netflix-medium-gray p-3 rounded-full">
+                  <BookOpen className="w-6 h-6 text-netflix-red" />
+                </div>
+                <div>
+                  <div className="flex justify-between items-start mb-2">
+                    <h3 className="text-xl font-semibold text-white">Bacharelado em Sistemas de Informação</h3>
+                    <span className="text-netflix-red text-sm">2015 - 2019</span>
+                  </div>
+                  <h4 className="text-gray-300 mb-3">Faculdade de Tecnologia</h4>
+                  <p className="text-gray-400">
+                    Formação com ênfase em desenvolvimento de software e gestão de TI.
+                  </p>
+                </div>
+              </div>
+            </div>
+            
+            <div className="bg-netflix-dark-gray p-6 rounded-lg">
+              <div className="flex items-start gap-4">
+                <div className="flex-shrink-0 bg-netflix-medium-gray p-3 rounded-full">
+                  <School className="w-6 h-6 text-netflix-red" />
+                </div>
+                <div>
+                  <div className="flex justify-between items-start mb-2">
+                    <h3 className="text-xl font-semibold text-white">Certificação PMP</h3>
+                    <span className="text-netflix-red text-sm">2022</span>
+                  </div>
+                  <h4 className="text-gray-300 mb-3">Project Management Institute</h4>
+                  <p className="text-gray-400">
+                    Certificação profissional em gestão de projetos reconhecida internacionalmente.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
         
         <div className="mb-12">
