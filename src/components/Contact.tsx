@@ -16,21 +16,21 @@ const Contact = () => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     // Handle form submission (in a real app, you'd send this to a server)
-    console.log('Form submitted:', formData);
-    alert('Thanks for your message! In a real portfolio, this would be sent to the server.');
+    console.log('Formulário enviado:', formData);
+    alert('Obrigado pela sua mensagem! Em um portfólio real, isso seria enviado para o servidor.');
     setFormData({ name: '', email: '', message: '' });
   };
 
   return (
     <section id="contact" className="py-16 px-4 md:px-16">
       <div className="container mx-auto max-w-4xl">
-        <h2 className="text-3xl font-bold text-white mb-6">Get In Touch</h2>
+        <h2 className="text-3xl font-bold text-white mb-6">Entre em Contato</h2>
         
         <div className="bg-netflix-dark-gray p-6 md:p-8 rounded-lg">
           <form onSubmit={handleSubmit}>
             <div className="space-y-4">
               <div>
-                <label htmlFor="name" className="block text-white mb-2">Name</label>
+                <label htmlFor="name" className="block text-white mb-2">Nome</label>
                 <input
                   type="text"
                   id="name"
@@ -43,7 +43,7 @@ const Contact = () => {
               </div>
               
               <div>
-                <label htmlFor="email" className="block text-white mb-2">Email</label>
+                <label htmlFor="email" className="block text-white mb-2">E-mail</label>
                 <input
                   type="email"
                   id="email"
@@ -56,7 +56,7 @@ const Contact = () => {
               </div>
               
               <div>
-                <label htmlFor="message" className="block text-white mb-2">Message</label>
+                <label htmlFor="message" className="block text-white mb-2">Mensagem</label>
                 <textarea
                   id="message"
                   name="message"
@@ -72,7 +72,7 @@ const Contact = () => {
                 type="submit"
                 className="bg-netflix-red hover:bg-netflix-dark-red text-white py-3 px-6 rounded transition-colors duration-300 font-medium"
               >
-                Send Message
+                Enviar Mensagem
               </button>
             </div>
           </form>

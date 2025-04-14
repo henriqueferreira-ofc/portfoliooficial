@@ -65,7 +65,7 @@ const ProjectRow = ({ title, projects }: ProjectRowProps) => {
           <button 
             onClick={() => scroll('left')} 
             className="absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-black/50 hover:bg-black/70 text-white rounded-full p-2 transform -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity"
-            aria-label="Scroll left"
+            aria-label="Rolar para a esquerda"
           >
             <ChevronLeft size={24} />
           </button>
@@ -93,7 +93,7 @@ const ProjectRow = ({ title, projects }: ProjectRowProps) => {
           <button 
             onClick={() => scroll('right')} 
             className="absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-black/50 hover:bg-black/70 text-white rounded-full p-2 transform translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity"
-            aria-label="Scroll right"
+            aria-label="Rolar para a direita"
           >
             <ChevronRight size={24} />
           </button>

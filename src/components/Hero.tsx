@@ -16,14 +16,14 @@ const Hero = () => {
       {/* Text overlay */}
       <div className="absolute inset-0 flex flex-col justify-center px-6 md:px-16 lg:px-32">
         <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-3 leading-tight">
-          Creative Developer
+          Desenvolvedor Criativo
         </h1>
         <p className="text-2xl md:text-3xl lg:text-4xl font-medium text-netflix-red mb-6">
-          Building Digital Experiences
+          Criando Experiências Digitais
         </p>
         <p className="text-white text-lg md:text-xl lg:max-w-2xl mb-8 opacity-80">
-          I create stunning websites and applications that combine beautiful design with flawless functionality.
-          Specialized in React, TypeScript, and modern web technologies.
+          Eu crio sites e aplicativos impressionantes que combinam design bonito com funcionalidade impecável.
+          Especializado em React, TypeScript e tecnologias web modernas.
         </p>
         
         <div className="flex flex-wrap gap-4">
@@ -32,13 +32,13 @@ const Hero = () => {
             className="flex items-center gap-2 bg-netflix-red hover:bg-netflix-dark-red text-white py-2 px-6 rounded transition-colors duration-300 font-medium"
           >
             <Play size={20} />
-            Featured Project
+            Projeto em Destaque
           </Link>
           <Link 
             to="#contact" 
             className="bg-white/20 backdrop-blur-sm border border-white/30 hover:bg-white/30 text-white py-2 px-6 rounded transition-colors duration-300 font-medium"
           >
-            Contact Me
+            Contate-me
           </Link>
         </div>
       </div>

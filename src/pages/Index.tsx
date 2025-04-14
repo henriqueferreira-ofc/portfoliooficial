@@ -28,14 +28,14 @@ const Index = () => {
   useEffect(() => {
     const fetchProjects = async () => {
       try {
-        console.log("Attempting to fetch projects from Supabase...");
+        console.log("Tentando buscar projetos do Supabase...");
         const { data, error } = await supabase
           .from('projects')
           .select('*')
           .order('created_at', { ascending: false });
 
         if (error) {
-          console.error('Error fetching projects:', error);
+          console.error('Erro ao buscar projetos:', error);
           throw error;
         }
 
@@ -72,19 +72,19 @@ const Index = () => {
           setWebProjects(web.length > 0 ? web : getSampleWebProjects());
           setMobileProjects(mobile.length > 0 ? mobile : getSampleMobileProjects());
           setDesignProjects(design.length > 0 ? design : getSampleDesignProjects());
-          console.log("Successfully loaded projects from Supabase");
+          console.log("Projetos carregados com sucesso do Supabase");
         } else {
-          console.log("No data found in Supabase, using sample data");
+          console.log("Nenhum dado encontrado no Supabase, usando dados de exemplo");
           // No data found, use sample data
           setWebProjects(getSampleWebProjects());
           setMobileProjects(getSampleMobileProjects());
           setDesignProjects(getSampleDesignProjects());
         }
       } catch (error) {
-        console.error('Error fetching projects:', error);
+        console.error('Erro ao buscar projetos:', error);
         toast({
-          title: "Notice",
-          description: "Using sample project data for display",
+          title: "Aviso",
+          description: "Usando dados de projetos de exemplo para exibição",
           variant: "default",
         });
         
@@ -100,37 +100,37 @@ const Index = () => {
     fetchProjects();
   }, [toast]);
 
-  // Sample data functions (fallback if Supabase fetch fails)
+  // Funções de dados de exemplo (fallback se a busca do Supabase falhar)
   const getSampleWebProjects = (): Project[] => [
     {
       id: '1',
       imageUrl: 'https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80',
-      title: 'E-Commerce Platform',
-      description: 'A full-featured online store with cart, checkout, and payment processing.',
+      title: 'Plataforma E-Commerce',
+      description: 'Uma loja online completa com carrinho, checkout e processamento de pagamento.',
       tags: ['React', 'Node.js', 'MongoDB'],
       link: '#'
     },
     {
       id: '2',
       imageUrl: 'https://images.unsplash.com/photo-1461749280684-dccba630e2f6?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80',
-      title: 'Portfolio Website',
-      description: 'Responsive portfolio website with animated transitions and dynamic content loading.',
+      title: 'Site de Portfólio',
+      description: 'Site de portfólio responsivo com transições animadas e carregamento dinâmico de conteúdo.',
       tags: ['React', 'Tailwind CSS', 'Framer Motion'],
       link: '#'
     },
     {
       id: '3',
       imageUrl: 'https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80',
-      title: 'Dashboard UI',
-      description: 'Admin dashboard with data visualization, user management and reporting features.',
+      title: 'Interface de Dashboard',
+      description: 'Painel administrativo com visualização de dados, gerenciamento de usuários e recursos de relatórios.',
       tags: ['React', 'TypeScript', 'Chart.js'],
       link: '#'
     },
     {
       id: '4',
       imageUrl: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80',
-      title: 'Social Media App',
-      description: 'Platform for connecting users with similar interests and sharing content.',
+      title: 'App de Mídia Social',
+      description: 'Plataforma para conectar usuários com interesses semelhantes e compartilhar conteúdo.',
       tags: ['React Native', 'Firebase'],
       link: '#'
     },
@@ -140,32 +140,32 @@ const Index = () => {
     {
       id: '5',
       imageUrl: 'https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80',
-      title: 'Fitness Tracker',
-      description: 'Mobile app for tracking workouts, nutrition, and health metrics.',
+      title: 'Rastreador de Fitness',
+      description: 'Aplicativo móvel para rastrear treinos, nutrição e métricas de saúde.',
       tags: ['React Native', 'Redux', 'HealthKit'],
       link: '#'
     },
     {
       id: '6',
       imageUrl: 'https://images.unsplash.com/photo-1649972904349-6e44c42644a7?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80',
-      title: 'Recipe Finder',
-      description: 'App that suggests recipes based on ingredients you have at home.',
-      tags: ['Flutter', 'Firebase', 'API Integration'],
+      title: 'Localizador de Receitas',
+      description: 'Aplicativo que sugere receitas com base nos ingredientes que você tem em casa.',
+      tags: ['Flutter', 'Firebase', 'Integração API'],
       link: '#'
     },
     {
       id: '7',
       imageUrl: 'https://images.unsplash.com/photo-1461749280684-dccba630e2f6?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80',
-      title: 'Travel Companion',
-      description: 'Travel planning and itinerary management with maps and recommendations.',
+      title: 'Companheiro de Viagem',
+      description: 'Planejamento de viagens e gerenciamento de itinerário com mapas e recomendações.',
       tags: ['React Native', 'Google Maps API'],
       link: '#'
     },
     {
       id: '8',
       imageUrl: 'https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80',
-      title: 'Weather App',
-      description: 'Real-time weather forecasts with beautiful visualizations and notifications.',
+      title: 'App de Clima',
+      description: 'Previsões meteorológicas em tempo real com belas visualizações e notificações.',
       tags: ['Swift', 'Weather API'],
       link: '#'
     },
@@ -175,33 +175,33 @@ const Index = () => {
     {
       id: '9',
       imageUrl: 'https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80',
-      title: 'Brand Identity',
-      description: 'Complete brand identity design including logo, color scheme, and guidelines.',
+      title: 'Identidade de Marca',
+      description: 'Design completo de identidade de marca incluindo logotipo, esquema de cores e diretrizes.',
       tags: ['Branding', 'Illustrator', 'Photoshop'],
       link: '#'
     },
     {
       id: '10',
       imageUrl: 'https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80',
-      title: 'UI/UX Case Study',
-      description: 'Comprehensive UX research and UI design for a financial application.',
-      tags: ['Figma', 'User Research', 'Prototyping'],
+      title: 'Estudo de Caso UI/UX',
+      description: 'Pesquisa UX abrangente e design de UI para um aplicativo financeiro.',
+      tags: ['Figma', 'Pesquisa de Usuário', 'Prototipagem'],
       link: '#'
     },
     {
       id: '11',
       imageUrl: 'https://images.unsplash.com/photo-1649972904349-6e44c42644a7?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80',
-      title: 'Product Design',
-      description: 'End-to-end product design for a smart home device and companion app.',
-      tags: ['Industrial Design', 'UI/UX', '3D Modeling'],
+      title: 'Design de Produto',
+      description: 'Design completo de produto para um dispositivo de casa inteligente e aplicativo complementar.',
+      tags: ['Design Industrial', 'UI/UX', 'Modelagem 3D'],
       link: '#'
     },
     {
       id: '12',
       imageUrl: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80',
-      title: 'Marketing Materials',
-      description: 'Design of print and digital marketing assets for a product launch campaign.',
-      tags: ['Graphic Design', 'Marketing', 'Print Design'],
+      title: 'Materiais de Marketing',
+      description: 'Design de materiais de marketing impressos e digitais para uma campanha de lançamento de produto.',
+      tags: ['Design Gráfico', 'Marketing', 'Design de Impressão'],
       link: '#'
     },
   ];
@@ -220,9 +220,9 @@ const Index = () => {
             </div>
           ) : (
             <div id="featured-project" className="pb-8">
-              {webProjects.length > 0 && <ProjectRow title="Web Development" projects={webProjects} />}
-              {mobileProjects.length > 0 && <ProjectRow title="Mobile Applications" projects={mobileProjects} />}
-              {designProjects.length > 0 && <ProjectRow title="Design Projects" projects={designProjects} />}
+              {webProjects.length > 0 && <ProjectRow title="Desenvolvimento Web" projects={webProjects} />}
+              {mobileProjects.length > 0 && <ProjectRow title="Aplicativos Móveis" projects={mobileProjects} />}
+              {designProjects.length > 0 && <ProjectRow title="Projetos de Design" projects={designProjects} />}
             </div>
           )}
         </div>

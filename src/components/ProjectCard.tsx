@@ -46,7 +46,7 @@ const ProjectCard = ({ imageUrl, title, description, tags, link }: ProjectCardPr
               rel="noopener noreferrer"
               className="mt-3 text-netflix-red text-sm font-medium inline-block hover:underline"
             >
-              View Project
+              Ver Projeto
             </a>
           )}
         </div>
