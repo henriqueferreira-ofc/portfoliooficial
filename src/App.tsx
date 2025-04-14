@@ -9,6 +9,7 @@ import Projects from "./pages/Projects";
 import AboutPage from "./pages/About";
 import ContactPage from "./pages/Contact";
 import NotFound from "./pages/NotFound";
+import FeaturedProjects from "./pages/FeaturedProjects";
 
 // Create a client with default options - no Supabase dependencies
 const queryClient = new QueryClient({
@@ -29,6 +30,7 @@ const App = () => (
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/projects" element={<Projects />} />
+          <Route path="/featured-projects" element={<FeaturedProjects />} />
           <Route path="/about" element={<AboutPage />} />
           <Route path="/contact" element={<ContactPage />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
