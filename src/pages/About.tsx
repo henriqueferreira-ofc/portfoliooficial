@@ -112,7 +112,8 @@ const AboutPage = () => {
                 Minha jornada profissional inclui a gestão de projetos usando metodologias ágeis como Scrum e Kanban, além de abordagens tradicionais baseadas no PMBOK. Possuo experiência significativa em liderança, desenvolvimento de talentos e implementação de estratégias para melhorar o desempenho das equipes.
               </p>
               <p className="text-gray-300">
-                Quando não estou coordenando projetos, gosto de explorar novas tendências em gestão, contribuir para a comunidade e compartilhar conhecimento com outros profissionais da área.
+              Gestor de Tecnologia com forte atuação em liderança, gestão de projetos de TI e de pessoas. Especialista em transformação digital, alia visão estratégica à expertise técnica para otimizar processos e entregar resultados. Possui experiência em desenvolvimento de software e soluções escaláveis, com foco em inovação e gestão eficiente.
+              Quando não estou coordenando projetos, gosto de explorar novas tendências em gestão, contribuir para a comunidade e compartilhar conhecimento com outros profissionais da área.
               </p>
             </div>
           </div>
