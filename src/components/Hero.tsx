@@ -1,5 +1,4 @@
-
-import { Play, MessageSquare } from 'lucide-react';
+import { Play, MessageSquare, Github } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 const Hero = () => {
@@ -48,6 +47,15 @@ const Hero = () => {
             <MessageSquare size={20} />
             Contate-me
           </Link>
+          <a 
+            href="https://github.com/SEU_USUARIO_GITHUB" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="flex items-center gap-2 bg-white/20 backdrop-blur-sm border border-white/30 hover:bg-white/30 text-white py-2 px-6 rounded transition-colors duration-300 font-medium"
+          >
+            <Github size={20} />
+            GitHub
+          </a>
         </div>
       </div>
     </section>
