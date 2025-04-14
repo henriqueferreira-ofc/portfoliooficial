@@ -32,11 +32,13 @@ const Projects = () => {
   const [designProjects, setDesignProjects] = useState<Project[]>([]);
   const [projetosAntigos, setProjetosAntigos] = useState<ProjetosAntigos[]>([]);
   const [isLoading, setIsLoading] = useState(true);
+  const [hasError, setHasError] = useState(false);
 
   useEffect(() => {
     const fetchProjects = async () => {
       try {
         setIsLoading(true);
+        setHasError(false);
         console.log("Buscando dados de projetos do Supabase...");
         
         // Fetch from projects table (newer structure)
@@ -61,6 +63,7 @@ const Projects = () => {
               onClick: () => window.location.reload(),
             }
           });
+          setHasError(true);
         }
         
         if (projetosError) {
@@ -110,6 +113,7 @@ const Projects = () => {
           });
         } else {
           console.log("Nenhum projeto recente encontrado, usando dados de exemplo");
+          // Use sample data if no projects found
           setWebProjects(getSampleWebProjects());
           setMobileProjects(getSampleMobileProjects());
           setDesignProjects(getSampleDesignProjects());
@@ -131,6 +135,7 @@ const Projects = () => {
         
       } catch (error) {
         console.error('Erro ao buscar dados:', error);
+        setHasError(true);
         sonnerToast("Erro", {
           description: "Erro ao carregar dados do banco de dados, usando dados de exemplo",
         });
@@ -263,6 +268,17 @@ const Projects = () => {
           <div className="flex justify-center items-center py-16">
             <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-netflix-red"></div>
           </div>
+        ) : hasError ? (
+          <div className="text-center py-16">
+            <h2 className="text-2xl font-bold text-white mb-4">Erro ao carregar projetos</h2>
+            <p className="text-gray-300">Mostrando dados de exemplo enquanto tentamos resolver o problema.</p>
+            <button 
+              onClick={() => window.location.reload()} 
+              className="mt-6 bg-netflix-red hover:bg-red-700 text-white font-bold py-2 px-4 rounded"
+            >
+              Tentar novamente
+            </button>
+          </div>
         ) : (
           <div className="pb-8">
             {webProjects.length > 0 && <ProjectRow title="Desenvolvimento Web" projects={webProjects} />}
@@ -309,6 +325,13 @@ const Projects = () => {
                       </div>
                   ))}
                 </div>
+              </div>
+            )}
+            
+            {!isLoading && !hasError && webProjects.length === 0 && mobileProjects.length === 0 && designProjects.length === 0 && projetosAntigos.length === 0 && (
+              <div className="text-center py-16">
+                <h2 className="text-2xl font-bold text-white mb-4">Nenhum projeto encontrado</h2>
+                <p className="text-gray-300">Não há projetos cadastrados no momento.</p>
               </div>
             )}
           </div>

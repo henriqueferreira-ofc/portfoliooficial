@@ -18,5 +18,8 @@ export const supabase = createClient<Database>(SUPABASE_URL, SUPABASE_PUBLISHABL
     headers: {
       'x-client-info': 'portfolio-website'
     }
+  },
+  db: {
+    schema: 'public'
   }
 });
