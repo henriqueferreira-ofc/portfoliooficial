@@ -18,31 +18,82 @@ interface Project {
   link?: string;
 }
 
+interface Tecnologia {
+  id: number;
+  nome: string;
+  descricao: string;
+  imagem: string;
+  destaque: boolean;
+}
+
+interface ProjetosAntigos {
+  id: number;
+  nome: string;
+  descricao: string;
+  nivel: number;
+  tipo: string;
+  repositorio: string;
+  imagens: string[] | null;
+  destaque: boolean;
+}
+
 const Index = () => {
   const [webProjects, setWebProjects] = useState<Project[]>([]);
   const [mobileProjects, setMobileProjects] = useState<Project[]>([]);
   const [designProjects, setDesignProjects] = useState<Project[]>([]);
+  const [tecnologias, setTecnologias] = useState<Tecnologia[]>([]);
+  const [projetosAntigos, setProjetosAntigos] = useState<ProjetosAntigos[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const { toast } = useToast();
 
   useEffect(() => {
-    const fetchProjects = async () => {
+    const fetchAllData = async () => {
       try {
-        console.log("Tentando buscar projetos do Supabase...");
-        const { data, error } = await supabase
+        setIsLoading(true);
+        console.log("Buscando dados do Supabase...");
+        
+        // Fetch from projects table (newer structure)
+        const { data: projectsData, error: projectsError } = await supabase
           .from('projects')
           .select('*')
           .order('created_at', { ascending: false });
 
-        if (error) {
-          console.error('Erro ao buscar projetos:', error);
-          throw error;
+        // Fetch from projetos table (older structure) 
+        const { data: projetosData, error: projetosError } = await supabase
+          .from('projetos')
+          .select('*')
+          .order('nivel', { ascending: false });
+          
+        // Fetch from tecnologias table
+        const { data: tecnologiasData, error: tecnologiasError } = await supabase
+          .from('tecnologias')
+          .select('*');
+
+        // Check for errors and handle them
+        if (projectsError) {
+          console.error('Erro ao buscar projects:', projectsError);
+          toast({
+            title: "Erro",
+            description: "Não foi possível buscar os projetos recentes",
+            variant: "destructive",
+          });
+        }
+        
+        if (projetosError) {
+          console.error('Erro ao buscar projetos:', projetosError);
+        }
+        
+        if (tecnologiasError) {
+          console.error('Erro ao buscar tecnologias:', tecnologiasError);
         }
 
-        if (data && data.length > 0) {
+        // Process projects data if available
+        if (projectsData && projectsData.length > 0) {
+          console.log("Dados de projetos recentes carregados:", projectsData.length);
+          
           // Transform the data to match our Project interface
-          const transformedProjects: Project[] = data.map(project => ({
-            id: project.id.toString(), // Ensure ID is a string
+          const transformedProjects: Project[] = projectsData.map(project => ({
+            id: project.id.toString(),
             imageUrl: project.cover_image || 'https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80',
             title: project.title,
             description: project.description,
@@ -72,16 +123,32 @@ const Index = () => {
           setWebProjects(web.length > 0 ? web : getSampleWebProjects());
           setMobileProjects(mobile.length > 0 ? mobile : getSampleMobileProjects());
           setDesignProjects(design.length > 0 ? design : getSampleDesignProjects());
-          console.log("Projetos carregados com sucesso do Supabase");
         } else {
-          console.log("Nenhum dado encontrado no Supabase, usando dados de exemplo");
-          // No data found, use sample data
+          console.log("Nenhum projeto recente encontrado, usando dados de exemplo");
           setWebProjects(getSampleWebProjects());
           setMobileProjects(getSampleMobileProjects());
           setDesignProjects(getSampleDesignProjects());
         }
+        
+        // Process projetos (older structure) if available
+        if (projetosData && projetosData.length > 0) {
+          console.log("Dados de projetos antigos carregados:", projetosData.length);
+          setProjetosAntigos(projetosData);
+          
+          // You could also merge these with the projects above if needed
+          // This would involve transforming the projetosData to match the Project interface
+        }
+        
+        // Process tecnologias data if available
+        if (tecnologiasData && tecnologiasData.length > 0) {
+          console.log("Dados de tecnologias carregados:", tecnologiasData.length);
+          setTecnologias(tecnologiasData);
+          
+          // In future updates, we could use this data to display a skills section
+        }
+        
       } catch (error) {
-        console.error('Erro ao buscar projetos:', error);
+        console.error('Erro ao buscar dados:', error);
         toast({
           title: "Aviso",
           description: "Usando dados de projetos de exemplo para exibição",
@@ -97,7 +164,7 @@ const Index = () => {
       }
     };
 
-    fetchProjects();
+    fetchAllData();
   }, [toast]);
 
   // Funções de dados de exemplo (fallback se a busca do Supabase falhar)
@@ -223,6 +290,73 @@ const Index = () => {
               {webProjects.length > 0 && <ProjectRow title="Desenvolvimento Web" projects={webProjects} />}
               {mobileProjects.length > 0 && <ProjectRow title="Aplicativos Móveis" projects={mobileProjects} />}
               {designProjects.length > 0 && <ProjectRow title="Projetos de Design" projects={designProjects} />}
+              
+              {/* Caso você queira adicionar projetos da tabela projetos, você pode adicionar um novo ProjectRow aqui */}
+              {projetosAntigos.length > 0 && (
+                <div className="mt-12">
+                  <h2 className="text-2xl font-bold text-white mb-4">Projetos Antigos</h2>
+                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    {projetosAntigos
+                      .filter(p => p.destaque)
+                      .slice(0, 6)
+                      .map(projeto => (
+                        <div key={projeto.id} className="bg-netflix-dark-gray rounded-md overflow-hidden shadow-lg">
+                          <div className="h-48 bg-netflix-medium-gray flex items-center justify-center">
+                            {projeto.imagens && projeto.imagens.length > 0 ? (
+                              <img 
+                                src={projeto.imagens[0]} 
+                                alt={projeto.nome} 
+                                className="w-full h-full object-cover"
+                              />
+                            ) : (
+                              <div className="text-white text-4xl">{projeto.nome.charAt(0)}</div>
+                            )}
+                          </div>
+                          <div className="p-4">
+                            <h3 className="text-lg font-semibold text-white">{projeto.nome}</h3>
+                            <p className="text-sm text-gray-300 mt-2 line-clamp-3">{projeto.descricao}</p>
+                            <div className="mt-3 flex justify-between items-center">
+                              <span className="text-xs px-2 py-1 bg-netflix-red rounded-full text-white">
+                                {projeto.tipo}
+                              </span>
+                              <a 
+                                href={projeto.repositorio} 
+                                target="_blank" 
+                                rel="noopener noreferrer"
+                                className="text-netflix-red text-sm hover:underline"
+                              >
+                                Ver projeto
+                              </a>
+                            </div>
+                          </div>
+                        </div>
+                    ))}
+                  </div>
+                </div>
+              )}
+              
+              {/* Caso você queira adicionar uma seção de tecnologias */}
+              {tecnologias.length > 0 && (
+                <div className="mt-16">
+                  <h2 className="text-2xl font-bold text-white mb-6">Tecnologias</h2>
+                  <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6">
+                    {tecnologias
+                      .filter(tech => tech.destaque)
+                      .map(tech => (
+                        <div key={tech.id} className="bg-netflix-dark-gray rounded-md p-4 flex flex-col items-center text-center">
+                          <div className="w-16 h-16 mb-3">
+                            <img 
+                              src={tech.imagem} 
+                              alt={tech.nome} 
+                              className="w-full h-full object-contain"
+                            />
+                          </div>
+                          <h3 className="text-white font-medium">{tech.nome}</h3>
+                        </div>
+                    ))}
+                  </div>
+                </div>
+              )}
             </div>
           )}
         </div>

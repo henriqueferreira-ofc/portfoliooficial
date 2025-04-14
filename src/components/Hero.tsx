@@ -1,3 +1,4 @@
+
 import { Play } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
@@ -26,19 +27,29 @@ const Hero = () => {
         </p>
         
         <div className="flex flex-wrap gap-4">
-          <Link 
-            to="#featured-project" 
+          <button 
+            onClick={() => {
+              const projectsSection = document.getElementById('projects');
+              if (projectsSection) {
+                projectsSection.scrollIntoView({ behavior: 'smooth' });
+              }
+            }}
             className="flex items-center gap-2 bg-netflix-red hover:bg-netflix-dark-red text-white py-2 px-6 rounded transition-colors duration-300 font-medium"
           >
             <Play size={20} />
             Projeto em Destaque
-          </Link>
-          <Link 
-            to="#contact" 
+          </button>
+          <button 
+            onClick={() => {
+              const contactSection = document.getElementById('contact');
+              if (contactSection) {
+                contactSection.scrollIntoView({ behavior: 'smooth' });
+              }
+            }}
             className="bg-white/20 backdrop-blur-sm border border-white/30 hover:bg-white/30 text-white py-2 px-6 rounded transition-colors duration-300 font-medium"
           >
             Contate-me
-          </Link>
+          </button>
         </div>
       </div>
     </section>
