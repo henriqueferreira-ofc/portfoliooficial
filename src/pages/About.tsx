@@ -96,7 +96,7 @@ const AboutPage = () => {
             <div className="md:w-1/3">
               <div className="aspect-square overflow-hidden rounded-full border-4 border-netflix-red">
                 <img 
-                  src="/lovable-uploads/df3d073d-99ee-4b12-a3d4-06326862e1e3.png" 
+                  src="/lovable-uploads/FotoPerfil.png" 
                   alt="Foto de perfil" 
                   className="w-full h-full object-cover"
                 />
