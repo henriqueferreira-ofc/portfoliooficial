@@ -1,3 +1,4 @@
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -96,6 +97,41 @@
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-netflix-black text-white;
+  }
+}
+
+@layer components {
+  .netflix-card {
+    @apply relative overflow-hidden rounded-md transition-all duration-300 bg-netflix-dark-gray;
+  }
+  
+  .netflix-card:hover {
+    @apply animate-card-hover z-10 shadow-xl;
+  }
+  
+  .netflix-card-info {
+    @apply absolute bottom-0 left-0 w-full opacity-0 bg-gradient-to-t from-black to-transparent p-4 transition-opacity duration-300;
+  }
+  
+  .netflix-card:hover .netflix-card-info {
+    @apply opacity-100;
+  }
+  
+  .netflix-section-title {
+    @apply text-white text-xl font-medium mb-4 ml-2;
+  }
+  
+  .netflix-row {
+    @apply flex space-x-4 overflow-x-auto pb-6 px-2 scrollbar-none;
+  }
+  
+  .scrollbar-none {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  
+  .scrollbar-none::-webkit-scrollbar {
+    display: none;
   }
 }
