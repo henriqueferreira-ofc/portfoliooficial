@@ -1,4 +1,3 @@
-
 import React from 'react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
@@ -45,8 +44,19 @@ const ContactPage = () => {
     setIsSubmitting(true);
     
     try {
-      // Simulação de envio (em um app real, aqui você enviaria para sua API)
-      await new Promise(resolve => setTimeout(resolve, 1500));
+      const response = await fetch('https://ofarimldzzqvtbbktkzu.supabase.co/functions/v1/send-email', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.error || 'Erro ao enviar mensagem');
+      }
       
       sonnerToast("Mensagem enviada", {
         description: "Obrigado pelo contato! Retornaremos em breve.",
@@ -100,7 +110,7 @@ const ContactPage = () => {
                   type="email"
                   value={formData.email}
                   onChange={handleChange}
-                  placeholder="henriqueanalista.ads@gmail.com"
+                  placeholder="seu@email.com"
                   required
                   className="bg-netflix-medium-gray border-gray-700 text-white"
                 />
@@ -161,8 +171,8 @@ const ContactPage = () => {
                   </div>
                   <div>
                     <h3 className="text-white font-medium">Email</h3>
-                    <a href="mailto:contato@exemplo.com" className="text-gray-300 hover:text-netflix-red transition-colors">
-                      contato@exemplo.com
+                    <a href="mailto:henriqueanalista.ads@gmail.com" className="text-gray-300 hover:text-netflix-red transition-colors">
+                      henriqueanalista.ads@gmail.com
                     </a>
                   </div>
                 </div>
@@ -176,7 +186,7 @@ const ContactPage = () => {
                   <div>
                     <h3 className="text-white font-medium">Telefone</h3>
                     <a href="tel:+5511987654321" className="text-gray-300 hover:text-netflix-red transition-colors">
-                      +55 (11) 98765-4321
+                      +55 (61) 98259-9983
                     </a>
                   </div>
                 </div>
@@ -191,7 +201,7 @@ const ContactPage = () => {
                   <div>
                     <h3 className="text-white font-medium">Localização</h3>
                     <p className="text-gray-300">
-                      São Paulo, SP, Brasil
+                      Brasília, DF, Brasil
                     </p>
                   </div>
                 </div>
@@ -202,7 +212,7 @@ const ContactPage = () => {
               <h2 className="text-2xl font-bold text-white mb-4">Redes Sociais</h2>
               
               <div className="flex flex-wrap gap-4">
-                <a href="#" 
+                <a href="https://github.com/henriqueferreira-ofc" target="_blank" 
                   className="flex items-center justify-center h-12 w-12 rounded-full bg-netflix-medium-gray text-white hover:bg-netflix-red transition-colors"
                   aria-label="GitHub"
                 >
@@ -211,7 +221,7 @@ const ContactPage = () => {
                   </svg>
                 </a>
                 
-                <a href="#" 
+                <a href="https://www.linkedin.com/in/henriqueferreira-ofc/" target="_blank" 
                   className="flex items-center justify-center h-12 w-12 rounded-full bg-netflix-medium-gray text-white hover:bg-netflix-red transition-colors"
                   aria-label="LinkedIn"
                 >
@@ -220,7 +230,7 @@ const ContactPage = () => {
                   </svg>
                 </a>
                 
-                <a href="#" 
+                <a href="https://x.com/hcafoficial" target="_blank" 
                   className="flex items-center justify-center h-12 w-12 rounded-full bg-netflix-medium-gray text-white hover:bg-netflix-red transition-colors"
                   aria-label="Twitter/X"
                 >
@@ -229,7 +239,7 @@ const ContactPage = () => {
                   </svg>
                 </a>
                 
-                <a href="#" 
+                <a href="https://www.instagram.com/henriqueferreira.ofc/" target="_blank" 
                   className="flex items-center justify-center h-12 w-12 rounded-full bg-netflix-medium-gray text-white hover:bg-netflix-red transition-colors"
                   aria-label="Instagram"
                 >
