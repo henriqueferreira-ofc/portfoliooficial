@@ -109,6 +109,12 @@ const AboutPage = () => {
               <p className="text-gray-300 mb-4">
                 Minha jornada profissional inclui a gestão de projetos usando metodologias ágeis como Scrum e Kanban, além de abordagens tradicionais baseadas no PMBOK. Possuo experiência significativa em liderança, desenvolvimento de talentos e implementação de estratégias para melhorar o desempenho das equipes.
               </p>
+              <p className="text-gray-300 mb-4">
+              <p className="text-gray-300 mb-4">
+                Expertise em bancos de dados inclui MySQL, SQLite e conhecimentos iniciais em PostgreSQL, garantindo manipulação eficiente de dados. Também possuo familiaridade com Docker para criação e gerenciamento de contêineres, facilitando a escalabilidade e a integração contínua de sistemas. 
+                Busco novos desafios em Gestão de Tecnologia, onde possa aliar minha visão estratégica à expertise técnica, liderando projetos inovadores e otimizando processos para impulsionar resultados. Aberto a oportunidades para cargos de liderança em tecnologia, gerenciamento de projetos e transformação digital.
+              </p>
+              </p>
               <p className="text-gray-300">
               Gestor de Tecnologia com forte atuação em liderança, gestão de projetos de TI e de pessoas. Especialista em transformação digital, alia visão estratégica à expertise técnica para otimizar processos e entregar resultados. Possui experiência em desenvolvimento de software e soluções escaláveis, com foco em inovação e gestão eficiente.
               Quando não estou coordenando projetos, gosto de explorar novas tendências em gestão, contribuir para a comunidade e compartilhar conhecimento com outros profissionais da área.
@@ -141,6 +147,24 @@ const AboutPage = () => {
         <div className="mb-12">
           <h2 className="text-2xl font-bold text-white mb-6">Formação Acadêmica</h2>
           <div className="space-y-6">
+          <div className="bg-netflix-dark-gray p-6 rounded-lg">
+              <div className="flex items-start gap-4">
+                <div className="flex-shrink-0 bg-netflix-medium-gray p-3 rounded-full">
+                  <GraduationCap className="w-6 h-6 text-netflix-red" />
+                </div>
+                <div>
+                  <div className="flex justify-between items-start mb-2">
+                    <h3 className="text-xl font-semibold text-white">ADS (Análise e Desenvolvimento de Sistemas)</h3>
+                    <span className="text-netflix-red text-sm">2021 - 2024</span>
+                  </div>
+                  <h4 className="text-gray-300 mb-3">Centro Universitário do Planalto Central Apparecido dos Santos (UNICEPLAC)</h4>
+                  <p className="text-gray-400">
+                    Graduado em ADS, Especialização com foco em metodologias ágeis e liderança de equipes de TI.
+                  </p>
+                </div>
+              </div>
+            </div>
+
             <div className="bg-netflix-dark-gray p-6 rounded-lg">
               <div className="flex items-start gap-4">
                 <div className="flex-shrink-0 bg-netflix-medium-gray p-3 rounded-full">
@@ -148,10 +172,10 @@ const AboutPage = () => {
                 </div>
                 <div>
                   <div className="flex justify-between items-start mb-2">
-                    <h3 className="text-xl font-semibold text-white">MBA em Gestão de Projetos</h3>
-                    <span className="text-netflix-red text-sm">2020 - 2021</span>
+                    <h3 className="text-xl font-semibold text-white">MBA - Gestão de Projetos de TI</h3>
+                    <span className="text-netflix-red text-sm">2024 - 2025</span>
                   </div>
-                  <h4 className="text-gray-300 mb-3">Universidade de Tecnologia</h4>
+                  <h4 className="text-gray-300 mb-3">Faculdade Venda Nova do Imigrante (FAVENI)</h4>
                   <p className="text-gray-400">
                     Especialização com foco em metodologias ágeis e liderança de equipes de TI.
                   </p>
@@ -166,12 +190,30 @@ const AboutPage = () => {
                 </div>
                 <div>
                   <div className="flex justify-between items-start mb-2">
-                    <h3 className="text-xl font-semibold text-white">Bacharelado em Sistemas de Informação</h3>
-                    <span className="text-netflix-red text-sm">2015 - 2019</span>
+                    <h3 className="text-xl font-semibold text-white">Especialização - Gestão em Tecnologia</h3>
+                    <span className="text-netflix-red text-sm">2024 - 2025</span>
                   </div>
-                  <h4 className="text-gray-300 mb-3">Faculdade de Tecnologia</h4>
+                  <h4 className="text-gray-300 mb-3">Faculdade Venda Nova do Imigrante (FAVENI)</h4>
                   <p className="text-gray-400">
                     Formação com ênfase em desenvolvimento de software e gestão de TI.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div className="bg-netflix-dark-gray p-6 rounded-lg">
+              <div className="flex items-start gap-4">
+                <div className="flex-shrink-0 bg-netflix-medium-gray p-3 rounded-full">
+                  <BookOpen className="w-6 h-6 text-netflix-red" />
+                </div>
+                <div>
+                  <div className="flex justify-between items-start mb-2">
+                    <h3 className="text-xl font-semibold text-white">MBA - Gestão Pública e Gestão de Pessoas</h3>
+                    <span className="text-netflix-red text-sm">2024 - 2025</span>
+                  </div>
+                  <h4 className="text-gray-300 mb-3">Faculdade Venda Nova do Imigrante (FAVENI)</h4>
+                  <p className="text-gray-400">
+                   MBA - Em Gestão Pessoas, Gestão Públicas, com ênfase em desenvolvimento de software e gestão de TI.
                   </p>
                 </div>
               </div>
@@ -184,12 +226,46 @@ const AboutPage = () => {
                 </div>
                 <div>
                   <div className="flex justify-between items-start mb-2">
-                    <h3 className="text-xl font-semibold text-white">Certificação PMP</h3>
+                    <h3 className="text-xl font-semibold text-white">Certificação - Google Analicts</h3>
                     <span className="text-netflix-red text-sm">2022</span>
                   </div>
                   <h4 className="text-gray-300 mb-3">Project Management Institute</h4>
                   <p className="text-gray-400">
-                    Certificação profissional em gestão de projetos reconhecida internacionalmente.
+                    Certificação profissional em Analicts Google.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div className="bg-netflix-dark-gray p-6 rounded-lg">
+              <div className="flex items-start gap-4">
+                <div className="flex-shrink-0 bg-netflix-medium-gray p-3 rounded-full">
+                  <School className="w-6 h-6 text-netflix-red" />
+                </div>
+                <div>
+                  <div className="flex justify-between items-start mb-2">
+                    <h3 className="text-xl font-semibold text-white">Administração da Informação</h3>
+                    <span className="text-netflix-red text-sm">2024</span>
+                  </div>
+                  <h4 className="text-gray-300 mb-3">Curso de Capacitação - 240hs</h4>
+                  <p className="text-gray-400">
+                    Gestão da informação e Gestão de Pessoas.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div className="bg-netflix-dark-gray p-6 rounded-lg">
+              <div className="flex items-start gap-4">
+                <div className="flex-shrink-0 bg-netflix-medium-gray p-3 rounded-full">
+                  <School className="w-6 h-6 text-netflix-red" />
+                </div>
+                <div>
+                  <div className="flex justify-between items-start mb-2">
+                    <h3 className="text-xl font-semibold text-white">Admnistração de Confitos</h3>
+                    <span className="text-netflix-red text-sm">2024</span>
+                  </div>
+                  <h4 className="text-gray-300 mb-3">Curso de Capacitação - 240hs</h4>
+                  <p className="text-gray-400">
+                  Liderança de Conflitos e Gestão de Pessoas.          
                   </p>
                 </div>
               </div>

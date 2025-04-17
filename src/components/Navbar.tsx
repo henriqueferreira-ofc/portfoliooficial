@@ -42,8 +42,8 @@ const Navbar = () => {
         {/* Desktop Navigation */}
         <div className="hidden md:flex items-center space-x-6">
           <Link to="/" className="text-white hover:text-netflix-red transition-colors">Início</Link>
-          <Link to="/projects" className="text-white hover:text-netflix-red transition-colors">Projetos</Link>
           <Link to="/about" className="text-white hover:text-netflix-red transition-colors">Sobre</Link>
+          <Link to="/projects" className="text-white hover:text-netflix-red transition-colors">Projetos</Link>
           <Link to="/contact" className="text-white hover:text-netflix-red transition-colors">Contato</Link>
         </div>
         
