@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
@@ -88,7 +87,6 @@ const AboutPage = () => {
       <div className="pt-24 container mx-auto px-4">
         <div className="flex items-center justify-between mb-8">
           <h1 className="text-4xl font-bold text-white">Sobre Mim</h1>
-          <span className="text-4xl font-bold text-white">Henrique Ferreira</span>
         </div>
         
         <div className="bg-netflix-dark-gray rounded-lg p-8 mb-12">
@@ -96,7 +94,7 @@ const AboutPage = () => {
             <div className="md:w-1/3">
               <div className="aspect-square overflow-hidden rounded-full border-4 border-netflix-red">
                 <img 
-                  src="/lovable-uploads/FotoPerfil.png" 
+                  src="/uploadsfotos/FotoPerfil.png" 
                   alt="Foto de perfil" 
                   className="w-full h-full object-cover"
                 />
