@@ -48,7 +48,7 @@ const Hero = () => {
             Contate-me
           </Link>
           <a 
-            href="https://github.com/brunabrits" 
+            href="https://github.com/henriqueferreira-ofc" 
             target="_blank" 
             rel="noopener noreferrer"
             className="flex items-center gap-2 bg-white/20 backdrop-blur-sm border border-white/30 hover:bg-white/30 text-white py-2 px-6 rounded transition-colors duration-300 font-medium"
