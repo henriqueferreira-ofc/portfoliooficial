@@ -51,9 +51,8 @@ const AboutPage = () => {
       <Navbar />
       
       <div className="pt-24 container mx-auto px-4">
-        <div className="flex items-center justify-between mb-8">
-          <h1 className="text-4xl font-bold text-white">                                           Sobre Mim</h1>
-          
+        <div className="mb-8">
+          <h1 className="text-4xl font-bold text-white text-center">Sobre Mim</h1>
         </div>
         
         <div className="bg-netflix-dark-gray rounded-lg p-8 mb-12">
@@ -81,7 +80,7 @@ const AboutPage = () => {
         </div>
         
         <div className="mb-12">
-          <h2 className="text-2xl font-bold text-white mb-6">                                        Minhas Habilidades</h2>
+          <h2 className="text-2xl font-bold text-white mb-6 text-center">Minhas Habilidades</h2>
           
           {isLoading ? <div className="flex justify-center items-center py-8">
               <div className="animate-spin rounded-full h-8 w-8 border-t-2 border-b-2 border-netflix-red"></div>
@@ -96,7 +95,7 @@ const AboutPage = () => {
         </div>
 
         <div className="mb-12">
-          <h2 className="text-2xl font-bold text-white mb-6">                                                   Formação Acadêmica</h2>
+          <h2 className="text-2xl font-bold text-white mb-6 text-center">Formação Acadêmica</h2>
           <div className="space-y-6">
             <div className="bg-netflix-dark-gray p-6 rounded-lg">
               <div className="flex items-start gap-4">
@@ -155,7 +154,7 @@ const AboutPage = () => {
         </div>
         
         <div className="mb-12">
-          <h2 className="text-2xl font-bold text-white mb-6">                                                    Experiência</h2>
+          <h2 className="text-2xl font-bold text-white mb-6 text-center">Experiência</h2>
           <div className="space-y-6">
             <div className="bg-netflix-dark-gray p-6 rounded-lg">
               <div className="flex justify-between items-start mb-2">
