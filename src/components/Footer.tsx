@@ -1,6 +1,6 @@
 import { Mail, Github, Linkedin, Twitter } from 'lucide-react';
 const Footer = () => {
-  return <footer className="bg-netflix-black py-12 border-t border-netflix-medium-gray mt-12">
+  return <footer className="bg-netflix-black py-12 border-t border-netflix-medium-gray mt-12 mx-[15px]">
       <div className="container mx-auto px-4">
         <div className="flex flex-col md:flex-row justify-between items-start">
           <div className="mb-6 md:mb-0">
