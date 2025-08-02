@@ -1,19 +1,8 @@
-
 import React, { useState } from 'react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import { toast as sonnerToast } from '@/components/ui/sonner';
-import { 
-  Code2, Database, Globe, Palette, 
-  FileCode2, GitBranch, MonitorSmartphone, 
-  Figma, LayoutGrid, Binary,
-  Briefcase, Users, ClipboardCheck,
-  BarChart2, Calendar, UserRound,
-  ListTodo, UserCog, Target,
-  Award, PieChart, Presentation,
-  GraduationCap, BookOpen, School
-} from 'lucide-react';
-
+import { Code2, Database, Globe, Palette, FileCode2, GitBranch, MonitorSmartphone, Figma, LayoutGrid, Binary, Briefcase, Users, ClipboardCheck, BarChart2, Calendar, UserRound, ListTodo, UserCog, Target, Award, PieChart, Presentation, GraduationCap, BookOpen, School } from 'lucide-react';
 interface Tecnologia {
   id: number;
   nome: string;
@@ -21,7 +10,6 @@ interface Tecnologia {
   imagem: string;
   destaque: boolean;
 }
-
 const getTechIcon = (techName: string) => {
   const iconMap: Record<string, React.ReactNode> = {
     'React': <Code2 className="w-8 h-8 text-blue-400" />,
@@ -36,7 +24,6 @@ const getTechIcon = (techName: string) => {
     'React Native': <MonitorSmartphone className="w-8 h-8 text-blue-400" />,
     'Tailwind CSS': <LayoutGrid className="w-8 h-8 text-teal-500" />,
     'Design UI/UX': <Palette className="w-8 h-8 text-pink-500" />,
-    
     'Gestão de Projetos': <Briefcase className="w-8 h-8 text-indigo-500" />,
     'Metodologias Ágeis': <ClipboardCheck className="w-8 h-8 text-green-400" />,
     'Scrum': <ListTodo className="w-8 h-8 text-blue-500" />,
@@ -44,7 +31,6 @@ const getTechIcon = (techName: string) => {
     'PMBOK': <ClipboardCheck className="w-8 h-8 text-purple-400" />,
     'Planejamento Estratégico': <Target className="w-8 h-8 text-red-400" />,
     'Análise de Dados': <PieChart className="w-8 h-8 text-blue-300" />,
-
     'Gestão de Pessoas': <Users className="w-8 h-8 text-green-500" />,
     'Liderança': <UserCog className="w-8 h-8 text-orange-500" />,
     'Mentoria': <UserRound className="w-8 h-8 text-purple-500" />,
@@ -54,52 +40,27 @@ const getTechIcon = (techName: string) => {
     'Comunicação': <Presentation className="w-8 h-8 text-indigo-400" />,
     'Planejamento de Recursos': <Calendar className="w-8 h-8 text-teal-500" />
   };
-
   return iconMap[techName] || <Code2 className="w-8 h-8 text-netflix-red" />;
 };
 
 // Local data for skills
-const localSkills = [
-  'Gestão de Projetos', 
-  'Metodologias Ágeis', 
-  'Gestão de Pessoas', 
-  'Liderança', 
-  'Desenvolvimento de Equipes', 
-  'Scrum',
-  'Análise de Dados',
-  'Planejamento Estratégico',
-  'React',
-  'TypeScript',
-  'Node.js',
-  'PMBOK',
-  'Kanban',
-  'Comunicação',
-  'Mentoria',
-  'Resolução de Conflitos'
-];
-
+const localSkills = ['Gestão de Projetos', 'Metodologias Ágeis', 'Gestão de Pessoas', 'Liderança', 'Desenvolvimento de Equipes', 'Scrum', 'Análise de Dados', 'Planejamento Estratégico', 'React', 'TypeScript', 'Node.js', 'PMBOK', 'Kanban', 'Comunicação', 'Mentoria', 'Resolução de Conflitos'];
 const AboutPage = () => {
   const [isLoading, setIsLoading] = useState(false);
-
-  return (
-    <div className="bg-netflix-black min-h-screen">
+  return <div className="bg-netflix-black min-h-screen">
       <Navbar />
       
       <div className="pt-24 container mx-auto px-4">
         <div className="flex items-center justify-between mb-8">
-          <h1 className="text-4xl font-bold text-white">Sobre Mim</h1>
-          <span className="text-4xl font-bold text-netflix-light-gray">Henrique Ferreira</span>
+          <h1 className="text-4xl font-bold text-white">                                           Sobre Mim</h1>
+          
         </div>
         
         <div className="bg-netflix-dark-gray rounded-lg p-8 mb-12">
           <div className="flex flex-col md:flex-row gap-8">
             <div className="md:w-1/3">
               <div className="aspect-square overflow-hidden rounded-full border-4 border-netflix-red">
-                <img 
-                  src="/lovable-uploads/df3d073d-99ee-4b12-a3d4-06326862e1e3.png" 
-                  alt="Foto de perfil" 
-                  className="w-full h-full object-cover"
-                />
+                <img src="/lovable-uploads/df3d073d-99ee-4b12-a3d4-06326862e1e3.png" alt="Foto de perfil" className="w-full h-full object-cover" />
               </div>
             </div>
             
@@ -119,28 +80,22 @@ const AboutPage = () => {
         </div>
         
         <div className="mb-12">
-          <h2 className="text-2xl font-bold text-white mb-6">Minhas Habilidades</h2>
+          <h2 className="text-2xl font-bold text-white mb-6">                                        Minhas Habilidades</h2>
           
-          {isLoading ? (
-            <div className="flex justify-center items-center py-8">
+          {isLoading ? <div className="flex justify-center items-center py-8">
               <div className="animate-spin rounded-full h-8 w-8 border-t-2 border-b-2 border-netflix-red"></div>
-            </div>
-          ) : (
-            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6">
-              {localSkills.map((skill, index) => (
-                <div key={index} className="bg-netflix-dark-gray rounded-md p-4 flex flex-col items-center text-center hover:bg-netflix-medium-gray transition-colors">
+            </div> : <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6">
+              {localSkills.map((skill, index) => <div key={index} className="bg-netflix-dark-gray rounded-md p-4 flex flex-col items-center text-center hover:bg-netflix-medium-gray transition-colors">
                   <div className="w-16 h-16 mb-3 flex items-center justify-center">
                     {getTechIcon(skill)}
                   </div>
                   <h3 className="text-white font-medium">{skill}</h3>
-                </div>
-              ))}
-            </div>
-          )}
+                </div>)}
+            </div>}
         </div>
 
         <div className="mb-12">
-          <h2 className="text-2xl font-bold text-white mb-6">Formação Acadêmica</h2>
+          <h2 className="text-2xl font-bold text-white mb-6">                                                   Formação Acadêmica</h2>
           <div className="space-y-6">
             <div className="bg-netflix-dark-gray p-6 rounded-lg">
               <div className="flex items-start gap-4">
@@ -199,7 +154,7 @@ const AboutPage = () => {
         </div>
         
         <div className="mb-12">
-          <h2 className="text-2xl font-bold text-white mb-6">Experiência</h2>
+          <h2 className="text-2xl font-bold text-white mb-6">                                                    Experiência</h2>
           <div className="space-y-6">
             <div className="bg-netflix-dark-gray p-6 rounded-lg">
               <div className="flex justify-between items-start mb-2">
@@ -238,8 +193,6 @@ const AboutPage = () => {
       </div>
       
       <Footer />
-    </div>
-  );
+    </div>;
 };
-
 export default AboutPage;
