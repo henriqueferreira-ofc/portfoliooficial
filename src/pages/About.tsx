@@ -58,10 +58,11 @@ const AboutPage = () => {
         
         <div className="bg-netflix-dark-gray rounded-lg p-8 mb-12">
           <div className="flex flex-col md:flex-row gap-8">
-            <div className="md:w-1/3">
+            <div className="md:w-1/3 flex flex-col items-center">
               <div className="aspect-square overflow-hidden rounded-full border-4 border-netflix-red">
                 <img src="/lovable-uploads/df3d073d-99ee-4b12-a3d4-06326862e1e3.png" alt="Foto de perfil" className="w-full h-full object-cover" />
               </div>
+              <h3 className="text-2xl font-bold text-white mt-4 text-center">Henrique Ferreira</h3>
             </div>
             
             <div className="md:w-2/3">
