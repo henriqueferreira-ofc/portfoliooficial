@@ -11,13 +11,24 @@ interface ProjectCardProps {
 
 const ProjectCard = ({ imageUrl, title, description, tags, link }: ProjectCardProps) => {
   const [isHovered, setIsHovered] = useState(false);
+  const [isExpanded, setIsExpanded] = useState(false);
 
   return (
     <div 
-      className="netflix-card min-w-[280px] md:min-w-[320px] h-[180px] md:h-[180px] flex-shrink-0 relative overflow-hidden rounded-md shadow-lg transition-all duration-300 ease-in-out"
+      className={`netflix-card min-w-[280px] md:min-w-[320px] h-[180px] md:h-[180px] flex-shrink-0 relative overflow-hidden rounded-md shadow-lg transition-all duration-500 ease-in-out cursor-pointer ${
+        isExpanded ? 'z-50' : 'z-10'
+      }`}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
-      style={{ transform: isHovered ? 'scale(1.05)' : 'scale(1)' }}
+      onClick={() => setIsExpanded(!isExpanded)}
+      style={{ 
+        transform: isExpanded 
+          ? 'scale(1.5) translateY(-20px)' 
+          : isHovered 
+            ? 'scale(1.05)' 
+            : 'scale(1)',
+        zIndex: isExpanded ? 50 : 10
+      }}
     >
       <div 
         className="w-full h-full bg-cover bg-center transition-transform duration-300"
@@ -27,7 +38,7 @@ const ProjectCard = ({ imageUrl, title, description, tags, link }: ProjectCardPr
           transition: 'filter 0.3s ease-in-out'
         }}
       />
-      <div className={`absolute inset-0 p-4 flex flex-col justify-between transition-opacity duration-300 ${isHovered ? 'opacity-100' : 'opacity-0'}`}>
+      <div className={`absolute inset-0 p-4 flex flex-col justify-between transition-opacity duration-300 ${isHovered || isExpanded ? 'opacity-100' : 'opacity-0'}`}>
         <h3 className="font-bold text-lg text-white">{title}</h3>
         <div>
           <p className="text-sm text-gray-300 line-clamp-2 mb-2">{description}</p>
@@ -45,12 +56,17 @@ const ProjectCard = ({ imageUrl, title, description, tags, link }: ProjectCardPr
               target="_blank" 
               rel="noopener noreferrer"
               className="mt-3 text-netflix-red text-sm font-medium inline-block hover:underline"
+              onClick={(e) => e.stopPropagation()}
             >
               Ver Projeto
             </a>
           )}
         </div>
       </div>
+      
+      {isExpanded && (
+        <div className="absolute inset-0 bg-black/20 rounded-md" />
+      )}
     </div>
   );
 };

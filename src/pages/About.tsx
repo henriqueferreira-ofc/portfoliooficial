@@ -57,24 +57,26 @@ const AboutPage = () => {
         
         <div className="bg-netflix-dark-gray rounded-lg p-8 mb-12">
           <div className="flex flex-col md:flex-row gap-8">
-            <div className="md:w-1/3 flex flex-col items-center">
-              <div className="aspect-square overflow-hidden rounded-full border-4 border-netflix-red">
+            <div className="md:w-1/3 flex flex-col items-center md:pt-8">
+              <div className="aspect-square overflow-hidden rounded-full border-4 border-netflix-red w-56 h-56">
                 <img src="/lovable-uploads/df3d073d-99ee-4b12-a3d4-06326862e1e3.png" alt="Foto de perfil" className="w-full h-full object-cover" />
               </div>
               <h3 className="text-2xl font-bold text-white mt-4 text-center">Henrique Ferreira</h3>
             </div>
             
-            <div className="md:w-2/3">
-              <h2 className="text-2xl font-bold text-white mb-4">Gestor de Projetos em TI e Gestão de Pessoas</h2>
-              <p className="text-gray-300 mb-4">
-                Olá! Sou um profissional especializado em gestão de projetos de TI com foco em liderança e desenvolvimento de equipes. Com mais de 5 anos de experiência combinando habilidades técnicas e gerenciais, meu objetivo é construir soluções eficientes e equipes de alto desempenho.
-              </p>
-              <p className="text-gray-300 mb-4">
-                Minha jornada profissional inclui a gestão de projetos usando metodologias ágeis como Scrum e Kanban, além de abordagens tradicionais baseadas no PMBOK. Possuo experiência significativa em liderança, desenvolvimento de talentos e implementação de estratégias para melhorar o desempenho das equipes.
-              </p>
-              <p className="text-gray-300">
-                Quando não estou coordenando projetos, gosto de explorar novas tendências em gestão, contribuir para a comunidade e compartilhar conhecimento com outros profissionais da área.
-              </p>
+            <div className="md:w-2/3 md:pl-4">
+              <h2 className="text-2xl font-bold text-white mb-4">Analista de Sistemas, Gestor de Projetos em TI, Gestão de Pessoas, MBA em Logística Empresarial</h2>
+              <div className="space-y-4">
+                <p className="text-gray-300 leading-relaxed">
+                  Olá! Sou um profissional especializado em gestão de projetos de TI com foco em liderança e desenvolvimento de equipes. Com bastante experiência e disposto a aprender inovações combinando habilidades técnicas e gerenciais, meu objetivo é construir soluções eficientes e equipes de alto desempenho.
+                </p>
+                <p className="text-gray-300 leading-relaxed">
+                  Minha jornada profissional inclui a gestão de projetos usando metodologias ágeis como Scrum e Kanban, além de abordagens tradicionais baseadas no PMBOK. Possuo experiência significativa em liderança, desenvolvimento de talentos e implementação de estratégias para melhorar o desempenho das equipes.
+                </p>
+                <p className="text-gray-300 leading-relaxed">
+                  Quando não estou coordenando projetos, gosto de explorar novas tendências em gestão, contribuir para a comunidade e compartilhar conhecimento com outros profissionais da área.
+                </p>
+              </div>
             </div>
           </div>
         </div>
@@ -104,17 +106,52 @@ const AboutPage = () => {
                 </div>
                 <div>
                   <div className="flex justify-between items-start mb-2">
-                    <h3 className="text-xl font-semibold text-white">MBA em Gestão de Projetos</h3>
-                    <span className="text-netflix-red text-sm">2020 - 2021</span>
+                    <h3 className="text-xl font-semibold text-white">Graduação Analise e Desenvolvimento de Sistemas</h3>
+                    <span className="text-netflix-red text-sm">2022 - 2024</span>
                   </div>
-                  <h4 className="text-gray-300 mb-3">Universidade de Tecnologia</h4>
+                  <h4 className="text-gray-300 mb-3">Universidade - Uniceplac</h4>
                   <p className="text-gray-400">
-                    Especialização com foco em metodologias ágeis e liderança de equipes de TI.
+                    Graduação em Análise e Desenvolvimento de Sistemas com foco em Gestão de Projetos.
                   </p>
                 </div>
               </div>
             </div>
-            
+            <div className="bg-netflix-dark-gray p-6 rounded-lg">
+              <div className="flex items-start gap-4">
+                <div className="flex-shrink-0 bg-netflix-medium-gray p-3 rounded-full">
+                  <GraduationCap className="w-6 h-6 text-netflix-red" />
+                </div>
+                <div>
+                  <div className="flex justify-between items-start mb-2">
+                    <h3 className="text-xl font-semibold text-white">Especialização em Gestão em Tecnologia</h3>
+                    <span className="text-netflix-red text-sm">2023 - 2025</span>
+                  </div>
+                  <h4 className="text-gray-300 mb-3">Universidade - Faveni</h4>
+                  <p className="text-gray-400">
+                    Especialização de Gestão em tecnlogia com foco em Gestão de Projetos.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div className="bg-netflix-dark-gray p-6 rounded-lg">
+              <div className="flex items-start gap-4">
+                <div className="flex-shrink-0 bg-netflix-medium-gray p-3 rounded-full">
+                  <GraduationCap className="w-6 h-6 text-netflix-red" />
+                </div>
+                <div>
+                  <div className="flex justify-between items-start mb-2">
+                    <h3 className="text-xl font-semibold text-white">Especialização Gestão Pública e Gestão de Pessoas</h3>
+                    <span className="text-netflix-red text-sm">2023 - 2025</span>
+                  </div>
+                  <h4 className="text-gray-300 mb-3">Universidade - Faveni</h4>
+                  <p className="text-gray-400">
+                    Especialização Gestão Pública e Gestão de Pessoas com foco em Gestão de Projetos.
+                  </p>
+                </div>
+              </div>
+            </div>
+
             <div className="bg-netflix-dark-gray p-6 rounded-lg">
               <div className="flex items-start gap-4">
                 <div className="flex-shrink-0 bg-netflix-medium-gray p-3 rounded-full">
@@ -122,12 +159,12 @@ const AboutPage = () => {
                 </div>
                 <div>
                   <div className="flex justify-between items-start mb-2">
-                    <h3 className="text-xl font-semibold text-white">Bacharelado em Sistemas de Informação</h3>
-                    <span className="text-netflix-red text-sm">2015 - 2019</span>
+                    <h3 className="text-xl font-semibold text-white">MBA e Gerenciamento de Projetos em TI</h3>
+                    <span className="text-netflix-red text-sm">2023 - 2025</span>
                   </div>
-                  <h4 className="text-gray-300 mb-3">Faculdade de Tecnologia</h4>
+                  <h4 className="text-gray-300 mb-3">Faculdade Unifaveni</h4>
                   <p className="text-gray-400">
-                    Formação com ênfase em desenvolvimento de software e gestão de TI.
+                    MBA com ênfase em desenvolvimento de software e gestão de Projetos em TI.
                   </p>
                 </div>
               </div>
@@ -140,26 +177,44 @@ const AboutPage = () => {
                 </div>
                 <div>
                   <div className="flex justify-between items-start mb-2">
-                    <h3 className="text-xl font-semibold text-white">Certificação PMP</h3>
-                    <span className="text-netflix-red text-sm">2022</span>
+                    <h3 className="text-xl font-semibold text-white">Graduação em Logística</h3>
+                    <span className="text-netflix-red text-sm">2009 - 2011</span>
                   </div>
-                  <h4 className="text-gray-300 mb-3">Project Management Institute</h4>
+                  <h4 className="text-gray-300 mb-3">Universidade Unifaveni</h4>
                   <p className="text-gray-400">
-                    Certificação profissional em gestão de projetos reconhecida internacionalmente.
+                    Graduação em Logística com foco em Gestão Empresarial e desenvolvimento operacional.
                   </p>
                 </div>
               </div>
             </div>
           </div>
         </div>
+
+        <div className="bg-netflix-dark-gray p-6 rounded-lg">
+              <div className="flex items-start gap-4">
+                <div className="flex-shrink-0 bg-netflix-medium-gray p-3 rounded-full">
+                  <BookOpen className="w-6 h-6 text-netflix-red" />
+                </div>
+                <div>
+                  <div className="flex justify-between items-start mb-2">
+                    <h3 className="text-xl font-semibold text-white">MBA em Logistica Empresarial e GP</h3>
+                    <span className="text-netflix-red text-sm">2022 - 2024</span>
+                  </div>
+                  <h4 className="text-gray-300 mb-3">Faculdade Unifaveni</h4>
+                  <p className="text-gray-400">
+                    MBA em Logística Empresarial com ênfase em Gestão empresariale desenvolvimento operacional.
+                  </p>
+                </div>
+              </div>
+            </div>
         
-        <div className="mb-12">
+        <div className="mb-6">
           <h2 className="text-2xl font-bold text-white mb-6 text-center">Experiência</h2>
           <div className="space-y-6">
             <div className="bg-netflix-dark-gray p-6 rounded-lg">
               <div className="flex justify-between items-start mb-2">
-                <h3 className="text-xl font-semibold text-white">Gestor de Projetos de TI Senior</h3>
-                <span className="text-netflix-red text-sm">2022 - Presente</span>
+                <h3 className="text-xl font-semibold text-white">Gestor de Projetos de TI</h3>
+                <span className="text-netflix-red text-sm">2024 - Presente</span>
               </div>
               <h4 className="text-gray-300 mb-3">Empresa Tech Inovação</h4>
               <p className="text-gray-400">
@@ -169,23 +224,23 @@ const AboutPage = () => {
             
             <div className="bg-netflix-dark-gray p-6 rounded-lg">
               <div className="flex justify-between items-start mb-2">
-                <h3 className="text-xl font-semibold text-white">Líder de Equipe de Desenvolvimento</h3>
+                <h3 className="text-xl font-semibold text-white">Supervisor de Logística</h3>
                 <span className="text-netflix-red text-sm">2020 - 2022</span>
               </div>
-              <h4 className="text-gray-300 mb-3">Agência Digital Criativa</h4>
+              <h4 className="text-gray-300 mb-3">Grupo Pão de Açucar</h4>
               <p className="text-gray-400">
-                Coordenei uma equipe de desenvolvedores front-end, implementando processos ágeis e práticas de mentoria. Focado em melhorar a produtividade e qualidade das entregas através de gestão eficiente de pessoas.
+                Coordenei uma equipe de Líderes, implementando processos operacionais e práticas de mentoria. Focado em melhorar a produtividade e qualidade das entregas através de gestão eficiente de pessoas.
               </p>
             </div>
             
             <div className="bg-netflix-dark-gray p-6 rounded-lg">
               <div className="flex justify-between items-start mb-2">
-                <h3 className="text-xl font-semibold text-white">Desenvolvedor Web e Analista</h3>
-                <span className="text-netflix-red text-sm">2018 - 2020</span>
+                <h3 className="text-xl font-semibold text-white">Gerente de Logística</h3>
+                <span className="text-netflix-red text-sm">2009 - 2011</span>
               </div>
-              <h4 className="text-gray-300 mb-3">Startup Tech</h4>
+              <h4 className="text-gray-300 mb-3">Zangirolami ltda</h4>
               <p className="text-gray-400">
-                Atuei no desenvolvimento web e gradualmente assumi responsabilidades de coordenação de pequenas equipes e gestão de projetos internos.
+                Atuei Elaboração de projetos, entrada e saída de mercadoria revisionamento do CD, Melhoria no gerenciamento da equipe de trabalho e otimização do esforço/tempo..
               </p>
             </div>
           </div>

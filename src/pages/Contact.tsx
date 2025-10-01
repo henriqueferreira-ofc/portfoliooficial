@@ -162,7 +162,7 @@ const ContactPage = () => {
                   <div>
                     <h3 className="text-white font-medium">Email</h3>
                     <a href="mailto:contato@exemplo.com" className="text-gray-300 hover:text-netflix-red transition-colors">
-                      contato@exemplo.com
+                      henriqueanalista.ads@gmail.com
                     </a>
                   </div>
                 </div>
@@ -175,8 +175,8 @@ const ContactPage = () => {
                   </div>
                   <div>
                     <h3 className="text-white font-medium">Telefone</h3>
-                    <a href="tel:+5511987654321" className="text-gray-300 hover:text-netflix-red transition-colors">
-                      +55 (11) 98765-4321
+                    <a href="tel:+5561982599983" className="text-gray-300 hover:text-netflix-red transition-colors">
+                      +55 (61) 98259-9983
                     </a>
                   </div>
                 </div>
@@ -191,7 +191,7 @@ const ContactPage = () => {
                   <div>
                     <h3 className="text-white font-medium">Localização</h3>
                     <p className="text-gray-300">
-                      São Paulo, SP, Brasil
+                      Brasília, DF, Brasil
                     </p>
                   </div>
                 </div>
@@ -202,7 +202,7 @@ const ContactPage = () => {
               <h2 className="text-2xl font-bold text-white mb-4">Redes Sociais</h2>
               
               <div className="flex flex-wrap gap-4">
-                <a href="#" 
+                <a href="https://github.com/henriqueferreira-ofc" 
                   className="flex items-center justify-center h-12 w-12 rounded-full bg-netflix-medium-gray text-white hover:bg-netflix-red transition-colors"
                   aria-label="GitHub"
                 >
@@ -211,7 +211,7 @@ const ContactPage = () => {
                   </svg>
                 </a>
                 
-                <a href="#" 
+                <a href="https://www.linkedin.com/in/henriqueferreira-ofc/" 
                   className="flex items-center justify-center h-12 w-12 rounded-full bg-netflix-medium-gray text-white hover:bg-netflix-red transition-colors"
                   aria-label="LinkedIn"
                 >
@@ -220,7 +220,7 @@ const ContactPage = () => {
                   </svg>
                 </a>
                 
-                <a href="#" 
+                <a href="https://x.com/hcafoficial" 
                   className="flex items-center justify-center h-12 w-12 rounded-full bg-netflix-medium-gray text-white hover:bg-netflix-red transition-colors"
                   aria-label="Twitter/X"
                 >
@@ -229,7 +229,7 @@ const ContactPage = () => {
                   </svg>
                 </a>
                 
-                <a href="#" 
+                <a href="https://www.instagram.com/henriqueferreira.ofc/" 
                   className="flex items-center justify-center h-12 w-12 rounded-full bg-netflix-medium-gray text-white hover:bg-netflix-red transition-colors"
                   aria-label="Instagram"
                 >

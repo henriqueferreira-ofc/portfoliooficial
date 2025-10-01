@@ -21,6 +21,7 @@ const ProjectRow = ({ title, projects }: ProjectRowProps) => {
   const scrollContainerRef = useRef<HTMLDivElement>(null);
   const [showLeftArrow, setShowLeftArrow] = useState(false);
   const [showRightArrow, setShowRightArrow] = useState(true);
+  const [autoScroll, setAutoScroll] = useState(true);
 
   // Verificar se os projetos são visíveis no carregamento inicial
   useEffect(() => {
@@ -29,6 +30,28 @@ const ProjectRow = ({ title, projects }: ProjectRowProps) => {
       setShowRightArrow(scrollWidth > clientWidth);
     }
   }, [projects]);
+
+  // Carrossel automático estilo Netflix
+  useEffect(() => {
+    if (!autoScroll || !scrollContainerRef.current) return;
+
+    const interval = setInterval(() => {
+      if (scrollContainerRef.current) {
+        const container = scrollContainerRef.current;
+        const { scrollLeft, scrollWidth, clientWidth } = container;
+        
+        if (scrollLeft + clientWidth >= scrollWidth) {
+          // Volta ao início quando chega ao fim
+          container.scrollTo({ left: 0, behavior: 'smooth' });
+        } else {
+          // Avança um projeto
+          container.scrollBy({ left: 320, behavior: 'smooth' });
+        }
+      }
+    }, 3000); // Muda a cada 3 segundos
+
+    return () => clearInterval(interval);
+  }, [autoScroll, projects]);
 
   const scroll = (direction: 'left' | 'right') => {
     if (scrollContainerRef.current) {
