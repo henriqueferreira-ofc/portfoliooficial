@@ -65,7 +65,7 @@ const AboutPage = () => {
             </div>
             
             <div className="md:w-2/3">
-              <h2 className="text-2xl font-bold text-white mb-4">Gestor de Projetos em TI, Gestão de Pessoas, MBA em Logística Empresarial</h2>
+              <h2 className="text-2xl font-bold text-white mb-4">Gestor de Projetos em TI e Gestão de Pessoas</h2>
               <p className="text-gray-300 mb-4">
                 Olá! Sou um profissional especializado em gestão de projetos de TI com foco em liderança e desenvolvimento de equipes. Com mais de 5 anos de experiência combinando habilidades técnicas e gerenciais, meu objetivo é construir soluções eficientes e equipes de alto desempenho.
               </p>
