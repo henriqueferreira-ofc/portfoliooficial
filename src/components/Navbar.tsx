@@ -2,7 +2,6 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useLocation } from 'react-router-dom';
-import portlogo from '@/assets/portlogo.png';
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -37,9 +36,7 @@ const Navbar = () => {
     <nav className={`fixed top-0 w-full z-50 transition-all duration-500 ${isScrolled ? 'bg-netflix-black bg-opacity-95 shadow-md' : 'bg-gradient-to-b from-netflix-black to-transparent'}`}>
       <div className="container mx-auto flex items-center justify-between py-4 px-4 md:px-8">
         <div className="flex items-center">
-          <Link to="/" className="flex items-center">
-            <img src={portlogo} alt="Portfólio Logo" className="h-8 md:h-10" />
-          </Link>
+          <Link to="/" className="text-netflix-red font-bold text-2xl md:text-3xl tracking-wider">PORTFÓLIO</Link>
         </div>
         
         {/* Desktop Navigation */}
