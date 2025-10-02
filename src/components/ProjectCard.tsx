@@ -15,7 +15,7 @@ const ProjectCard = ({ imageUrl, title, description, tags, link }: ProjectCardPr
 
   return (
     <div 
-      className={`netflix-card min-w-[280px] md:min-w-[320px] h-[180px] md:h-[180px] flex-shrink-0 relative overflow-hidden rounded-md shadow-lg transition-all duration-500 ease-in-out cursor-pointer ${
+      className={`netflix-card w-full h-[180px] md:h-[200px] relative overflow-hidden rounded-md shadow-lg transition-all duration-500 ease-in-out cursor-pointer ${
         isExpanded ? 'z-50' : 'z-10'
       }`}
       onMouseEnter={() => setIsHovered(true)}
