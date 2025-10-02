@@ -203,6 +203,8 @@ const ContactPage = () => {
               
               <div className="flex flex-wrap gap-4">
                 <a href="https://github.com/henriqueferreira-ofc" 
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="flex items-center justify-center h-12 w-12 rounded-full bg-netflix-medium-gray text-white hover:bg-netflix-red transition-colors"
                   aria-label="GitHub"
                 >
@@ -212,6 +214,8 @@ const ContactPage = () => {
                 </a>
                 
                 <a href="https://www.linkedin.com/in/henriqueferreira-ofc/" 
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="flex items-center justify-center h-12 w-12 rounded-full bg-netflix-medium-gray text-white hover:bg-netflix-red transition-colors"
                   aria-label="LinkedIn"
                 >
@@ -221,6 +225,8 @@ const ContactPage = () => {
                 </a>
                 
                 <a href="https://x.com/hcafoficial" 
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="flex items-center justify-center h-12 w-12 rounded-full bg-netflix-medium-gray text-white hover:bg-netflix-red transition-colors"
                   aria-label="Twitter/X"
                 >
@@ -230,6 +236,8 @@ const ContactPage = () => {
                 </a>
                 
                 <a href="https://www.instagram.com/henriqueferreira.ofc/" 
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="flex items-center justify-center h-12 w-12 rounded-full bg-netflix-medium-gray text-white hover:bg-netflix-red transition-colors"
                   aria-label="Instagram"
                 >
