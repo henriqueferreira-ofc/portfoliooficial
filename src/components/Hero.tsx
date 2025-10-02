@@ -21,7 +21,7 @@ const Hero = () => {
       
       {/* Text overlay */}
       <div className="absolute inset-0 flex flex-col justify-center px-6 md:px-16 lg:px-32">
-        <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-3 leading-tight">
+        <h1 className="text-6xl md:text-7xl lg:text-8xl font-bold text-white mb-3 leading-tight">
           Desenvolvedor Criativo
         </h1>
         <p className="text-2xl md:text-3xl lg:text-4xl font-medium text-netflix-red mb-6">
