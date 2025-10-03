@@ -62,16 +62,27 @@ const Hero = () => {
       {/* Red curved line at bottom */}
       <svg 
         className="absolute bottom-0 left-0 w-full z-10" 
-        viewBox="0 0 1920 40" 
+        viewBox="0 0 1920 3" 
         fill="none" 
         xmlns="http://www.w3.org/2000/svg"
         preserveAspectRatio="none"
-        style={{ height: '25px' }}
+        style={{ height: '3px' }}
       >
         <path 
-          d="M0 20 Q480 0 960 20 T1920 20 L1920 40 L0 40 Z" 
-          fill="#E50914"
+          d="M0 1.5 Q960 0.5 1920 1.5" 
+          stroke="url(#gradient)" 
+          strokeWidth="3"
+          fill="none"
         />
+        <defs>
+          <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stopColor="#E50914" />
+            <stop offset="25%" stopColor="#DB2777" />
+            <stop offset="50%" stopColor="#9333EA" />
+            <stop offset="75%" stopColor="#3B82F6" />
+            <stop offset="100%" stopColor="#06B6D4" />
+          </linearGradient>
+        </defs>
       </svg>
     </section>
   );
