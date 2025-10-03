@@ -65,13 +65,18 @@ const AboutPage = () => {
             </div>
             
             <div className="md:w-2/3 md:pl-4">
-              <h2 className="text-2xl font-bold text-white mb-4">Analista de Sistemas, Gestor de Projetos em TI, Gestão de Pessoas, MBA em Logística Empresarial</h2>
+              <h2 className="text-2xl font-bold text-white mb-4">Graduado em Logística, MBA em Logística Empresarial e Gestão de Pessoas, Graduado em ADS (Análise e Desenvolvimentos de Sistemas ), Pós Graduado em Gerenciamentos de Projetos em TI, Gestão em Tecnologia, Gestão Pública e Gestão de Pessoas.</h2>
               <div className="space-y-4">
+              <p className="text-gray-300 leading-relaxed">
+                  
+                </p>Olá! Sou graduado e especializado em Logística, com sólida experiência teórica e prática. Ao longo dos últimos 6 anos, atuei na supervisão e gestão de diferentes empresas do setor, adquirindo uma vivência ampla em processos operacionais e estratégicos. Essa trajetória me proporcionou conhecimento profundo sobre as demandas logísticas, além de uma capacidade comprovada de liderar equipes, otimizar fluxos de trabalho e garantir resultados consistentes.
+
+Com a graduação em Análise e Desenvolvimento de Sistemas (ADS), agreguei ainda mais valor ao meu perfil profissional, unindo a expertise em gestão logística à visão tecnológica. Essa combinação fortalece minha atuação na criação de soluções inovadoras, que potencializam a eficiência operacional e a tomada de decisão estratégica.
                 <p className="text-gray-300 leading-relaxed">
-                  Olá! Sou um profissional especializado em gestão de projetos de TI com foco em liderança e desenvolvimento de equipes. Com bastante experiência e disposto a aprender inovações combinando habilidades técnicas e gerenciais, meu objetivo é construir soluções eficientes e equipes de alto desempenho.
+                  Me especializei em gestão de projetos de TI com foco em liderança e desenvolvimento de equipes. Com bastante experiência teórica e disposto a aprender inovações combinando habilidades técnicas e gerenciais, meu objetivo é construir soluções eficientes e equipes de alto desempenho.
                 </p>
                 <p className="text-gray-300 leading-relaxed">
-                  Minha jornada profissional inclui a gestão de projetos usando metodologias ágeis como Scrum e Kanban, além de abordagens tradicionais baseadas no PMBOK. Possuo experiência significativa em liderança, desenvolvimento de talentos e implementação de estratégias para melhorar o desempenho das equipes.
+                  Minha jornada inclui a gestão de projetos usando metodologias ágeis como Scrum e Kanban, além de abordagens tradicionais baseadas no PMBOK. Possuo experiência significativa em liderança, desenvolvimento de talentos e implementação de estratégias para melhorar o desempenho das equipes.
                 </p>
                 <p className="text-gray-300 leading-relaxed">
                   Quando não estou coordenando projetos, gosto de explorar novas tendências em gestão, contribuir para a comunidade e compartilhar conhecimento com outros profissionais da área.
