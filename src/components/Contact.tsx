@@ -1,24 +1,51 @@
 
 import { useState } from 'react';
+import { supabase } from '@/integrations/supabase/client';
+import { toast } from 'sonner';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
+    subject: '',
     message: ''
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
     setFormData(prev => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle form submission (in a real app, you'd send this to a server)
-    console.log('Formulário enviado:', formData);
-    alert('Obrigado pela sua mensagem! Em um portfólio real, isso seria enviado para o servidor.');
-    setFormData({ name: '', email: '', message: '' });
+    setIsSubmitting(true);
+
+    try {
+      const { error } = await supabase.functions.invoke('send-contact', {
+        body: formData,
+      });
+
+      if (error) {
+        throw error;
+      }
+
+      toast.success('Mensagem enviada com sucesso!', {
+        description: 'Entraremos em contato o mais breve possível.',
+      });
+      setFormData({ name: '', email: '', subject: '', message: '' });
+    } catch (error) {
+      console.error('Erro ao enviar mensagem', error);
+      const description =
+        error && typeof error === 'object' && 'message' in error
+          ? String((error as { message?: unknown }).message)
+          : 'Erro inesperado ao enviar a mensagem.';
+      toast.error('Não foi possível enviar sua mensagem.', {
+        description,
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -56,6 +83,19 @@ const Contact = () => {
               </div>
               
               <div>
+                <label htmlFor="subject" className="block text-white mb-2">Assunto</label>
+                <input
+                  type="text"
+                  id="subject"
+                  name="subject"
+                  value={formData.subject}
+                  onChange={handleChange}
+                  className="w-full bg-netflix-medium-gray border border-netflix-light-gray/30 rounded p-3 text-white focus:outline-none focus:ring-2 focus:ring-netflix-red"
+                  required
+                />
+              </div>
+              
+              <div>
                 <label htmlFor="message" className="block text-white mb-2">Mensagem</label>
                 <textarea
                   id="message"
@@ -70,9 +110,10 @@ const Contact = () => {
               
               <button
                 type="submit"
-                className="bg-netflix-red hover:bg-netflix-dark-red text-white py-3 px-6 rounded transition-colors duration-300 font-medium"
+                className="bg-netflix-red hover:bg-netflix-dark-red text-white py-3 px-6 rounded transition-colors duration-300 font-medium disabled:cursor-not-allowed disabled:opacity-60"
+                disabled={isSubmitting}
               >
-                Enviar Mensagem
+                {isSubmitting ? 'Enviando...' : 'Enviar Mensagem'}
               </button>
             </div>
           </form>
