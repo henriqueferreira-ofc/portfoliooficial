@@ -62,14 +62,14 @@ const Hero = () => {
       {/* Red curved line at bottom */}
       <svg 
         className="absolute bottom-0 left-0 w-full z-10" 
-        viewBox="0 0 1920 120" 
+        viewBox="0 0 1920 40" 
         fill="none" 
         xmlns="http://www.w3.org/2000/svg"
         preserveAspectRatio="none"
-        style={{ height: '80px' }}
+        style={{ height: '25px' }}
       >
         <path 
-          d="M0 0C480 80 960 80 1440 40C1680 20 1800 10 1920 0V120H0V0Z" 
+          d="M0 20 Q480 0 960 20 T1920 20 L1920 40 L0 40 Z" 
           fill="#E50914"
         />
       </svg>
