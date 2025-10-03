@@ -58,6 +58,21 @@ const Hero = () => {
           </a>
         </div>
       </div>
+
+      {/* Red curved line at bottom */}
+      <svg 
+        className="absolute bottom-0 left-0 w-full z-10" 
+        viewBox="0 0 1920 120" 
+        fill="none" 
+        xmlns="http://www.w3.org/2000/svg"
+        preserveAspectRatio="none"
+        style={{ height: '80px' }}
+      >
+        <path 
+          d="M0 0C480 80 960 80 1440 40C1680 20 1800 10 1920 0V120H0V0Z" 
+          fill="#E50914"
+        />
+      </svg>
     </section>
   );
 };
