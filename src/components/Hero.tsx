@@ -69,7 +69,7 @@ const Hero = () => {
         style={{ height: '3px' }}
       >
         <path 
-          d="M0 1.5 Q960 0.5 1920 1.5" 
+          d="M0 2 Q960 0 1920 2" 
           stroke="url(#gradient)" 
           strokeWidth="3"
           fill="none"
