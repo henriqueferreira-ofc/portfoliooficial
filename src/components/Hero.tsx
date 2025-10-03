@@ -16,8 +16,8 @@ const Hero = () => {
         className="absolute inset-0 bg-cover bg-center bg-no-repeat" 
         style={{ 
           backgroundImage: 'linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.8)), url(https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80)',
-          maskImage: 'linear-gradient(to bottom, black 0%, black 84%, transparent 100%)',
-          WebkitMaskImage: 'linear-gradient(to bottom, black 0%, black 84%, transparent 100%)'
+          maskImage: 'linear-gradient(to bottom, black 0%, black 82%, transparent 100%)',
+          WebkitMaskImage: 'linear-gradient(to bottom, black 0%, black 82%, transparent 100%)'
         }}
       />
       
@@ -73,9 +73,9 @@ const Hero = () => {
         <defs>
           <linearGradient id="curveFill" x1="0%" y1="0%" x2="100%" y2="0%">
             <stop offset="0%" stopColor="#050505" />
-            <stop offset="35%" stopColor="#0A1E3F" stopOpacity="0.75" />
-            <stop offset="50%" stopColor="#123FA3" stopOpacity="1" />
-            <stop offset="65%" stopColor="#0A1E3F" stopOpacity="0.75" />
+            <stop offset="35%" stopColor="#0A1E3F" stopOpacity="0.45" />
+            <stop offset="50%" stopColor="#1E3A8A" stopOpacity="0.6" />
+            <stop offset="65%" stopColor="#0A1E3F" stopOpacity="0.45" />
             <stop offset="100%" stopColor="#050505" />
           </linearGradient>
           <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="0%">
@@ -87,11 +87,11 @@ const Hero = () => {
           </linearGradient>
         </defs>
         <path 
-          d="M0 138 Q960 60 1920 138 L1920 200 L0 200 Z" 
+          d="M0 136 Q960 32 1920 136 L1920 200 L0 200 Z" 
           fill="url(#curveFill)"
         />
         <path 
-          d="M0 132 Q960 8 1920 132 L1920 138 Q960 34 0 138 Z" 
+          d="M0 130 Q960 6 1920 130 L1920 136 Q960 32 0 136 Z" 
           fill="url(#gradient)"
         />
       </svg>
