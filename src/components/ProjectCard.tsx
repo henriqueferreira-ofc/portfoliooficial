@@ -1,5 +1,6 @@
 
 import { useState } from 'react';
+import ProjectModal from './ProjectModal';
 
 interface ProjectCardProps {
   imageUrl: string;
@@ -11,63 +12,38 @@ interface ProjectCardProps {
 
 const ProjectCard = ({ imageUrl, title, description, tags, link }: ProjectCardProps) => {
   const [isHovered, setIsHovered] = useState(false);
-  const [isExpanded, setIsExpanded] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   return (
-    <div 
-      className={`netflix-card w-full h-[180px] md:h-[200px] relative overflow-hidden rounded-md shadow-lg transition-all duration-500 ease-in-out cursor-pointer ${
-        isExpanded ? 'z-50' : 'z-10'
-      }`}
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
-      onClick={() => setIsExpanded(!isExpanded)}
-      style={{ 
-        transform: isExpanded 
-          ? 'scale(1.5) translateY(-20px)' 
-          : isHovered 
-            ? 'scale(1.05)' 
-            : 'scale(1)',
-        zIndex: isExpanded ? 50 : 10
-      }}
-    >
+    <>
       <div 
-        className="w-full h-full bg-cover bg-center transition-transform duration-300"
-        style={{ 
-          backgroundImage: `url(${imageUrl})`,
-          filter: isHovered ? 'brightness(30%)' : 'brightness(80%)',
-          transition: 'filter 0.3s ease-in-out'
-        }}
-      />
-      <div className={`absolute inset-0 p-4 flex flex-col justify-between transition-opacity duration-300 ${isHovered || isExpanded ? 'opacity-100' : 'opacity-0'}`}>
-        <h3 className="font-bold text-lg text-white">{title}</h3>
-        <div>
-          <p className="text-sm text-gray-300 line-clamp-2 mb-2">{description}</p>
-          <div className="flex flex-wrap gap-2 mt-2">
-            {tags.slice(0, 3).map((tag, index) => (
-              <span key={index} className="text-xs px-2 py-1 bg-netflix-medium-gray rounded-full">{tag}</span>
-            ))}
-            {tags.length > 3 && (
-              <span className="text-xs px-2 py-1 bg-netflix-medium-gray rounded-full">+{tags.length - 3}</span>
-            )}
-          </div>
-          {link && (
-            <a 
-              href={link} 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="mt-3 text-netflix-red text-sm font-medium inline-block hover:underline"
-              onClick={(e) => e.stopPropagation()}
-            >
-              Ver Projeto
-            </a>
-          )}
+        className="netflix-card w-full h-[180px] md:h-[200px] relative overflow-hidden rounded-md shadow-lg transition-all duration-300 ease-in-out cursor-pointer hover:scale-105"
+        onMouseEnter={() => setIsHovered(true)}
+        onMouseLeave={() => setIsHovered(false)}
+        onClick={() => setIsModalOpen(true)}
+      >
+        <div 
+          className="w-full h-full bg-cover bg-center transition-all duration-300"
+          style={{ 
+            backgroundImage: `url(${imageUrl})`,
+            filter: isHovered ? 'brightness(60%)' : 'brightness(80%)',
+          }}
+        />
+        <div className={`absolute inset-0 p-4 flex flex-col justify-end transition-opacity duration-300 ${isHovered ? 'opacity-100' : 'opacity-0'}`}>
+          <h3 className="font-bold text-lg text-white drop-shadow-lg">{title}</h3>
         </div>
       </div>
-      
-      {isExpanded && (
-        <div className="absolute inset-0 bg-black/20 rounded-md" />
-      )}
-    </div>
+
+      <ProjectModal
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+        imageUrl={imageUrl}
+        title={title}
+        description={description}
+        tags={tags}
+        link={link}
+      />
+    </>
   );
 };
 
