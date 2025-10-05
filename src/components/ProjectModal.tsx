@@ -1,5 +1,5 @@
 import { Dialog, DialogContent, DialogClose } from '@/components/ui/dialog';
-import { X } from 'lucide-react';
+import { ChevronRight, X } from 'lucide-react';
 
 interface ProjectModalProps {
   isOpen: boolean;
@@ -17,9 +17,14 @@ const ProjectModal = ({ isOpen, onClose, imageUrl, title, description, tags, lin
 
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
-      <DialogContent className="max-w-3xl p-0 overflow-hidden rounded-2xl border border-white/10 bg-netflix-black/90 shadow-[0_24px_80px_rgba(0,0,0,0.65)]">
-        <DialogClose className="absolute top-4 right-4 z-50 rounded-full border border-white/20 bg-black/60 p-2 backdrop-blur">
-          <X className="h-4 w-4 text-white" />
+      <DialogContent className="max-w-3xl p-0 overflow-hidden rounded-2xl border border-white/10 bg-netflix-black/90 shadow-[0_24px_80px_rgba(0,0,0,0.65)] [&>button:last-of-type]:hidden">
+        <DialogClose
+          className="group absolute top-4 right-4 z-50 flex h-9 w-9 items-center justify-center rounded-full text-white transition-all focus-visible:outline-none"
+        >
+          <span className="relative flex h-full w-full items-center justify-center">
+            <span className="absolute inset-0 rounded-full bg-transparent ring-transparent opacity-0 transition-all group-hover:opacity-100 group-hover:bg-white/20 group-hover:ring-2 group-hover:ring-white/60" />
+            <X className="relative z-10 h-9 w-9 text-white" />
+          </span>
         </DialogClose>
 
         <div className="relative h-[440px] md:h-[500px]">
@@ -74,6 +79,7 @@ const ProjectModal = ({ isOpen, onClose, imageUrl, title, description, tags, lin
                   className="inline-flex w-fit items-center gap-3 rounded bg-netflix-red px-6 py-3 font-semibold text-white shadow-[0_8px_24px_rgba(229,9,20,0.45)] transition hover:bg-netflix-dark-red"
                 >
                   Vamos lá
+                  <ChevronRight className="h-7 w-7" strokeWidth={2.6} />
                 </a>
               )}
             </div>
