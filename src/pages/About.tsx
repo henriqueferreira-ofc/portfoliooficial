@@ -53,7 +53,7 @@ const AboutPage = () => {
       
       <div className="pt-24 container mx-auto px-4">
         <div className="mb-8">
-          <h1 className="text-4xl font-bold text-white text-center">Sobre Mim</h1>
+          <h1 className="text-4xl font-bold text-white text-center">SOBRE MIM</h1>
         </div>
         
         <div className="bg-netflix-dark-gray rounded-lg p-8 mb-12">
@@ -88,7 +88,7 @@ Com a graduação em Análise e Desenvolvimento de Sistemas (ADS), agreguei aind
         </div>
         
         <div className="mb-12">
-          <h2 className="text-2xl font-bold text-white mb-6 text-center">Minhas Habilidades</h2>
+          <h2 className="text-2xl font-bold text-white mb-6 text-center">MINHAS HABILIDADES</h2>
           
           {isLoading ? <div className="flex justify-center items-center py-8">
               <div className="animate-spin rounded-full h-8 w-8 border-t-2 border-b-2 border-netflix-red"></div>
