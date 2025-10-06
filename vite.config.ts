@@ -3,6 +3,20 @@ import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react-swc'
 import path from 'path'
 import { componentTagger } from 'lovable-tagger'
+import { copyFileSync, existsSync } from 'fs'
+
+const copyIndexTo404Plugin = (outDir: string) => ({
+  name: 'copy-index-to-404',
+  apply: 'build',
+  closeBundle() {
+    const indexPath = path.resolve(__dirname, outDir, 'index.html')
+    const fallbackPath = path.resolve(__dirname, outDir, '404.html')
+
+    if (existsSync(indexPath)) {
+      copyFileSync(indexPath, fallbackPath)
+    }
+  },
+})
 
 export default defineConfig(({ mode }) => ({
   base: mode === 'gh-pages' ? '/portfoliooficial/' : '/',
@@ -16,6 +30,7 @@ export default defineConfig(({ mode }) => ({
   plugins: [
     react(),
     ...(mode === 'development' ? [componentTagger()] : []),
+    copyIndexTo404Plugin('docs'),
   ],
   resolve: {
     alias: {
