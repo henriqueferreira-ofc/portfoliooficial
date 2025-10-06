@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import { toast as sonnerToast } from '@/components/ui/sonner';
+import profileImage from '@/assets/fotodeperfil.png';
 import { Code2, Database, Globe, Palette, FileCode2, GitBranch, MonitorSmartphone, Figma, LayoutGrid, Binary, Briefcase, Users, ClipboardCheck, BarChart2, Calendar, UserRound, ListTodo, UserCog, Target, Award, PieChart, Presentation, GraduationCap, BookOpen, School } from 'lucide-react';
 interface Tecnologia {
   id: number;
@@ -59,7 +60,7 @@ const AboutPage = () => {
           <div className="flex flex-col md:flex-row gap-8">
             <div className="md:w-1/3 flex flex-col items-center md:pt-8">
               <div className="aspect-square overflow-hidden rounded-full border-4 border-netflix-red w-56 h-56">
-                <img src="/lovable-uploads/df3d073d-99ee-4b12-a3d4-06326862e1e3.png" alt="Foto de perfil" className="w-full h-full object-cover" />
+                <img src={profileImage} alt="Foto de perfil" className="w-full h-full object-cover" />
               </div>
               <h3 className="text-2xl font-bold text-white mt-4 text-center">Henrique Ferreira</h3>
             </div>
