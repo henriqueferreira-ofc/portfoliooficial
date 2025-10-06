@@ -103,7 +103,7 @@ Com a graduação em Análise e Desenvolvimento de Sistemas (ADS), agreguei aind
         </div>
 
         <div className="mb-12">
-          <h2 className="text-2xl font-bold text-white mb-6 text-center">Formação Acadêmica</h2>
+          <h2 className="text-2xl font-bold text-white mb-6 text-center">FORMAÇÃO ACADÊMICA</h2>
           <div className="space-y-6">
             <div className="bg-netflix-dark-gray p-6 rounded-lg">
               <div className="flex items-start gap-4">
@@ -212,17 +212,94 @@ Com a graduação em Análise e Desenvolvimento de Sistemas (ADS), agreguei aind
                   </p>
                 </div>
               </div>
+        </div>
+
+        <div className="mb-12">
+          <h2 className="text-2xl font-bold text-white mb-6 text-center">CURSO DE CAPACITAÇÃO</h2>
+          <div className="space-y-6">
+            <div className="bg-netflix-dark-gray p-6 rounded-lg">
+              <div className="flex items-start gap-4">
+                <div className="flex-shrink-0 bg-netflix-medium-gray p-3 rounded-full">
+                  <Award className="w-6 h-6 text-netflix-red" />
+                </div>
+                <div>
+                  <div className="flex justify-between items-start mb-2">
+                    <h3 className="text-xl font-semibold text-white">Administração da Informação - 240 Horas</h3>
+                    <span className="text-netflix-red text-sm">2024</span>
+                  </div>
+                  <h4 className="text-gray-300 mb-3">Faveni</h4>
+                  <p className="text-gray-400">
+                    Capacitação intensiva com foco em métricas de produto, discovery contínuo e planejamento de roadmap orientado a dados.
+                  </p>
+                </div>
+              </div>
             </div>
-        
+
+            <div className="bg-netflix-dark-gray p-6 rounded-lg">
+              <div className="flex items-start gap-4">
+                <div className="flex-shrink-0 bg-netflix-medium-gray p-3 rounded-full">
+                  <Award className="w-6 h-6 text-netflix-red" />
+                </div>
+                <div>
+                  <div className="flex justify-between items-start mb-2">
+                    <h3 className="text-xl font-semibold text-white">Administração de Conflitos e Negociação - 240 Horas</h3>
+                    <span className="text-netflix-red text-sm">2024</span>
+                  </div>
+                  <h4 className="text-gray-300 mb-3">Faveni</h4>
+                  <p className="text-gray-400">
+                    Curso voltado para implementação de frameworks ágeis com foco em facilitação de times, métricas de fluxo e melhoria contínua.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div className="bg-netflix-dark-gray p-6 rounded-lg">
+              <div className="flex items-start gap-4">
+                <div className="flex-shrink-0 bg-netflix-medium-gray p-3 rounded-full">
+                  <Award className="w-6 h-6 text-netflix-red" />
+                </div>
+                <div>
+                  <div className="flex justify-between items-start mb-2">
+                    <h3 className="text-xl font-semibold text-white">Coaching - 240 Horas</h3>
+                    <span className="text-netflix-red text-sm">2024</span>
+                  </div>
+                  <h4 className="text-gray-300 mb-3">Faveni</h4>
+                  <p className="text-gray-400">
+                    Curso voltado para implementação de frameworks ágeis com foco em facilitação de times, métricas de fluxo e melhoria contínua.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div className="bg-netflix-dark-gray p-6 rounded-lg">
+              <div className="flex items-start gap-4">
+                <div className="flex-shrink-0 bg-netflix-medium-gray p-3 rounded-full">
+                  <Award className="w-6 h-6 text-netflix-red" />
+                </div>
+                <div>
+                  <div className="flex justify-between items-start mb-2">
+                    <h3 className="text-xl font-semibold text-white">Tecnologia da Informação - 120 Horas</h3>
+                    <span className="text-netflix-red text-sm">2024</span>
+                  </div>
+                  <h4 className="text-gray-300 mb-3">Faveni</h4>
+                  <p className="text-gray-400">
+                    Formação prática em análise de dados, criação de dashboards e comunicação executiva baseada em insights.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
         <div className="mb-6">
-          <h2 className="text-2xl font-bold text-white mb-6 text-center">Experiência</h2>
+          <h2 className="text-2xl font-bold text-white mb-6 text-center">EXPERIÊNCIAS PROFISSIONAIS</h2>
           <div className="space-y-6">
             <div className="bg-netflix-dark-gray p-6 rounded-lg">
               <div className="flex justify-between items-start mb-2">
                 <h3 className="text-xl font-semibold text-white">Gestor de Projetos de TI</h3>
                 <span className="text-netflix-red text-sm">2024 - Presente</span>
               </div>
-              <h4 className="text-gray-300 mb-3">Empresa Tech Inovação</h4>
+              <h4 className="text-gray-300 mb-3">SEPD (Secretaria da Pessoa com Deficiência)</h4>
               <p className="text-gray-400">
                 Lidero equipes de desenvolvimento para entrega de projetos de software, usando metodologias ágeis e práticas de gestão de pessoas. Responsável pelo planejamento estratégico, alocação de recursos e desenvolvimento profissional da equipe.
               </p>
