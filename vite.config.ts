@@ -5,7 +5,7 @@ import path from 'path'
 import { componentTagger } from 'lovable-tagger'
 
 export default defineConfig(({ mode }) => ({
-  base: mode === 'development' ? '/' : '/portfoliooficial/',
+  base: mode === 'gh-pages' ? '/portfoliooficial/' : '/',
   build: {
     outDir: 'docs', // GitHub Pages vai servir a partir desta pasta
   },
