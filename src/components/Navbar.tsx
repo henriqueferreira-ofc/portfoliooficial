@@ -70,8 +70,8 @@ const Navbar = () => {
         <div className="md:hidden bg-netflix-black bg-opacity-95 py-4 px-6">
           <div className="flex flex-col space-y-4">
             <Link to="/" onClick={() => setIsMobileMenuOpen(false)} className="text-white hover:text-netflix-red transition-colors text-left">Início</Link>
-            <Link to="/projects" onClick={() => setIsMobileMenuOpen(false)} className="text-white hover:text-netflix-red transition-colors text-left">Projetos</Link>
             <Link to="/about" onClick={() => setIsMobileMenuOpen(false)} className="text-white hover:text-netflix-red transition-colors text-left">Sobre</Link>
+            <Link to="/projects" onClick={() => setIsMobileMenuOpen(false)} className="text-white hover:text-netflix-red transition-colors text-left">Projetos</Link> 
             <Link to="/contact" onClick={() => setIsMobileMenuOpen(false)} className="text-white hover:text-netflix-red transition-colors text-left">Contato</Link>
           </div>
         </div>
