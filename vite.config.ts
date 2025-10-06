@@ -5,8 +5,7 @@ import path from 'path'
 import { componentTagger } from 'lovable-tagger'
 
 export default defineConfig(({ mode }) => ({
-  // Para domínio personalizado (henriqueportfolio.com), use caminhos relativos
-  base: './',
+  base: '/',
   build: {
     outDir: 'docs', // GitHub Pages vai servir a partir desta pasta
   },
