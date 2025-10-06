@@ -4,6 +4,41 @@
 
 **URL**: https://lovable.dev/projects/83d087a8-877e-4ea0-9259-ada7fb541c05
 
+**GitHub Pages**: Após o deploy, seu site estará disponível em `https://[seu-usuario].github.io/portfoliooficial/`
+
+## Deploy para GitHub Pages
+
+Este projeto está configurado para deploy automático no GitHub Pages.
+
+### Deploy Automático (Recomendado)
+
+O projeto usa GitHub Actions para fazer deploy automático:
+
+1. Faça commit e push das suas mudanças para a branch `main`
+2. O GitHub Actions irá automaticamente:
+   - Instalar as dependências
+   - Fazer build do projeto
+   - Publicar no GitHub Pages
+
+3. Acesse as configurações do seu repositório:
+   - Vá em **Settings** > **Pages**
+   - Em **Source**, selecione **GitHub Actions**
+   - Aguarde o deploy finalizar (verifique na aba **Actions**)
+
+### Deploy Manual
+
+Se preferir fazer deploy manual:
+
+```sh
+# Instalar dependências (se ainda não instalou)
+npm install
+
+# Fazer build e deploy
+npm run deploy
+```
+
+**Nota:** O deploy manual requer que você configure o GitHub Pages para usar a branch `gh-pages` em Settings > Pages > Source.
+
 ## How can I edit this code?
 
 There are several ways of editing your application.
