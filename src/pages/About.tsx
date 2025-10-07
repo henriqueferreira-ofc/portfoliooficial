@@ -112,12 +112,12 @@ Com a graduação em Análise e Desenvolvimento de Sistemas (ADS), agreguei aind
                 </div>
                 <div>
                   <div className="flex justify-between items-start mb-2">
-                    <h3 className="text-xl font-semibold text-white">Graduação Analise e Desenvolvimento de Sistemas</h3>
+                    <h3 className="text-xl font-semibold text-white">Graduação Análise e Desenvolvimento de Sistemas</h3>
                     <span className="text-netflix-red text-sm">2022 - 2024</span>
                   </div>
                   <h4 className="text-gray-300 mb-3">Universidade - Uniceplac</h4>
                   <p className="text-gray-400">
-                    Graduação em Análise e Desenvolvimento de Sistemas com foco em Gestão de Projetos.
+                  Formação sólida nas principais linguagens e tecnologias da informação, com foco em desenvolvimento de software, arquitetura de sistemas e metodologias ágeis. O curso proporcionou domínio em programação, banco de dados, análise de requisitos e modelagem de sistemas, consolidando uma visão ampla sobre inovação tecnológica e soluções voltadas à eficiência organizacional.
                   </p>
                 </div>
               </div>
@@ -134,7 +134,7 @@ Com a graduação em Análise e Desenvolvimento de Sistemas (ADS), agreguei aind
                   </div>
                   <h4 className="text-gray-300 mb-3">Universidade - Faveni</h4>
                   <p className="text-gray-400">
-                    Especialização de Gestão em tecnlogia com foco em Gestão de Projetos.
+                  Pós-graduação voltada à liderança e administração estratégica de recursos tecnológicos. O curso abrangeu temas como governança de TI, segurança da informação, infraestrutura tecnológica e transformação digital, capacitando para a tomada de decisões assertivas, implementação de processos otimizados e alinhamento entre tecnologia e objetivos corporativos.
                   </p>
                 </div>
               </div>
@@ -152,7 +152,7 @@ Com a graduação em Análise e Desenvolvimento de Sistemas (ADS), agreguei aind
                   </div>
                   <h4 className="text-gray-300 mb-3">Universidade - Faveni</h4>
                   <p className="text-gray-400">
-                    Especialização Gestão Pública e Gestão de Pessoas com foco em Gestão de Projetos.
+                  Capacitação estratégica em políticas públicas, administração de recursos humanos e desenvolvimento institucional. A formação uniu o domínio das práticas de gestão pública com habilidades de liderança e gestão de equipes, enfatizando ética, responsabilidade social e foco em resultados no serviço público.
                   </p>
                 </div>
               </div>
@@ -170,7 +170,7 @@ Com a graduação em Análise e Desenvolvimento de Sistemas (ADS), agreguei aind
                   </div>
                   <h4 className="text-gray-300 mb-3">Faculdade Unifaveni</h4>
                   <p className="text-gray-400">
-                    MBA com ênfase em desenvolvimento de software e gestão de Projetos em TI.
+                  Formação executiva que integra metodologias ágeis (Scrum, Kanban) e tradicionais (PMBOK, PRINCE2), com foco na liderança de equipes multidisciplinares e entrega de soluções tecnológicas complexas. O curso desenvolveu competências em planejamento, controle de escopo, cronograma, custos e riscos, consolidando a capacidade de gerenciar projetos de alto impacto e inovação tecnológica.
                   </p>
                 </div>
               </div>
@@ -188,7 +188,7 @@ Com a graduação em Análise e Desenvolvimento de Sistemas (ADS), agreguei aind
                   </div>
                   <h4 className="text-gray-300 mb-3">Universidade Unifaveni</h4>
                   <p className="text-gray-400">
-                    Graduação em Logística com foco em Gestão Empresarial e desenvolvimento operacional.
+                  Formação voltada à gestão de operações e processos logísticos, abordando cadeia de suprimentos, transporte, armazenagem e controle de estoques. O curso proporcionou uma visão estratégica sobre eficiência operacional, sustentabilidade e tomada de decisão baseada em indicadores de desempenho e análise de custos.
                   </p>
                 </div>
               </div>
@@ -203,12 +203,12 @@ Com a graduação em Análise e Desenvolvimento de Sistemas (ADS), agreguei aind
                 </div>
                 <div>
                   <div className="flex justify-between items-start mb-2">
-                    <h3 className="text-xl font-semibold text-white">MBA em Logistica Empresarial e GP</h3>
+                    <h3 className="text-xl font-semibold text-white">MBA em Logística Empresarial e Gestão de Pessoas</h3>
                     <span className="text-netflix-red text-sm">2022 - 2024</span>
                   </div>
                   <h4 className="text-gray-300 mb-3">Faculdade Unifaveni</h4>
                   <p className="text-gray-400">
-                    MBA em Logística Empresarial com ênfase em Gestão empresariale desenvolvimento operacional.
+                  Formação voltada à integração entre gestão logística e liderança corporativa. O curso enfatizou o planejamento estratégico, controle de custos, gestão de transportes e desenvolvimento de pessoas como base para o desempenho organizacional. Proporcionou uma visão moderna sobre gestão empresarial, combinando produtividade, inovação e liderança humanizada.
                   </p>
                 </div>
               </div>
@@ -229,7 +229,7 @@ Com a graduação em Análise e Desenvolvimento de Sistemas (ADS), agreguei aind
                   </div>
                   <h4 className="text-gray-300 mb-3">Faveni</h4>
                   <p className="text-gray-400">
-                    Capacitação intensiva com foco em métricas de produto, discovery contínuo e planejamento de roadmap orientado a dados.
+                  Capacitação direcionada à análise, organização e controle de dados corporativos. O curso abordou metodologias de gestão da informação, governança de dados e suporte à tomada de decisão, com foco na eficiência operacional e na construção de inteligência competitiva para organizações modernas.
                   </p>
                 </div>
               </div>
@@ -242,12 +242,12 @@ Com a graduação em Análise e Desenvolvimento de Sistemas (ADS), agreguei aind
                 </div>
                 <div>
                   <div className="flex justify-between items-start mb-2">
-                    <h3 className="text-xl font-semibold text-white">Administração de Conflitos e Negociação - 240 Horas</h3>
+                    <h3 className="text-xl font-semibold text-white">Administração de Conflitos e Negociações - 240 Horas</h3>
                     <span className="text-netflix-red text-sm">2024</span>
                   </div>
                   <h4 className="text-gray-300 mb-3">Faveni</h4>
                   <p className="text-gray-400">
-                    Curso voltado para implementação de frameworks ágeis com foco em facilitação de times, métricas de fluxo e melhoria contínua.
+                  Treinamento estratégico em gestão de pessoas e resolução de impasses organizacionais. O curso desenvolveu a capacidade de mediar conflitos de forma ética e construtiva, utilizando técnicas de negociação baseadas em interesses, empatia e pensamento sistêmico, fortalecendo a cultura colaborativa e a produtividade das equipes.
                   </p>
                 </div>
               </div>
@@ -265,7 +265,25 @@ Com a graduação em Análise e Desenvolvimento de Sistemas (ADS), agreguei aind
                   </div>
                   <h4 className="text-gray-300 mb-3">Faveni</h4>
                   <p className="text-gray-400">
-                    Curso voltado para implementação de frameworks ágeis com foco em facilitação de times, métricas de fluxo e melhoria contínua.
+                  Formação em liderança, comunicação assertiva e desenvolvimento pessoal e profissional, voltada ao desenvolvimento de habilidades comportamentais, liderança e performance. O curso aprimorou competências de comunicação assertiva, autogestão e motivação de equipes, permitindo a aplicação de técnicas de coaching em processos de gestão, mentoring e desenvolvimento de talentos. 
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div className="bg-netflix-dark-gray p-6 rounded-lg">
+              <div className="flex items-start gap-4">
+                <div className="flex-shrink-0 bg-netflix-medium-gray p-3 rounded-full">
+                  <Award className="w-6 h-6 text-netflix-red" />
+                </div>
+                <div>
+                  <div className="flex justify-between items-start mb-2">
+                    <h3 className="text-xl font-semibold text-white">Contabilidade Aplicada à Logística - 80 Horas</h3>
+                    <span className="text-netflix-red text-sm">2025</span>
+                  </div>
+                  <h4 className="text-gray-300 mb-3">Faveni</h4>
+                  <p className="text-gray-400">
+                  Curso técnico voltado à integração entre contabilidade e gestão logística. A formação proporcionou domínio sobre custos operacionais, análise financeira e controle patrimonial dentro da cadeia de suprimentos, possibilitando decisões estratégicas baseadas em indicadores contábeis e de desempenho logístico. 
                   </p>
                 </div>
               </div>
@@ -279,11 +297,11 @@ Com a graduação em Análise e Desenvolvimento de Sistemas (ADS), agreguei aind
                 <div>
                   <div className="flex justify-between items-start mb-2">
                     <h3 className="text-xl font-semibold text-white">Tecnologia da Informação - 120 Horas</h3>
-                    <span className="text-netflix-red text-sm">2024</span>
+                    <span className="text-netflix-red text-sm">2025</span>
                   </div>
                   <h4 className="text-gray-300 mb-3">Faveni</h4>
                   <p className="text-gray-400">
-                    Formação prática em análise de dados, criação de dashboards e comunicação executiva baseada em insights.
+                  Capacitação em ferramentas, segurança e gestão de sistemas, com foco em inovação e eficiência tecnológica, base sólida em infraestrutura, segurança da informação, banco de dados e automação de processos.
                   </p>
                 </div>
               </div>
