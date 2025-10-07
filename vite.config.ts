@@ -7,7 +7,7 @@ import { copyFileSync, existsSync } from 'fs'
 
 const copyIndexTo404Plugin = (outDir: string) => ({
   name: 'copy-index-to-404',
-  apply: 'build',
+  apply: 'build' as const,
   closeBundle() {
     const indexPath = path.resolve(__dirname, outDir, 'index.html')
     const fallbackPath = path.resolve(__dirname, outDir, '404.html')
