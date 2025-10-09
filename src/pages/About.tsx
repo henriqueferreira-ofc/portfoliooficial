@@ -319,7 +319,7 @@ Com a graduação em Análise e Desenvolvimento de Sistemas (ADS), agreguei aind
               </div>
               <h4 className="text-gray-300 mb-3">SEPD (Secretaria da Pessoa com Deficiência)</h4>
               <p className="text-gray-400">
-                Lidero equipes de desenvolvimento para entrega de projetos de software, usando metodologias ágeis e práticas de gestão de pessoas. Responsável pelo planejamento estratégico, alocação de recursos e desenvolvimento profissional da equipe.
+              Responsável pela liderança estratégica de equipes multidisciplinares no desenvolvimento de soluções tecnológicas voltadas à gestão pública. Conduzo o planejamento, a execução e o acompanhamento de projetos de software com base em metodologias ágeis (Scrum e Kanban), assegurando entregas eficientes, seguras e alinhadas às metas institucionais. Atuo na alocação de recursos, definição de prioridades, gestão de cronogramas e desenvolvimento técnico e comportamental dos colaboradores, promovendo uma cultura de inovação, colaboração e alta performance.
               </p>
             </div>
             
@@ -330,7 +330,7 @@ Com a graduação em Análise e Desenvolvimento de Sistemas (ADS), agreguei aind
               </div>
               <h4 className="text-gray-300 mb-3">Grupo Pão de Açucar</h4>
               <p className="text-gray-400">
-                Coordenei uma equipe de Líderes, implementando processos operacionais e práticas de mentoria. Focado em melhorar a produtividade e qualidade das entregas através de gestão eficiente de pessoas.
+              Supervisionei operações logísticas em ambiente de alta demanda, liderando equipes de líderes e operadores com foco em eficiência, qualidade e produtividade. Estruturei processos operacionais e implantei rotinas de melhoria contínua, reduzindo perdas e otimizando prazos de entrega. Desempenhei papel ativo no desenvolvimento de equipes por meio de mentoria e treinamentos, fortalecendo a cultura de responsabilidade, engajamento e excelência operacional.
               </p>
             </div>
             
@@ -341,7 +341,7 @@ Com a graduação em Análise e Desenvolvimento de Sistemas (ADS), agreguei aind
               </div>
               <h4 className="text-gray-300 mb-3">Zangirolami ltda</h4>
               <p className="text-gray-400">
-                Atuei Elaboração de projetos, entrada e saída de mercadoria revisionamento do CD, Melhoria no gerenciamento da equipe de trabalho e otimização do esforço/tempo..
+              Gerenciei o centro de distribuição (CD) com responsabilidade integral sobre os fluxos de entrada, armazenagem e saída de mercadorias. Desenvolvi e implementei projetos de melhoria de processos, otimizando o uso de recursos humanos e materiais, reduzindo o tempo de ciclo e elevando a eficiência operacional. Atuei fortemente no controle de estoque, planejamento de rotas e desempenho da equipe, assegurando o cumprimento rigoroso de metas e padrões de qualidade.
               </p>
             </div>
           </div>
