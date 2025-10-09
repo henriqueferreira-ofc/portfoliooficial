@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import { toast as sonnerToast } from '@/components/ui/sonner';
-import profileImage from '@/assets/fotodeperfil.png';
+import profileImage from '@/assets/fotoperfil1.png';
 import { Code2, Database, Globe, Palette, FileCode2, GitBranch, MonitorSmartphone, Figma, LayoutGrid, Binary, Briefcase, Users, ClipboardCheck, BarChart2, Calendar, UserRound, ListTodo, UserCog, Target, Award, PieChart, Presentation, GraduationCap, BookOpen, School } from 'lucide-react';
 interface Tecnologia {
   id: number;
