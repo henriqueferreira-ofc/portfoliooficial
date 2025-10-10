@@ -24,14 +24,14 @@ const Hero = () => {
       {/* Text overlay */}
       <div className="absolute inset-0 flex flex-col justify-center px-6 md:px-16 lg:px-32">
         <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-3 leading-tight">
-          Desenvolvedor Criativo
+          Desenvolvedor Criativo Full-Stack e Logístico
         </h1>
         <p className="text-2xl md:text-3xl lg:text-4xl font-medium text-netflix-red mb-6">
-          Criando Experiências Digitais
+          Criando Experiências Digitais espetaculares
         </p>
         <p className="text-white text-lg md:text-xl lg:max-w-2xl mb-8 opacity-80">
           Eu crio sites e aplicativos impressionantes que combinam design bonito com funcionalidade impecável.
-          Especializado em React, TypeScript e tecnologias web modernas.
+          Especializado em React, TypeScript e tecnologias web modernas. Sou profissional em Logística Empresarial
         </p>
         
         <div className="flex flex-wrap gap-4">
