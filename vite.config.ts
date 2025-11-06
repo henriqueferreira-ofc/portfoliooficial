@@ -19,9 +19,9 @@ const copyIndexTo404Plugin = (outDir: string) => ({
 })
 
 export default defineConfig(({ mode }) => ({
-  base: mode === 'gh-pages' ? '/portfoliooficial/' : '/',
+  base: mode === 'production' ? '/portfoliooficial/' : '/',
   build: {
-    outDir: 'docs', // GitHub Pages vai servir a partir desta pasta
+    outDir: 'docs',
   },
   server: {
     host: '::',
