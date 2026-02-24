@@ -41,22 +41,6 @@ This project is built with:
 - shadcn-ui
 - Tailwind CSS
 
-
-## 🚀 Como Executar o Projeto
-
-1. Clone este repositório:
-
-        git clone https://github.com/seu-usuario/seu-repositorio.git
-
-Abra o arquivo index.html em seu navegador.
-
-## 🎨 Capturas de Tela
-
-Adicione aqui algumas capturas de tela do seu portfólio para ilustrar o design e as funcionalidades.
-
-## 🤝 Contribuição
-Se desejar contribuir para melhorias no projeto, fique à vontade para abrir um Pull Request.
-
 ![Portfólio](https://github.com/henriqueferreira-ofc/portfoliohenrique/blob/main/images/capaparaprojeto.jpg)
 
 Desenvolvido por Henrique Ferreira 🚀
