@@ -41,7 +41,7 @@ This project is built with:
 - shadcn-ui
 - Tailwind CSS
 
-![Portfólio](https://github.com/henriqueferreira-ofc/portfoliohenrique/blob/main/images/capaparaprojeto.jpg)
+![Portfólio](https://github.com/henriqueferreira-ofc/portfoliooficial/blob/main/public/HenriquePortfolio.png)
 
 Desenvolvido por Henrique Ferreira 🚀
 
