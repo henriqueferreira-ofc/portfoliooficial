@@ -18,10 +18,14 @@ const copyIndexTo404Plugin = (outDir: string) => ({
   },
 })
 
-export default defineConfig(({ mode }) => ({
-  base: mode === 'production' ? '/portfoliooficial/' : '/',
+export default defineConfig(({ mode }) => {
+  const isGitHubPagesBuild = mode === 'gh-pages'
+  const outDir = isGitHubPagesBuild ? 'docs' : 'dist'
+
+  return {
+  base: isGitHubPagesBuild ? '/portfoliooficial/' : '/',
   build: {
-    outDir: 'docs',
+    outDir,
   },
   server: {
     host: '::',
@@ -30,11 +34,11 @@ export default defineConfig(({ mode }) => ({
   plugins: [
     react(),
     ...(mode === 'development' ? [componentTagger()] : []),
-    copyIndexTo404Plugin('docs'),
+    ...(isGitHubPagesBuild ? [copyIndexTo404Plugin(outDir)] : []),
   ],
   resolve: {
     alias: {
       '@': path.resolve(__dirname, './src'),
     },
   },
-}))
+}})
