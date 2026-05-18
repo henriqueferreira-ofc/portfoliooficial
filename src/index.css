@@ -116,3 +116,63 @@ body {
 .scrollbar-hide::-webkit-scrollbar {
   display: none;
 }
+
+/* ===== Animations: dar vida à página ===== */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+@keyframes floatY {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-6px); }
+}
+@keyframes shimmerLine {
+  0%   { filter: drop-shadow(0 0 0px rgba(229, 9, 20, 0.0)); opacity: 0.85; }
+  50%  { filter: drop-shadow(0 0 14px rgba(229, 9, 20, 0.55)); opacity: 1; }
+  100% { filter: drop-shadow(0 0 0px rgba(229, 9, 20, 0.0)); opacity: 0.85; }
+}
+@keyframes pulseGlow {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(229, 9, 20, 0.55); }
+  50%      { box-shadow: 0 0 0 12px rgba(229, 9, 20, 0); }
+}
+@keyframes gradientShift {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.animate-fade-in-up { animation: fadeInUp 0.8s ease-out both; }
+.animate-fade-in    { animation: fadeIn 1s ease-out both; }
+.animate-float      { animation: floatY 4s ease-in-out infinite; }
+.animate-shimmer    { animation: shimmerLine 3.5s ease-in-out infinite; }
+.animate-pulse-glow { animation: pulseGlow 2.4s ease-out infinite; }
+
+.delay-100 { animation-delay: 0.1s; }
+.delay-200 { animation-delay: 0.2s; }
+.delay-300 { animation-delay: 0.3s; }
+.delay-400 { animation-delay: 0.4s; }
+.delay-500 { animation-delay: 0.5s; }
+.delay-700 { animation-delay: 0.7s; }
+
+/* Card lift effect */
+.card-lift {
+  transition: transform 0.35s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.35s ease;
+}
+.card-lift:hover {
+  transform: translateY(-6px) scale(1.02);
+  box-shadow: 0 18px 40px -12px rgba(229, 9, 20, 0.35);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-fade-in-up,
+  .animate-fade-in,
+  .animate-float,
+  .animate-shimmer,
+  .animate-pulse-glow {
+    animation: none !important;
+  }
+}

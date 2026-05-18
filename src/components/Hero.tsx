@@ -23,28 +23,28 @@ const Hero = () => {
       
       {/* Text overlay */}
       <div className="absolute inset-0 flex flex-col justify-center px-6 md:px-16 lg:px-32">
-        <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-3 leading-tight">
+        <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-3 leading-tight animate-fade-in-up">
           Desenvolvedor Full-Stack e Logístico
         </h1>
-        <p className="text-2xl md:text-3xl lg:text-4xl font-medium text-netflix-red mb-6">
+        <p className="text-2xl md:text-3xl lg:text-4xl font-medium text-netflix-red mb-6 animate-fade-in-up delay-200">
           Criando Experiências Digitais espetaculares
         </p>
-        <p className="text-white text-lg md:text-xl lg:max-w-2xl mb-8 opacity-80">
+        <p className="text-white text-lg md:text-xl lg:max-w-2xl mb-8 opacity-80 animate-fade-in-up delay-300">
           Eu crio sites e aplicativos impressionantes que combinam design bonito com funcionalidade impecável.
           Especializado em React, TypeScript e tecnologias web modernas. Sou profissional em Logística Empresarial
         </p>
         
-        <div className="flex flex-wrap gap-4">
+        <div className="flex flex-wrap gap-4 animate-fade-in-up delay-500">
           <Link 
             to="/featured-projects"
-            className="flex items-center gap-2 bg-netflix-red hover:bg-netflix-dark-red text-white py-2 px-6 rounded transition-colors duration-300 font-medium"
+            className="flex items-center gap-2 bg-netflix-red hover:bg-netflix-dark-red text-white py-2 px-6 rounded transition-all duration-300 font-medium hover:scale-105 animate-pulse-glow"
           >
             <Play size={20} />
             Projeto em Destaque
           </Link>
           <Link 
             to="/contact"
-            className="flex items-center gap-2 bg-white/20 backdrop-blur-sm border border-white/30 hover:bg-white/30 text-white py-2 px-6 rounded transition-colors duration-300 font-medium"
+            className="flex items-center gap-2 bg-white/20 backdrop-blur-sm border border-white/30 hover:bg-white/30 text-white py-2 px-6 rounded transition-all duration-300 font-medium hover:scale-105"
           >
             <MessageSquare size={20} />
             Contate-me
@@ -53,7 +53,7 @@ const Hero = () => {
             href="https://github.com/henriqueferreira-ofc" 
             target="_blank" 
             rel="noopener noreferrer"
-            className="flex items-center gap-2 bg-white/20 backdrop-blur-sm border border-white/30 hover:bg-white/30 text-white py-2 px-6 rounded transition-colors duration-300 font-medium"
+            className="flex items-center gap-2 bg-white/20 backdrop-blur-sm border border-white/30 hover:bg-white/30 text-white py-2 px-6 rounded transition-all duration-300 font-medium hover:scale-105"
           >
             <Github size={20} />
             GitHub
@@ -63,7 +63,7 @@ const Hero = () => {
 
       {/* Red curved line at bottom */}
       <svg 
-        className="absolute bottom-0 left-0 w-full z-10" 
+        className="absolute bottom-0 left-0 w-full z-10 animate-shimmer" 
         viewBox="0 0 1920 200" 
         fill="none" 
         xmlns="http://www.w3.org/2000/svg"
