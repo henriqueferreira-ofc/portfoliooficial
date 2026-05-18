@@ -63,7 +63,7 @@ const Hero = () => {
 
       {/* Red curved line at bottom */}
       <svg 
-        className="absolute bottom-0 left-0 w-full z-10" 
+        className="absolute bottom-0 left-0 w-full z-10 animate-shimmer" 
         viewBox="0 0 1920 200" 
         fill="none" 
         xmlns="http://www.w3.org/2000/svg"
