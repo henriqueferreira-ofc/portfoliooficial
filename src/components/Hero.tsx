@@ -10,16 +10,36 @@ const Hero = () => {
   };
 
   return (
-    <section id="inicio" className="relative h-screen">
-      {/* Hero background */}
-      <div 
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat" 
-        style={{ 
-          backgroundImage: 'linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.8)), url(https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80)',
+    <section id="inicio" className="relative h-screen overflow-hidden">
+      {/* Hero background - animated layers */}
+      <div
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat hero-bg-drift"
+        style={{
+          backgroundImage: 'url(https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80)',
           maskImage: 'linear-gradient(to bottom, black 0%, black 82%, transparent 100%)',
           WebkitMaskImage: 'linear-gradient(to bottom, black 0%, black 82%, transparent 100%)'
         }}
       />
+      {/* Second drifting layer for parallax/glow */}
+      <div
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-40 mix-blend-screen hero-bg-drift-rev"
+        style={{
+          backgroundImage: 'url(https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80)',
+          maskImage: 'linear-gradient(to bottom, black 0%, black 82%, transparent 100%)',
+          WebkitMaskImage: 'linear-gradient(to bottom, black 0%, black 82%, transparent 100%)'
+        }}
+      />
+      {/* Dark overlay for readability */}
+      <div
+        className="absolute inset-0"
+        style={{
+          background: 'linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.8))',
+          maskImage: 'linear-gradient(to bottom, black 0%, black 82%, transparent 100%)',
+          WebkitMaskImage: 'linear-gradient(to bottom, black 0%, black 82%, transparent 100%)'
+        }}
+      />
+      {/* Scanline flicker */}
+      <div className="absolute inset-0 pointer-events-none hero-scanlines" />
       
       {/* Text overlay */}
       <div className="absolute inset-0 flex flex-col justify-center px-6 md:px-16 lg:px-32">
