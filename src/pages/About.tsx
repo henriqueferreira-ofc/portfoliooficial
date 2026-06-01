@@ -51,28 +51,29 @@ const AboutPage = () => {
   return <div className="bg-netflix-black min-h-screen">
       <Navbar />
       
-      <div className="pt-24 container mx-auto px-4">
+      <main className="about-page pt-24 md:pt-28 container mx-auto px-4 sm:px-6 lg:px-8 pb-12 overflow-x-hidden">
         <div className="mb-8">
-          <h1 className="text-4xl font-bold text-white text-center">SOBRE MIM</h1>
+          <h1 className="text-3xl sm:text-4xl font-bold text-white text-center">SOBRE MIM</h1>
         </div>
         
-        <div className="bg-netflix-dark-gray rounded-lg p-8 mb-12">
+        <div className="bg-netflix-dark-gray rounded-lg p-5 sm:p-8 mb-12">
           <div className="flex flex-col md:flex-row gap-8">
             <div className="md:w-1/3 flex flex-col items-center md:pt-8">
-              <div className="aspect-square overflow-hidden rounded-full border-4 border-netflix-red w-56 h-56">
+              <div className="aspect-square overflow-hidden rounded-full border-4 border-netflix-red w-44 h-44 sm:w-56 sm:h-56">
                 <img src={profileImage} alt="Foto de perfil" className="w-full h-full object-cover" />
               </div>
               <h3 className="text-2xl font-bold text-white mt-4 text-center">Henrique Ferreira</h3>
             </div>
             
             <div className="md:w-2/3 md:pl-4">
-              <h2 className="text-2xl font-bold text-white mb-4">Graduado em Logística, MBA em Logística Empresarial e Gestão de Pessoas, Graduado em ADS (Análise e Desenvolvimentos de Sistemas ), Pós Graduado em Gerenciamentos de Projetos em TI, Gestão em Tecnologia, Gestão Pública e Gestão de Pessoas.</h2>
+              <h2 className="text-xl sm:text-2xl font-bold text-white mb-4 leading-tight">Graduado em Logística, MBA em Logística Empresarial e Gestão de Pessoas, Graduado em ADS (Análise e Desenvolvimentos de Sistemas ), Pós Graduado em Gerenciamentos de Projetos em TI, Gestão em Tecnologia, Gestão Pública e Gestão de Pessoas.</h2>
               <div className="space-y-4">
-              <p className="text-gray-300 leading-relaxed">
-                  
-                </p>Olá! Sou graduado e especializado em Logística, com sólida experiência teórica e prática. Ao longo dos últimos 6 anos, atuei na supervisão e gestão de diferentes empresas do setor, adquirindo uma vivência ampla em processos operacionais e estratégicos. Essa trajetória me proporcionou conhecimento profundo sobre as demandas logísticas, além de uma capacidade comprovada de liderar equipes, otimizar fluxos de trabalho e garantir resultados consistentes.
-
-Com a graduação em Análise e Desenvolvimento de Sistemas (ADS), agreguei ainda mais valor ao meu perfil profissional, unindo a expertise em gestão logística à visão tecnológica. Essa combinação fortalece minha atuação na criação de soluções inovadoras, que potencializam a eficiência operacional e a tomada de decisão estratégica.
+                <p className="text-gray-300 leading-relaxed">
+                  Olá! Sou graduado e especializado em Logística, com sólida experiência teórica e prática. Ao longo dos últimos 6 anos, atuei na supervisão e gestão de diferentes empresas do setor, adquirindo uma vivência ampla em processos operacionais e estratégicos. Essa trajetória me proporcionou conhecimento profundo sobre as demandas logísticas, além de uma capacidade comprovada de liderar equipes, otimizar fluxos de trabalho e garantir resultados consistentes.
+                </p>
+                <p className="text-gray-300 leading-relaxed">
+                  Com a graduação em Análise e Desenvolvimento de Sistemas (ADS), agreguei ainda mais valor ao meu perfil profissional, unindo a expertise em gestão logística à visão tecnológica. Essa combinação fortalece minha atuação na criação de soluções inovadoras, que potencializam a eficiência operacional e a tomada de decisão estratégica.
+                </p>
                 <p className="text-gray-300 leading-relaxed">
                   Me especializei em gestão de projetos de TI com foco em liderança e desenvolvimento de equipes. Com bastante experiência teórica e disposto a aprender inovações combinando habilidades técnicas e gerenciais, meu objetivo é construir soluções eficientes e equipes de alto desempenho.
                 </p>
@@ -346,7 +347,7 @@ Com a graduação em Análise e Desenvolvimento de Sistemas (ADS), agreguei aind
             </div>
           </div>
         </div>
-      </div>
+      </main>
       
       <Footer />
     </div>;

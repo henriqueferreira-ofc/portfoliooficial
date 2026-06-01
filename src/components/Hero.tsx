@@ -10,7 +10,7 @@ const Hero = () => {
   };
 
   return (
-    <section id="inicio" className="relative h-screen overflow-hidden">
+    <section id="inicio" className="relative min-h-[100svh] overflow-hidden">
       {/* Hero background - animated layers */}
       <div
         className="absolute inset-0 bg-cover bg-center bg-no-repeat hero-bg-drift"
@@ -42,29 +42,29 @@ const Hero = () => {
       <div className="absolute inset-0 pointer-events-none hero-scanlines" />
       
       {/* Text overlay */}
-      <div className="absolute inset-0 flex flex-col justify-center px-6 md:px-16 lg:px-32">
-        <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-3 leading-tight animate-fade-in-up">
+      <div className="absolute inset-0 flex flex-col justify-center px-4 sm:px-6 md:px-16 lg:px-32 pt-20 pb-24">
+        <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-3 leading-tight animate-fade-in-up max-w-5xl">
           Desenvolvedor Full-Stack e Logístico
         </h1>
-        <p className="text-2xl md:text-3xl lg:text-4xl font-medium text-netflix-red mb-6 animate-fade-in-up delay-200">
+        <p className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-medium text-netflix-red mb-5 md:mb-6 animate-fade-in-up delay-200 max-w-4xl">
           Criando Experiências Digitais espetaculares
         </p>
-        <p className="text-white text-lg md:text-xl lg:max-w-2xl mb-8 opacity-80 animate-fade-in-up delay-300">
+        <p className="text-white text-base sm:text-lg md:text-xl lg:max-w-2xl mb-6 md:mb-8 opacity-80 animate-fade-in-up delay-300">
           Eu crio sites e aplicativos impressionantes que combinam design bonito com funcionalidade impecável.
           Especializado em React, TypeScript e tecnologias web modernas. Sou profissional em Logística Empresarial
         </p>
         
-        <div className="flex flex-wrap gap-4 animate-fade-in-up delay-500">
+        <div className="flex flex-col sm:flex-row sm:flex-wrap gap-3 sm:gap-4 animate-fade-in-up delay-500">
           <Link 
             to="/featured-projects"
-            className="flex items-center gap-2 bg-netflix-red hover:bg-netflix-dark-red text-white py-2 px-6 rounded transition-all duration-300 font-medium hover:scale-105 animate-pulse-glow"
+            className="min-h-11 flex items-center justify-center gap-2 bg-netflix-red hover:bg-netflix-dark-red text-white py-2 px-6 rounded transition-all duration-300 font-medium hover:scale-105 animate-pulse-glow"
           >
             <Play size={20} />
             Projeto em Destaque
           </Link>
           <Link 
             to="/contact"
-            className="flex items-center gap-2 bg-white/20 backdrop-blur-sm border border-white/30 hover:bg-white/30 text-white py-2 px-6 rounded transition-all duration-300 font-medium hover:scale-105"
+            className="min-h-11 flex items-center justify-center gap-2 bg-white/20 backdrop-blur-sm border border-white/30 hover:bg-white/30 text-white py-2 px-6 rounded transition-all duration-300 font-medium hover:scale-105"
           >
             <MessageSquare size={20} />
             Contate-me
@@ -73,7 +73,7 @@ const Hero = () => {
             href="https://github.com/henriqueferreira-ofc" 
             target="_blank" 
             rel="noopener noreferrer"
-            className="flex items-center gap-2 bg-white/20 backdrop-blur-sm border border-white/30 hover:bg-white/30 text-white py-2 px-6 rounded transition-all duration-300 font-medium hover:scale-105"
+            className="min-h-11 flex items-center justify-center gap-2 bg-white/20 backdrop-blur-sm border border-white/30 hover:bg-white/30 text-white py-2 px-6 rounded transition-all duration-300 font-medium hover:scale-105"
           >
             <Github size={20} />
             GitHub

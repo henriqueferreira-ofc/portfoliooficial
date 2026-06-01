@@ -1,10 +1,10 @@
 
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import { useProjectsData } from '@/hooks/useProjectsData';
 import { useIsMobile } from '@/hooks/use-mobile';
-import { 
+import {
   Carousel,
   CarouselContent,
   CarouselItem,
@@ -12,34 +12,48 @@ import {
   CarouselPrevious
 } from "@/components/ui/carousel";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
-import { ChevronRight, Award, Star, ExternalLink, Github, ArrowUp } from 'lucide-react';
+import { ChevronRight, Award, Star, ExternalLink, ArrowUp } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { toast } from "sonner";
 
 const FeaturedProjects = () => {
-  const { webProjects, mobileProjects, designProjects, isLoading } = useProjectsData();
+  const { webProjects, mobileProjects, designProjects } = useProjectsData();
   const isMobile = useIsMobile();
-  
+
   // Combine all projects and filter featured ones (using first 6 for demo purposes)
   const allProjects = [...webProjects, ...mobileProjects, ...designProjects];
   const [featuredProjects, setFeaturedProjects] = useState(allProjects.slice(0, 6));
 
   // Set the first project as the main featured one initially
   const [mainFeaturedProject, setMainFeaturedProject] = useState(featuredProjects[0]);
-  
+
+  useEffect(() => {
+    const nextFeaturedProjects = allProjects.slice(0, 6);
+    setFeaturedProjects(nextFeaturedProjects);
+    setMainFeaturedProject((currentProject) => {
+      if (currentProject && nextFeaturedProjects.some((project) => project.id === currentProject.id)) {
+        return currentProject;
+      }
+
+      return nextFeaturedProjects[0];
+    });
+  }, [webProjects, mobileProjects, designProjects]);
+
   // Function to promote a project to main feature
   const promoteToMainFeature = (project) => {
     // Find current index of the project
     const currentIndex = featuredProjects.findIndex(p => p.id === project.id);
-    
+
     if (currentIndex === -1) return;
-    
+
     // Set the clicked project as the main featured project
     setMainFeaturedProject(project);
-    
+
     // Show success message
     toast.success(`${project.title} agora é o projeto em destaque principal!`);
   };
+
+  const secondaryProjects = featuredProjects.filter(project => project.id !== mainFeaturedProject?.id);
 
   // Determine basis for carousel items based on screen size
   const getCarouselItemBasis = () => {
@@ -53,14 +67,14 @@ const FeaturedProjects = () => {
   return (
     <div className="bg-gradient-to-b from-netflix-black to-netflix-dark-gray min-h-screen">
       <Navbar />
-      
-      <div className="pt-24 md:pt-28 lg:pt-32 pb-16 md:pb-20 container mx-auto px-4 md:px-6">
+
+      <main className="pt-24 md:pt-28 lg:pt-32 pb-16 md:pb-20 container mx-auto px-4 sm:px-6 lg:px-8 overflow-x-hidden">
         <div className="flex flex-col items-center mb-8 md:mb-12 text-center">
           <span className="text-netflix-red font-semibold mb-2 md:mb-3 flex items-center text-sm md:text-base">
             <Award className="mr-2" size={isMobile ? 16 : 20} />
             PROJETOS SELECIONADOS
           </span>
-          <h1 className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-white mb-4 md:mb-6 leading-tight">
+          <h1 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold text-white mb-4 md:mb-6 leading-tight">
             Projetos em Destaque
           </h1>
           <p className="text-gray-300 max-w-2xl text-sm md:text-base lg:text-lg">
@@ -68,23 +82,23 @@ const FeaturedProjects = () => {
             em design, desenvolvimento web e mobile.
           </p>
         </div>
-        
+
         {/* Hero Featured Project - Responsive */}
         {mainFeaturedProject && (
-          <div className="mb-12 md:mb-16 lg:mb-24 overflow-hidden rounded-lg md:rounded-xl group relative">
-            <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent opacity-70 z-10"></div>
-            <img 
-              src={mainFeaturedProject.imageUrl} 
+          <section className="mb-12 md:mb-16 lg:mb-24 overflow-hidden rounded-lg group relative bg-netflix-dark-gray">
+            <div className="absolute inset-0 bg-gradient-to-t from-black via-black/45 to-transparent md:via-transparent opacity-90 z-10"></div>
+            <img
+              src={mainFeaturedProject.imageUrl}
               alt={mainFeaturedProject.title}
-              className="w-full h-[300px] md:h-[400px] lg:h-[500px] object-cover transform transition-transform duration-700 group-hover:scale-105"
+              className="w-full min-h-[430px] h-[70vh] max-h-[560px] sm:h-[520px] lg:h-[560px] object-cover object-center transform transition-transform duration-700 group-hover:scale-105"
             />
-            <div className="absolute bottom-0 left-0 right-0 p-4 md:p-6 lg:p-8 z-20">
+            <div className="absolute bottom-0 left-0 right-0 p-4 sm:p-6 lg:p-8 z-20">
               <div className="flex items-center mb-2 md:mb-3">
                 <Star className="text-yellow-400 mr-2" size={isMobile ? 16 : 20} />
                 <span className="text-yellow-400 font-medium text-sm md:text-base">Projeto Principal</span>
               </div>
-              <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-white mb-2 md:mb-3">{mainFeaturedProject.title}</h2>
-              <p className="text-gray-200 mb-3 md:mb-4 max-w-2xl text-sm md:text-base line-clamp-2 md:line-clamp-3">{mainFeaturedProject.description}</p>
+              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white mb-2 md:mb-3 leading-tight">{mainFeaturedProject.title}</h2>
+              <p className="text-gray-200 mb-3 md:mb-4 max-w-2xl text-sm sm:text-base line-clamp-4 md:line-clamp-3">{mainFeaturedProject.description}</p>
               <div className="flex flex-wrap gap-1 md:gap-2 mb-4 md:mb-6">
                 {mainFeaturedProject.tags.map((tag, index) => (
                   <span key={index} className="bg-netflix-red/80 text-white text-xs md:text-sm px-2 md:px-3 py-0.5 md:py-1 rounded-full">
@@ -92,35 +106,89 @@ const FeaturedProjects = () => {
                   </span>
                 ))}
               </div>
-              <a 
-                href={mainFeaturedProject.link || "#"} 
-                className="inline-flex items-center bg-netflix-red hover:bg-netflix-dark-red text-white font-medium py-2 md:py-3 px-4 md:px-6 rounded-md transition-colors duration-300 text-sm md:text-base"
-                target="_blank" 
+              <a
+                href={mainFeaturedProject.link || "#"}
+                className="inline-flex min-h-11 items-center justify-center bg-netflix-red hover:bg-netflix-dark-red text-white font-medium py-2 md:py-3 px-4 md:px-6 rounded-md transition-colors duration-300 text-sm md:text-base"
+                target="_blank"
                 rel="noopener noreferrer"
               >
                 Ver Projeto <ExternalLink className="ml-2" size={isMobile ? 14 : 16} />
               </a>
             </div>
-          </div>
+          </section>
         )}
-        
-        {/* Carousel of Featured Projects - Responsive */}
+
+        {/* Featured Projects - Mobile/tablet grid, desktop carousel */}
         <div className="mb-8 md:mb-12 lg:mb-16">
           <h2 className="text-xl md:text-2xl font-bold text-white mb-4 md:mb-6">Outros Projetos Destaques</h2>
-          <Carousel className="w-full">
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 lg:hidden">
+            {secondaryProjects.map((project) => (
+              <Card key={project.id} className="bg-netflix-dark-gray border-netflix-medium-gray overflow-hidden relative">
+                <div className="aspect-video overflow-hidden">
+                  <img
+                    src={project.imageUrl}
+                    alt={project.title}
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+                <button
+                  onClick={() => promoteToMainFeature(project)}
+                  className="absolute top-2 right-2 bg-netflix-red text-white p-2 rounded-full transition-colors"
+                  title="Promover para destaque principal"
+                  aria-label={`Destacar ${project.title}`}
+                >
+                  <ArrowUp size={16} />
+                </button>
+                <CardHeader className="p-4">
+                  <CardTitle className="text-white text-lg leading-tight">{project.title}</CardTitle>
+                  <CardDescription className="text-gray-300 text-sm line-clamp-3">
+                    {project.description}
+                  </CardDescription>
+                </CardHeader>
+                <CardContent className="p-4 pt-0">
+                  <div className="flex flex-wrap gap-1.5">
+                    {project.tags.slice(0, 3).map((tag, index) => (
+                      <span key={index} className="bg-netflix-medium-gray text-gray-200 text-xs px-2 py-1 rounded">
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                </CardContent>
+                <CardFooter className="flex gap-3 p-4 pt-0">
+                  <a
+                    href={project.link || "#"}
+                    className="inline-flex min-h-10 flex-1 items-center justify-center rounded-md bg-netflix-red text-white text-sm font-medium"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Ver projeto <ChevronRight size={14} className="ml-1" />
+                  </a>
+                  <button
+                    onClick={() => promoteToMainFeature(project)}
+                    className="inline-flex min-h-10 flex-1 items-center justify-center rounded-md border border-netflix-red text-netflix-red text-sm font-medium"
+                  >
+                    Destacar <ArrowUp size={14} className="ml-1" />
+                  </button>
+                </CardFooter>
+              </Card>
+            ))}
+          </div>
+
+          <Carousel className="hidden lg:block w-full">
             <CarouselContent className="-ml-2 md:-ml-4">
-              {featuredProjects.filter(project => project.id !== mainFeaturedProject?.id).map((project) => (
+              {secondaryProjects.map((project) => (
                 <CarouselItem key={project.id} className={`pl-2 md:pl-4 ${getCarouselItemBasis()}`}>
                   <Card className="bg-netflix-dark-gray border-netflix-medium-gray hover:border-netflix-red transition-colors duration-300 overflow-hidden group relative">
                     <div className="h-36 md:h-48 overflow-hidden">
-                      <img 
-                        src={project.imageUrl} 
+                      <img
+                        src={project.imageUrl}
                         alt={project.title}
                         className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                       />
                     </div>
                     <div className="absolute top-2 right-2">
-                      <button 
+                      <button
                         onClick={() => promoteToMainFeature(project)}
                         className="bg-netflix-red/80 hover:bg-netflix-red text-white p-1.5 md:p-2 rounded-full transition-colors"
                         title="Promover para destaque principal"
@@ -148,16 +216,16 @@ const FeaturedProjects = () => {
                         )}
                       </div>
                     </CardContent>
-                    <CardFooter className="flex justify-between p-3 md:p-4 lg:p-6 pt-0">
-                      <a 
-                        href={project.link || "#"} 
+                    <CardFooter className="flex justify-between gap-4 p-3 md:p-4 lg:p-6 pt-0">
+                      <a
+                        href={project.link || "#"}
                         className="text-netflix-red hover:text-white transition-colors flex items-center text-xs md:text-sm"
-                        target="_blank" 
+                        target="_blank"
                         rel="noopener noreferrer"
                       >
                         Ver projeto <ChevronRight size={14} className="ml-1" />
                       </a>
-                      <button 
+                      <button
                         onClick={() => promoteToMainFeature(project)}
                         className="text-netflix-red hover:text-white transition-colors flex items-center text-xs md:text-sm"
                       >
@@ -168,25 +236,25 @@ const FeaturedProjects = () => {
                 </CarouselItem>
               ))}
             </CarouselContent>
-            <div className="hidden md:block">
+            <div>
               <CarouselPrevious className="bg-netflix-red/80 hover:bg-netflix-red text-white border-none" />
               <CarouselNext className="bg-netflix-red/80 hover:bg-netflix-red text-white border-none" />
             </div>
           </Carousel>
         </div>
-        
+
         {/* Call to action - Responsive */}
-        <div className="bg-gradient-to-r from-netflix-dark-red to-netflix-red p-4 md:p-8 lg:p-12 rounded-lg md:rounded-xl flex flex-col md:flex-row items-center justify-between">
+        <div className="bg-gradient-to-r from-netflix-dark-red to-netflix-red p-5 md:p-8 lg:p-12 rounded-lg flex flex-col md:flex-row items-center justify-between gap-4">
           <div>
             <h3 className="text-xl md:text-2xl font-bold text-white mb-2 text-center md:text-left">Quer ver mais projetos?</h3>
             <p className="text-white/80 text-sm md:text-base text-center md:text-left">Explore meu portfólio completo e descubra mais sobre meu trabalho.</p>
           </div>
-          <Link to="/projects" className="mt-4 md:mt-0 bg-white hover:bg-gray-200 text-netflix-dark-red font-medium py-2 md:py-3 px-4 md:px-6 rounded-md transition-colors duration-300 text-sm md:text-base">
+          <Link to="/projects" className="w-full md:w-auto min-h-11 inline-flex items-center justify-center bg-white hover:bg-gray-200 text-netflix-dark-red font-medium py-2 md:py-3 px-4 md:px-6 rounded-md transition-colors duration-300 text-sm md:text-base">
             Ver Todos os Projetos
           </Link>
         </div>
-      </div>
-      
+      </main>
+
       <Footer />
     </div>
   );

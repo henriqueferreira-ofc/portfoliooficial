@@ -73,12 +73,12 @@ const ContactPage = () => {
     <div className="bg-netflix-black min-h-screen">
       <Navbar />
       
-      <div className="pt-24 container mx-auto px-4 pb-16">
-        <h1 className="text-4xl font-bold text-white mb-8">Entre em Contato</h1>
+      <main className="pt-24 md:pt-28 container mx-auto px-4 sm:px-6 lg:px-8 pb-16 overflow-x-hidden">
+        <h1 className="text-3xl sm:text-4xl font-bold text-white mb-8">Entre em Contato</h1>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8">
           <div>
-            <form onSubmit={handleSubmit} className="space-y-6 bg-netflix-dark-gray p-6 rounded-lg">
+            <form onSubmit={handleSubmit} className="space-y-6 bg-netflix-dark-gray p-5 sm:p-6 rounded-lg">
               <div>
                 <label htmlFor="name" className="block text-white mb-2">Nome *</label>
                 <Input
@@ -88,7 +88,7 @@ const ContactPage = () => {
                   onChange={handleChange}
                   placeholder="Seu nome"
                   required
-                  className="bg-netflix-medium-gray border-gray-700 text-white"
+                  className="bg-netflix-medium-gray border-gray-700 text-white min-h-11"
                 />
               </div>
               
@@ -102,7 +102,7 @@ const ContactPage = () => {
                   onChange={handleChange}
                   placeholder="seu.email@exemplo.com"
                   required
-                  className="bg-netflix-medium-gray border-gray-700 text-white"
+                  className="bg-netflix-medium-gray border-gray-700 text-white min-h-11"
                 />
               </div>
               
@@ -114,7 +114,7 @@ const ContactPage = () => {
                   value={formData.subject}
                   onChange={handleChange}
                   placeholder="Assunto da mensagem"
-                  className="bg-netflix-medium-gray border-gray-700 text-white"
+                  className="bg-netflix-medium-gray border-gray-700 text-white min-h-11"
                 />
               </div>
               
@@ -134,7 +134,7 @@ const ContactPage = () => {
               <Button 
                 type="submit" 
                 disabled={isSubmitting}
-                className="w-full bg-netflix-red hover:bg-red-700 text-white font-medium"
+                className="w-full min-h-11 bg-netflix-red hover:bg-red-700 text-white font-medium"
               >
                 {isSubmitting ? (
                   <>
@@ -149,8 +149,8 @@ const ContactPage = () => {
           </div>
           
           <div className="space-y-8">
-            <div className="bg-netflix-dark-gray p-6 rounded-lg">
-              <h2 className="text-2xl font-bold text-white mb-4">Informações de Contato</h2>
+            <div className="bg-netflix-dark-gray p-5 sm:p-6 rounded-lg">
+              <h2 className="text-xl sm:text-2xl font-bold text-white mb-4">Informações de Contato</h2>
               
               <div className="space-y-4">
                 <div className="flex items-start">
@@ -198,8 +198,8 @@ const ContactPage = () => {
               </div>
             </div>
             
-            <div className="bg-netflix-dark-gray p-6 rounded-lg">
-              <h2 className="text-2xl font-bold text-white mb-4">Redes Sociais</h2>
+            <div className="bg-netflix-dark-gray p-5 sm:p-6 rounded-lg">
+              <h2 className="text-xl sm:text-2xl font-bold text-white mb-4">Redes Sociais</h2>
               
               <div className="flex flex-wrap gap-4">
                 <a href="https://github.com/henriqueferreira-ofc" 
@@ -260,7 +260,7 @@ const ContactPage = () => {
             </div>
           </div>
         </div>
-      </div>
+      </main>
       
       <Footer />
     </div>

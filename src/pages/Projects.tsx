@@ -31,8 +31,8 @@ const Projects: React.FC = () => {
     <div className="bg-netflix-black min-h-screen">
       <Navbar />
       
-      <div className="pt-24 container mx-auto px-4" id="projects">
-        <h1 className="text-4xl font-bold text-white mb-8">Meus Projetos</h1>
+      <main className="pt-24 md:pt-28 container mx-auto px-4 sm:px-6 lg:px-8 pb-12 overflow-x-hidden" id="projects">
+        <h1 className="text-3xl sm:text-4xl font-bold text-white mb-8">Meus Projetos</h1>
         
         <ProjectsLoadingState 
           isLoading={isLoading} 
@@ -51,7 +51,7 @@ const Projects: React.FC = () => {
             <ProjectsEmptyState noProjects={hasNoProjects} />
           </div>
         )}
-      </div>
+      </main>
       
       <Footer />
     </div>

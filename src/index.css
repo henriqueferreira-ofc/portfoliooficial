@@ -89,6 +89,37 @@
 body {
   background-color: var(--netflix-black);
   color: #fff;
+  overflow-x: hidden;
+  -webkit-text-size-adjust: 100%;
+}
+
+html {
+  background-color: var(--netflix-black);
+  scroll-padding-top: calc(80px + env(safe-area-inset-top));
+}
+
+#root {
+  min-height: 100svh;
+}
+
+.pt-safe {
+  padding-top: env(safe-area-inset-top);
+}
+
+@media (max-width: 640px) {
+  .about-page .bg-netflix-dark-gray {
+    padding: 1.25rem;
+  }
+
+  .about-page .flex.items-start {
+    align-items: flex-start;
+    gap: 0.75rem;
+  }
+
+  .about-page .flex.justify-between {
+    flex-direction: column;
+    gap: 0.35rem;
+  }
 }
 
 /* Netflix section styles */

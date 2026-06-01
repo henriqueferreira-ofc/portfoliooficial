@@ -13,8 +13,8 @@ const Home = () => {
       <main>
         <Hero />
         
-        <div className="container mx-auto px-4 py-16">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16 overflow-x-hidden">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-5 lg:gap-8">
             <div className="bg-netflix-dark-gray rounded-lg p-6 text-center hover:bg-netflix-medium-gray transition-colors card-lift animate-fade-in-up delay-100">
               <div className="text-netflix-red mb-4">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" className="w-12 h-12 mx-auto">

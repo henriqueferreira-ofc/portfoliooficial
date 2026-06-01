@@ -1,0 +1,25 @@
+{
+  "name": "Portfólio Henrique Ferreira",
+  "short_name": "Portfólio",
+  "description": "Portfólio de projetos web, mobile, gestão de projetos e tecnologia.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#000000",
+  "theme_color": "#000000",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/portfavico.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/PortFavicon.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
