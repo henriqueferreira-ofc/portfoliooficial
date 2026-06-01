@@ -85,7 +85,8 @@ const FeaturedProjects = () => {
 
         {/* Hero Featured Project - Responsive */}
         {mainFeaturedProject && (
-          <section className="mb-12 md:mb-16 lg:mb-24 overflow-hidden rounded-lg group relative bg-netflix-dark-gray">
+          <section className="mb-12 md:mb-16 lg:mb-24 overflow-hidden rounded-lg group relative bg-netflix-dark-gray border border-transparent transition-all duration-300 hover:border-netflix-red hover:shadow-[0_20px_55px_-18px_rgba(229,9,20,0.75)] hover:-translate-y-1">
+            <div className="pointer-events-none absolute inset-0 rounded-lg ring-0 ring-netflix-red/0 transition-all duration-300 group-hover:ring-2 group-hover:ring-netflix-red/70 z-20"></div>
             <div className="absolute inset-0 bg-gradient-to-t from-black via-black/45 to-transparent md:via-transparent opacity-90 z-10"></div>
             <img
               src={mainFeaturedProject.imageUrl}
@@ -124,17 +125,18 @@ const FeaturedProjects = () => {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 lg:hidden">
             {secondaryProjects.map((project) => (
-              <Card key={project.id} className="bg-netflix-dark-gray border-netflix-medium-gray overflow-hidden relative">
+              <Card key={project.id} className="group bg-netflix-dark-gray border-netflix-medium-gray overflow-hidden relative transition-all duration-300 hover:border-netflix-red hover:shadow-[0_16px_42px_-16px_rgba(229,9,20,0.75)] active:border-netflix-red active:shadow-[0_16px_42px_-16px_rgba(229,9,20,0.75)]">
+                <div className="pointer-events-none absolute inset-0 rounded-lg ring-0 ring-netflix-red/0 transition-all duration-300 group-hover:ring-2 group-hover:ring-netflix-red/70 group-active:ring-2 group-active:ring-netflix-red/70 z-20"></div>
                 <div className="aspect-video overflow-hidden">
                   <img
                     src={project.imageUrl}
                     alt={project.title}
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105 group-active:scale-105"
                   />
                 </div>
                 <button
                   onClick={() => promoteToMainFeature(project)}
-                  className="absolute top-2 right-2 bg-netflix-red text-white p-2 rounded-full transition-colors"
+                  className="absolute top-2 right-2 z-30 bg-netflix-red text-white p-2 rounded-full transition-colors"
                   title="Promover para destaque principal"
                   aria-label={`Destacar ${project.title}`}
                 >
@@ -175,8 +177,8 @@ const FeaturedProjects = () => {
             ))}
           </div>
 
-          <Carousel className="hidden lg:block w-full">
-            <CarouselContent className="-ml-2 md:-ml-4">
+          <Carousel className="hidden lg:block w-full px-12">
+            <CarouselContent className="-ml-4">
               {secondaryProjects.map((project) => (
                 <CarouselItem key={project.id} className={`pl-2 md:pl-4 ${getCarouselItemBasis()}`}>
                   <Card className="bg-netflix-dark-gray border-netflix-medium-gray hover:border-netflix-red transition-colors duration-300 overflow-hidden group relative">
@@ -236,9 +238,9 @@ const FeaturedProjects = () => {
                 </CarouselItem>
               ))}
             </CarouselContent>
-            <div>
-              <CarouselPrevious className="bg-netflix-red/80 hover:bg-netflix-red text-white border-none" />
-              <CarouselNext className="bg-netflix-red/80 hover:bg-netflix-red text-white border-none" />
+            <div className="pointer-events-none absolute inset-y-0 left-0 right-0 z-30 flex items-center justify-between">
+              <CarouselPrevious className="pointer-events-auto static translate-x-0 translate-y-0 bg-netflix-red hover:bg-netflix-dark-red text-white border-none shadow-lg disabled:opacity-40" />
+              <CarouselNext className="pointer-events-auto static translate-x-0 translate-y-0 bg-netflix-red hover:bg-netflix-dark-red text-white border-none shadow-lg disabled:opacity-40" />
             </div>
           </Carousel>
         </div>
