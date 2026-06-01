@@ -1,3 +1,12 @@
+import datavision from '@/assets/datavision.png.asset.json';
+import thrilha from '@/assets/thrilha.png.asset.json';
+import datavisionPreco from '@/assets/datavision.png.asset.json';
+import axispay from '@/assets/axispay.png.asset.json';
+import cadastro from '@/assets/cadastro.png.asset.json';
+import noticia from '@/assets/asasdanoticia.png.asset.json';
+import cartao from '@/assets/cartao.png.asset.json';
+import cep from '@/assets/cep.png.asset.json';
+import jml from '@/assets/jml.png.asset.json';
 
 interface Project {
   id: string;
@@ -11,26 +20,26 @@ interface Project {
 export const getSampleWebProjects = (): Project[] => [
   {
     id: '1',
-    imageUrl: 'https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80',
-    title: 'Plataforma E-Commerce',
-    description: 'Uma loja online completa com carrinho, checkout e processamento de pagamento.',
-    tags: ['React', 'Node.js', 'MongoDB'],
+    imageUrl: datavision.url,
+    title: 'DataVision',
+    description: 'Plataforma de Inteligência Empresarial com IA que transforma planilhas e dados brutos em análises profundas, insights acionáveis e relatórios executivos prontos em segundos.',
+    tags: ['React', 'IA', 'Dashboard', 'SaaS'],
     link: '#'
   },
   {
     id: '2',
-    imageUrl: 'https://images.unsplash.com/photo-1461749280684-dccba630e2f6?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80',
-    title: 'Site de Portfólio',
-    description: 'Site de portfólio responsivo com transições animadas e carregamento dinâmico de conteúdo.',
-    tags: ['React', 'Tailwind CSS', 'Framer Motion'],
+    imageUrl: thrilha.url,
+    title: 'Thrilha',
+    description: 'Aplicação moderna de organização de tarefas e projetos diários, com interface intuitiva, dark mode e foco em produtividade.',
+    tags: ['React', 'Tailwind CSS', 'Produtividade'],
     link: '#'
   },
   {
     id: '3',
-    imageUrl: 'https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80',
-    title: 'Interface de Dashboard',
-    description: 'Painel administrativo com visualização de dados, gerenciamento de usuários e recursos de relatórios.',
-    tags: ['React', 'TypeScript', 'Chart.js'],
+    imageUrl: axispay.url,
+    title: 'AxisPay - Financial Axis',
+    description: 'Plataforma financeira com autenticação segura, cadastro e gerenciamento completo de finanças pessoais em uma interface dark elegante.',
+    tags: ['React', 'Supabase', 'Fintech'],
     link: '#'
   },
 ];
@@ -38,26 +47,26 @@ export const getSampleWebProjects = (): Project[] => [
 export const getSampleMobileProjects = (): Project[] => [
   {
     id: '4',
-    imageUrl: 'https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80',
-    title: 'Rastreador de Fitness',
-    description: 'Aplicativo móvel para rastrear treinos, nutrição e métricas de saúde.',
-    tags: ['React Native', 'Redux', 'HealthKit'],
+    imageUrl: cartao.url,
+    title: 'Cartão Digital — Henrique Ferreira',
+    description: 'Cartão de visitas digital com contato direto via WhatsApp, e-mail, mapa do escritório e link para portfólio. Salva diretamente na agenda do celular.',
+    tags: ['Mobile First', 'PWA', 'vCard'],
     link: '#'
   },
   {
     id: '5',
-    imageUrl: 'https://images.unsplash.com/photo-1649972904349-6e44c42644a7?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80',
-    title: 'Localizador de Receitas',
-    description: 'Aplicativo que sugere receitas com base nos ingredientes que você tem em casa.',
-    tags: ['Flutter', 'Firebase', 'Integração API'],
+    imageUrl: cep.url,
+    title: 'Buscador de CEP',
+    description: 'Aplicação responsiva que consulta CEPs em tempo real via ViaCEP e exibe a localização aproximada integrada ao Google Maps.',
+    tags: ['React', 'ViaCEP API', 'Google Maps'],
     link: '#'
   },
   {
     id: '6',
-    imageUrl: 'https://images.unsplash.com/photo-1461749280684-dccba630e2f6?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80',
-    title: 'Companheiro de Viagem',
-    description: 'Planejamento de viagens e gerenciamento de itinerário com mapas e recomendações.',
-    tags: ['React Native', 'Google Maps API'],
+    imageUrl: jml.url,
+    title: 'JML-Pescados — Balancete',
+    description: 'Sistema interno de balancete mensal para gestão de fornecedores, cadastro de grude seca e despesas gerais da JML-Pescados.',
+    tags: ['Sistema Web', 'Gestão', 'Financeiro'],
     link: '#'
   },
 ];
@@ -65,26 +74,18 @@ export const getSampleMobileProjects = (): Project[] => [
 export const getSampleDesignProjects = (): Project[] => [
   {
     id: '7',
-    imageUrl: 'https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80',
-    title: 'Identidade de Marca',
-    description: 'Design completo de identidade de marca incluindo logotipo, esquema de cores e diretrizes.',
-    tags: ['Branding', 'Illustrator', 'Photoshop'],
+    imageUrl: noticia.url,
+    title: 'AAFAB Notícias',
+    description: 'Portal de notícias da Associação Amigos da Força Aérea Brasileira, com cobertura nacional e internacional, layout editorial e destaque ao vivo.',
+    tags: ['Portal', 'Notícias', 'Editorial'],
     link: '#'
   },
   {
     id: '8',
-    imageUrl: 'https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80',
-    title: 'Estudo de Caso UI/UX',
-    description: 'Pesquisa UX abrangente e design de UI para um aplicativo financeiro.',
-    tags: ['Figma', 'Pesquisa de Usuário', 'Prototipagem'],
-    link: '#'
-  },
-  {
-    id: '9',
-    imageUrl: 'https://images.unsplash.com/photo-1649972904349-6e44c42644a7?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80',
-    title: 'Design de Produto',
-    description: 'Design completo de produto para um dispositivo de casa inteligente e aplicativo complementar.',
-    tags: ['Design Industrial', 'UI/UX', 'Modelagem 3D'],
+    imageUrl: cadastro.url,
+    title: 'Portal de Atualização Cadastral — AAFAB',
+    description: 'Sistema corporativo de recadastramento de associados, com validação por CPF, painel administrativo e conformidade LGPD.',
+    tags: ['Sistema', 'LGPD', 'Cadastro'],
     link: '#'
   },
 ];
