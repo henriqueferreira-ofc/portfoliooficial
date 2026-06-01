@@ -23,22 +23,24 @@ export default defineConfig(({ mode }) => {
   const outDir = isGitHubPagesBuild ? 'docs' : 'dist'
 
   return {
-  base: isGitHubPagesBuild ? '/portfoliooficial/' : '/',
-  build: {
-    outDir,
-  },
-  server: {
-    host: '::',
-    port: 8080,
-  },
-  plugins: [
-    react(),
-    ...(mode === 'development' ? [componentTagger()] : []),
-    ...(isGitHubPagesBuild ? [copyIndexTo404Plugin(outDir)] : []),
-  ],
-  resolve: {
-    alias: {
-      '@': path.resolve(__dirname, './src'),
+    base: isGitHubPagesBuild ? '/portfoliooficial/' : '/',
+    build: {
+      outDir,
     },
-  },
-}})
+    server: {
+      host: '::',
+      port: 8080,
+    },
+    plugins: [
+      react(),
+      ...(mode === 'development' ? [componentTagger()] : []),
+      // Sempre gerar 404.html para SPA fallback (custom domain + gh-pages)
+      copyIndexTo404Plugin(outDir),
+    ],
+    resolve: {
+      alias: {
+        '@': path.resolve(__dirname, './src'),
+      },
+    },
+  }
+})
