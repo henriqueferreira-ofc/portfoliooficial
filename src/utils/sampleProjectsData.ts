@@ -7,7 +7,7 @@ interface Project {
   link?: string;
 }
 
-const img = (name: string) => `${import.meta.env.BASE_URL}projects/${name}.png`;
+const img = (name: string) => `${import.meta.env.BASE_URL}projects/${name}.webp`;
 
 export const getSampleWebProjects = (): Project[] => [
   {

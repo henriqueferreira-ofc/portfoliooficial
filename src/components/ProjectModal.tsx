@@ -31,6 +31,8 @@ const ProjectModal = ({ isOpen, onClose, imageUrl, title, description, tags, lin
           <img
             src={imageUrl}
             alt={title}
+            loading="lazy"
+            decoding="async"
             className="h-full w-full object-cover"
           />
 
