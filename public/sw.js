@@ -1,31 +1,27 @@
-const CACHE_NAME = 'portfolio-pwa-v1';
-
-self.addEventListener('install', (event) => {
-  event.waitUntil(
-    caches.open(CACHE_NAME).then((cache) => cache.addAll(['/', '/manifest.webmanifest']))
-  );
+// Service worker desativado.
+// Esta versão se auto-remove e limpa todos os caches antigos para evitar
+// que o navegador continue servindo HTML/JS desatualizado após um deploy
+// (causa de tela branca ao atualizar a página).
+self.addEventListener('install', () => {
   self.skipWaiting();
 });
 
 self.addEventListener('activate', (event) => {
   event.waitUntil(
-    caches.keys().then((keys) =>
-      Promise.all(keys.filter((key) => key !== CACHE_NAME).map((key) => caches.delete(key)))
-    )
-  );
-  self.clients.claim();
-});
-
-self.addEventListener('fetch', (event) => {
-  if (event.request.method !== 'GET') return;
-
-  event.respondWith(
-    fetch(event.request)
-      .then((response) => {
-        const responseCopy = response.clone();
-        caches.open(CACHE_NAME).then((cache) => cache.put(event.request, responseCopy));
-        return response;
-      })
-      .catch(() => caches.match(event.request).then((cached) => cached || caches.match('/')))
+    (async () => {
+      try {
+        const keys = await caches.keys();
+        await Promise.all(keys.map((key) => caches.delete(key)));
+      } catch (e) {
+        // ignore
+      }
+      try {
+        await self.registration.unregister();
+      } catch (e) {
+        // ignore
+      }
+      const clients = await self.clients.matchAll({ type: 'window' });
+      clients.forEach((client) => client.navigate(client.url));
+    })()
   );
 });

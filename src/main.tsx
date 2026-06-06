@@ -4,8 +4,10 @@ import './index.css'
 
 createRoot(document.getElementById("root")!).render(<App />);
 
-if ('serviceWorker' in navigator && import.meta.env.PROD) {
-  window.addEventListener('load', () => {
-    navigator.serviceWorker.register('/sw.js').catch(() => undefined);
-  });
+// Desregistra qualquer service worker antigo que possa estar cacheando
+// versões desatualizadas do app (causava tela branca ao atualizar).
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.getRegistrations?.().then((regs) => {
+    regs.forEach((reg) => reg.unregister().catch(() => undefined));
+  }).catch(() => undefined);
 }
